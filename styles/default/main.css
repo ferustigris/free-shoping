@@ -1,0 +1,67 @@
+/* главные секции -> */
+#container {
+	width: 90%; /* Общая ширина колонок */ 
+	margin-left: auto; /* Отступ слева */ 
+	margin-right: auto; /* Отступ слева */ 
+}
+#left_page { /* Левая колонка*/ 
+	width: 200px; /* Ширина слоя */ 
+	float: left; /* Состыковка с соседним слоем */ 
+	min-height: 20px; 
+	padding: 0px;
+}
+#main_page { /* главная */ 
+	margin-left: 200px; /* Отступ слева */ 
+	min-height: 20px; 
+	min-width: 200px; 
+} 
+#bottom_page { /* низ */ 
+	min-height: 80px; 
+	clear: both;
+} 
+#top_page { /* top */ 
+	min-height: 40px; 
+} 
+#header_page { /* top */ 
+	min-height: 40px; 
+}
+/* <- главные секции */
+/* для меню-контейнеров -> */
+.column { 
+	width: 190px; 
+	float: left; 
+	padding-bottom: 100px; 
+}
+.portlet { 
+	margin: 5px; 
+	background: #efefef;
+}
+.portlet:hover { 
+	background: #ececec;
+}
+.portlet-header { 
+	margin: 0.3em; 
+	padding-bottom: 4px; 
+	padding-left: 0.3em; 
+}
+.portlet-header .ui-icon { 
+	float: right; 
+}
+.portlet-content { 
+	padding: 0.1em; 
+}
+.ui-sortable-placeholder { 
+	border: 1px dotted black; 
+	visibility: visible !important; 
+	height: 50px !important; 
+}
+.ui-sortable-placeholder * { 
+	visibility: hidden; 
+}
+/* <- для меню-контейнеров */
+a {
+	color: gray;
+}
+a:hover {
+	color: black;
+}

@@ -1,0 +1,27 @@
+<h3>{$LANG['add product']}</h3>
+<form ENCTYPE="multipart/form-data"  action="index.php?module=products&page=product_page&action=product_save" method="POST">
+    <input id="product_name" onfocus="onFocusHandler('product_name', '{$LANG['product name']}');" onblur="onBlurHandler('product_name', '{$LANG['product name']}');" class="form_entry" type="text" name="product_name" value="{$LANG['product name']}" /><br />
+    <textarea id="product_description" name="product_description"><p>{$LANG['product description']}</p></textarea><br />
+    <input name="product_parent" type="hidden" value="{$products_parent_product}" />
+    <select size=1 name="product_category">
+    	{foreach from=$products_allcats item=cat}
+    	<option value="{$cat->id()}">{$cat->title()}</option>
+    	{/foreach}
+    </select><br />
+    <select size=1 name="product_material">
+    	{foreach from=$products_materials item=material}
+    	<option value="{$material->id()}">{$material->material()}</option>
+    	{/foreach}
+    </select><br />
+    <select size=1 name="product_producer">
+    	{foreach from=$products_producers item=producer}
+    	<option value="{$producer->id()}">{$producer->producer()}</option>
+    	{/foreach}
+    </select><br />
+   	{foreach from=$products_sizes item=size}
+    	<input name="size_{$size->id()}" type="checkbox" value="{$size->id()}" checked>{$size->size()}<br />
+   	{/foreach}
+    <input class="form_entry" class="" type="file" name="product_img" /><br />
+    <input class="form_entry" class="" type="file" name="product_small_img" /><br />
+    <input type="submit" name="ok" value="{$LANG['product save']}" /><br />    
+</form>

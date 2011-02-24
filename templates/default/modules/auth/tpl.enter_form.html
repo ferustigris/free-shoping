@@ -1,0 +1,8 @@
+<div class="enter_container">
+	<form action="index.php?module=auth&action=enter" method="POST">
+	    <input id="login_input" onfocus="onFocusHandler('login_input', '{$LANG['Enter your name']}');" onblur="onBlurHandler('login_input', '{$LANG['Enter your name']}');" class="enter_form_item" type="text" name="login" value="{$LANG['Enter your name']}" />
+	    <input id="passwd_input" onfocus="onFocusHandler('passwd_input', '*');" class="enter_form_item" type="password" name="password" value="" />
+	    <a id="registration" href="index.php?module=auth&page=registration_form">{$LANG['Registration']}</a>
+	    <button id="enter_ok" type="submit" name="ok" value="{$LANG['Enter']}" >{$LANG['Enter']}</button>   
+	</form>
+</div>

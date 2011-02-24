@@ -1,0 +1,36 @@
+#basket, #sortable2 { 
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0; 
+	float: left; 
+	margin-right: 10px;
+	border: apx solid black;
+}
+#basket li, #sortable2 li { 
+	margin: 0 5px 5px 5px; 
+	padding: 5px; 
+	width: 155px; 
+}
+/* buy button */
+.buy {
+	font-weight: bold;
+	color: black;
+}
+.body_tooltip{
+	position: relative;
+	top: -40px;
+	background: #fff0a5;
+	opacity: 0.8;
+	padding: 4px;
+	border: 1px solid #f3f3f3;
+}
+.tooltip{
+   position: absolute;
+   /*top: 0;
+   left: 0;*/
+   z-index: 44;
+   display: none;
+}
+#form_add_double_product {
+	display: none;
+}

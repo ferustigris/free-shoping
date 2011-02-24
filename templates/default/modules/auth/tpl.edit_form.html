@@ -1,0 +1,9 @@
+<form action="index.php?module=auth&action=edit" method="POST">
+    {$auth_user->name()}
+    <input class="enter_form_item" type="text" name="phone" value="{$auth_user->get('phone')}" />
+    <input class="enter_form_item" type="text" name="mail" value="{$auth_user->get('mail')}" />
+    <input class="enter_form_item" type="text" name="address" value="{$auth_user->get('address')}" />
+    <input class="enter_form_item" type="password" name="password1" value="" />
+    <input class="enter_form_item" type="password" name="password2" value="" />
+    <input id="ok" type="submit" name="ok" value="{$LANG['Save']}" />    
+</form>

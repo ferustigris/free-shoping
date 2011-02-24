@@ -1,0 +1,13 @@
+<form action='index.php?module=templates&action=save_modules_view' method='POST'>
+	{foreach from=$templates_pages item=page}
+	<div>{$page->name()}
+		<select size=1 name='{$page->name()}'>
+			<option>{$LANG['Hide']}</option>
+		{foreach from=$templates_sections item=section}
+			<option>{$section->name()}</option>
+		{/foreach}
+		</select>
+	</div>
+	{/foreach}
+	<input id="ok" type="submit" name="ok" value="{$LANG['Save']}" />
+</form>

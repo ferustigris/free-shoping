@@ -1,0 +1,14 @@
+<h3>{$LANG['category add']}</h3>
+<form ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list&action=category_save" method="POST">
+    <input id="category_name" onfocus="onFocusHandler('category_name', '{$LANG['category name']}');" onblur="onBlurHandler('category_name', '{$LANG['category name']}');" class="form_entry" type="text" name="category_name" value="{$LANG['category name']}" /><br />
+    <textarea id="product_description" name="product_description">{$LANG['category description']}</textarea><br />
+    <select size=1 name="category_parent">
+    	<option value="-1">{$LANG['root category']}</option>
+    	{foreach from=$categories_all item=category}
+    	<option value="{$category->id()}">{$category->title()}</option>
+    	{/foreach}
+    </select><br />
+    <input class="form_entry" type="file" name="category_img" /><br />
+    <input class="form_entry" type="file" name="category_small_img" /><br />
+    <input type="submit" name="ok" value="{$LANG['category save']}" /><br />    
+</form>
