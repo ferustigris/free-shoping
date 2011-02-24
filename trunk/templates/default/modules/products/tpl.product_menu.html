@@ -1,0 +1,14 @@
+<div id="product_menu_container">
+	<div class="buttons_container">
+		<form class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=products&page=product_add&parent_product_id={$products_product->id()}" method="POST">
+		    <button class="buttons_line add_button" type="submit" name="ok" value="{$LANG['add child']}" >{$LANG['add child']}</button>    
+		</form>
+		<form class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=products&page=product_edit&product_id={$products_product->id()}" method="POST">
+		    <button class="buttons_line edit_button" type="submit" name="ok" value="{$LANG['edit']}" >{$LANG['edit']}</button>    
+		</form>
+		<form onsubmit="return onRemoveProduct('{$LANG['ok']}','{$LANG['cancel']}', {$products_product->id()}, {$products_product->category()->id()}, {$LANG['Remove product?']});" class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=products&action=product_remove&product_id={$products_product->id()}" method="POST">
+		    <button class="buttons_line remove_button" type="submit" name="ok" value="{$LANG['remove']}">{$LANG['remove']}</button>    
+		</form>
+	</div>
+	<div id="form_remove_product" title="{$LANG['Warning!']}"></div>
+</div>

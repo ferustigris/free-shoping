@@ -1,0 +1,9 @@
+<li id="producer_item_{$products_new_producer->id()}">{$products_new_producer->producer()}
+<noscript>
+	<a title="{$LANG['remove']}" href="index.php?module=products&page=producer_add&action=producer_remove&producer_id={$products_new_producer->id()}" >
+</noscript>
+		<span onclick="onRemoveProducerClick({$products_new_producer->id()})"  class="ui-icon ui-icon-closethick"></span>
+<noscript>
+	</a>
+</noscript>
+</li>

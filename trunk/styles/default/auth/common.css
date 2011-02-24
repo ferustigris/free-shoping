@@ -1,0 +1,22 @@
+.enter_form_item {
+	padding-left: auto;
+	padding-right: auto;
+	width: 164px;
+	margin: 5px;
+	color: gray;
+}
+#registration {
+	float: right;
+	display: block;
+	font-size: x-small;
+	margin-right: 5px;
+}
+#enter_ok {
+	float: right;
+	clear: both;
+	display: block;
+	margin: 5px;
+}
+.enter_container {
+	text-align: center;
+}

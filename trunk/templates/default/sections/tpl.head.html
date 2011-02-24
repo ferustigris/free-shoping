@@ -1,0 +1,32 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<TITLE>{$LANG['title']}{$Name}</TITLE>
+{* cool effects: jqueryui *}
+	<link rel="stylesheet" href="scripts/jqueryui/themes/base/jquery.ui.all.css">
+	<script src="scripts/jqueryui/jquery-1.4.4.js"></script>
+	<script src="scripts/jqueryui/ui/jquery.ui.core.js"></script>
+	<script src="scripts/jqueryui/ui/jquery.ui.widget.js"></script>
+	<script src="scripts/jqueryui/ui/jquery.ui.button.js"></script>
+	<script src="scripts/jqueryui/ui/jquery.ui.mouse.js"></script>
+	<script src="scripts/jqueryui/ui/jquery.ui.sortable.js"></script>
+	<script src="scripts/jqueryui/ui/jquery.ui.dialog.js"></script>
+	<script src="scripts/jqueryui/ui/jquery.ui.position.js"></script>
+	<script src="scripts/jqueryui/ui/jquery.ui.resizable.js"></script>
+	<script src="scripts/jqueryui/ui/jquery.ui.selectable.js"></script>
+
+
+{* connect all css *}
+{foreach from=$TPL_css item=table}
+	<link rel='stylesheet' href='{$table}' />
+{/foreach}
+	<link rel="shortcut icon" href="images/default/favicon.ico" />
+{* connect all js *}
+{foreach from=$TPL_js item=s}
+	<script type="text/javascript" src="{$s}"></script>
+{/foreach}
+	{* для меню-контейнеров -> *}
+	{* <- для меню-контейнеров *}
+	{* для крутого редактора -> *}
+	<script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="scripts/ckeditor/config.js"></script>
+	{* <- для крутого редактора *}
+	

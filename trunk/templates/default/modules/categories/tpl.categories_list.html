@@ -1,0 +1,24 @@
+<div id="categories_container">
+	{if $categories_id>-1}
+	<div class="buttons_container">
+		<form class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list" method="POST">
+		    <button onclick="return onCategoryChange(-1);" class="buttons_line back" type="submit" name="ok" value="{$LANG['root']}">{$LANG['root']}</button>    
+		</form>
+	{foreach from=$categories_parents_list item=category}
+		<form class="buttons_line" ENCTYPE="multipart/form-data"  action="{$category->link()}" method="POST">
+		    <button onclick="return onCategoryChange({$category->id()});" class="buttons_line back" type="submit" name="ok" value="{$category->title()}">{$category->title()}</button>   
+		</form>
+	{/foreach}
+	</div>
+	{/if}
+	<div>
+	{foreach from=$categories_list item=category}
+		<div class="category_list_item">
+		   	<a href="{$category->link()}" onclick="return onCategoryChange({$category->id()});">
+		   		<p class="category_list_item_title">{$category->title()}</p>
+		   		<img class="category_list_item_img" src="{$category->small_img()}" title="{$category->title()}" />
+		   	</a>
+		</div>   	
+	{/foreach}
+	</div>
+</div>

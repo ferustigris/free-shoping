@@ -1,0 +1,9 @@
+<li id="material_item_{$products_new_material->id()}">{$products_new_material->material()}
+<noscript>
+	<a title="{$LANG['remove']}" href="index.php?module=products&page=material_add&action=material_remove&material_id={$products_new_material->id()}" >
+</noscript>
+		<span onclick="onRemoveMaterialClick({$products_new_material->id()})"  class="ui-icon ui-icon-closethick"></span>
+<noscript>
+	</a>
+</noscript>
+</li>

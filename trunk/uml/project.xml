@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project>
+    <UseCaseBody name="пользователи">
+        <top x="-258,828" y="423,3190000000001" type="6" id="1" name="администратор(я)" short_description=""/>
+        <top x="-543,944" y="247,076" type="6" id="2" name="покупатели" short_description=""/>
+        <top x="-257,556" y="109,951" type="5" id="3" name="Сайт" short_description=""/>
+        <edge from="2" type="0" to="3" data=""/>
+        <edge from="1" type="0" to="3" data=""/>
+        <edge from="4" type="0" to="3" data=""/>
+        <top x="-67,53199999999993" y="256,359" type="6" id="4" name="Модератор(оксана)" short_description=""/>
+    </UseCaseBody>
+    <TopologyBody name="Topology">
+        <top x="-550,5720000000001" y="53,91900000000004" type="7" id="1" name="free-shoping.ru" short_description=""/>
+        <edge from="2" type="0" to="1" data=""/>
+        <edge from="3" type="0" to="1" data=""/>
+        <edge from="5" type="0" to="1" data=""/>
+        <edge from="6" type="0" to="1" data=""/>
+        <top x="-772,752" y="-143,836" type="2" id="2" name="файл настроек" short_description=""/>
+        <top x="-829,6880000000001" y="104,104" type="2" id="3" name="БД" short_description=""/>
+        <top x="-718,2840000000001" y="556,2710000000001" type="2" id="4" name="cookies" short_description=""/>
+        <top x="-458,376" y="275,4159999999999" type="7" id="5" name="clients" short_description=""/>
+        <edge from="4" type="0" to="5" data=""/>
+        <edge from="7" type="0" to="5" data=""/>
+        <top x="-372,952" y="-128,036" type="2" id="6" name="сессии" short_description=""/>
+        <top x="-62,63599999999997" y="426,711" type="2" id="7" name="формы" short_description=""/>
+    </TopologyBody>
+    <ClassBody name="db">
+        <top x="261,1279999999999" y="-505,256" type="9" id="1" name="STATE_1##" short_description=""/>
+        <top x="-1,403999999999996" y="-494,769" type="9" id="2" name="sdf##" short_description=""/>
+    </ClassBody>
+    <TopologyBody name="товар">
+        <top x="-11,74400000000003" y="160,476" type="7" id="1" name="товар" short_description=""/>
+        <edge from="3" type="0" to="1" data=""/>
+        <edge from="5" type="0" to="1" data=""/>
+        <edge from="8" type="0" to="1" data=""/>
+        <edge from="7" type="0" to="1" data=""/>
+        <edge from="4" type="0" to="1" data=""/>
+        <edge from="11" type="0" to="1" data=""/>
+        <edge from="12" type="0" to="1" data=""/>
+        <top x="325,888" y="-156,696" type="2" id="3" name="материал" short_description=""/>
+        <top x="99,41200000000001" y="454,8789999999999" type="2" id="4" name="сопутствующие товары" short_description=""/>
+        <edge from="9" type="0" to="4" data=""/>
+        <top x="368,9359999999999" y="114,436" type="2" id="5" name="название" short_description=""/>
+        <top x="-39,21199999999999" y="-138,921" type="2" id="7" name="картинки" short_description=""/>
+        <edge from="10" type="0" to="7" data=""/>
+        <top x="310,548" y="285,8389999999999" type="2" id="8" name="размер" short_description=""/>
+        <edge from="9" type="0" to="8" data=""/>
+        <top x="352,428" y="520,24" type="2" id="9" name="цена" short_description=""/>
+        <top x="203,0599999999999" y="-248" type="2" id="10" name="миниатюра" short_description=""/>
+        <top x="-343,1800000000001" y="-80" type="2" id="11" name="производитель" short_description=""/>
+        <top x="-420,178" y="98,99000000000001" type="2" id="12" name="Описание" short_description=""/>
+    </TopologyBody>
+    <TopologyBody name="Модули">
+        <top x="-355,13" y="-169,25" type="7" id="1" name="NODE_1" short_description=""/>
+        <top x="21,38799999999992" y="-279,16" type="2" id="2" name="menu" short_description=""/>
+        <edge from="1" type="0" to="2" data=""/>
+        <top x="-667,8319999999999" y="-336,36" type="2" id="3" name="categories" short_description=""/>
+        <edge from="1" type="0" to="3" data=""/>
+        <top x="-498,626" y="-447,89" type="2" id="4" name="templates" short_description=""/>
+        <edge from="1" type="0" to="4" data=""/>
+        <top x="-62,75999999999999" y="-446" type="2" id="5" name="products" short_description="Модуль товаров">
+            <top x="-270,84" y="-158" type="7" id="12" name="NODE_12" short_description=""/>
+            <top x="-301,73" y="-435,25" type="2" id="13" name="материалы" short_description=""/>
+            <edge from="12" type="0" to="13" data=""/>
+            <top x="-604,5239999999999" y="-169,64" type="2" id="14" name="картинки" short_description=""/>
+            <edge from="12" type="0" to="14" data=""/>
+            <top x="2,021999999999935" y="-369,01" type="2" id="15" name="название/описание" short_description=""/>
+            <edge from="12" type="0" to="15" data=""/>
+            <top x="-586,7719999999999" y="-375,76" type="2" id="16" name="размеры" short_description=""/>
+            <edge from="12" type="0" to="16" data=""/>
+            <top x="35,48599999999999" y="-180,6900000000001" type="2" id="18" name="производители" short_description=""/>
+            <edge from="12" type="0" to="18" data=""/>
+        </top>
+        <edge from="1" type="0" to="5" data=""/>
+        <top x="-285,894" y="-484,29" type="2" id="6" name="auth" short_description="Авторизация"/>
+        <edge from="1" type="0" to="6" data=""/>
+        <top x="-730,3679999999999" y="-170,36" type="2" id="7" name="log" short_description=""/>
+        <edge from="1" type="0" to="7" data=""/>
+        <top x="-664,4459999999999" y="-17,49000000000001" type="2" id="8" name="languages" short_description=""/>
+        <edge from="1" type="0" to="8" data=""/>
+        <top x="-194,184" y="154,1600000000001" type="2" id="9" name="statistic" short_description=""/>
+        <edge from="1" type="0" to="9" data=""/>
+        <top x="-510,9780000000001" y="118,99" type="2" id="10" name="basket" short_description=""/>
+        <edge from="1" type="0" to="10" data=""/>
+        <top x="37,40999999999997" y="27,75" type="2" id="11" name="contacts(static_pages?)" short_description=""/>
+        <edge from="1" type="0" to="11" data=""/>
+        <top x="66,19399999999996" y="-150,29" type="2" id="17" name="spammer" short_description="Массовая рассылка, уведомления о заказах и прочее&#xa;"/>
+        <edge from="1" type="0" to="17" data=""/>
+        <top x="-45,44000000000005" y="123" type="2" id="19" name="renesance" short_description="Реставратор, резервное копирование&#xa;"/>
+        <edge from="1" type="0" to="19" data=""/>
+    </TopologyBody>
+</project>

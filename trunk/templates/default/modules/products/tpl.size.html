@@ -1,0 +1,9 @@
+<li id="size_item_{$products_new_size->id()}">{$products_new_size->size()}
+<noscript>
+	<a title="{$LANG['remove']}" href="index.php?module=products&page=size_add&action=size_remove&size_id={$products_new_size->id()}" >
+</noscript>
+		<span onclick="onRemoveSizeClick({$products_new_size->id()})"  class="ui-icon ui-icon-closethick"></span>
+<noscript>
+	</a>
+</noscript>
+</li>

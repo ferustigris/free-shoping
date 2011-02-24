@@ -1,0 +1,38 @@
+<h3>{$LANG['edit product']}</h3>
+<form ENCTYPE="multipart/form-data"  action="index.php?module=products&action=product_edit" method="POST">
+    {$LANG['product name']}
+    <input class="" type="text" name="product_name" value="{$products_product->product()}" /><br />
+    {$LANG['product description']}<br />
+    <textarea rows=20 cols=60 class="" name="product_description">{$products_product->description()}</textarea><br />
+    <input name="product_id" type="hidden" value="{$products_product->id()}" />
+    <select size=1 name="product_category">
+    	{foreach from=$products_allcats item=cat}
+    		<option value="{$cat->id()}" {if $cat->id() == $products_product->category()->id()}selected{/if}>{$cat->title()}</option>
+    	{/foreach}
+    </select><br />
+    <select size=1 name="product_material">
+    	{foreach from=$products_materials item=material}
+    	<option value="{$material->id()}"{if $material->id() == $products_product->material()->id()} selected{/if}>{$material->material()}</option>
+    	{/foreach}
+    </select><br />
+    <select size=1 name="product_producer">
+    	{foreach from=$products_producers item=producer}
+    	<option value="{$producer->id()}"{if $producer->id() == $products_product->producer()->id()} selected{/if}>{$producer->producer()}</option>
+    	{/foreach}
+    </select><br />
+   	{foreach from=$products_sizes item=size}
+   		{assign var="check" value="1"}
+	   	{foreach from=$products_product->sizes() item=s}
+	   		{if $s->id() == $size->id()}
+	    		<input name="size_{$size->id()}" type="checkbox" value="{$size->id()}" checked>{$size->size()}<br />
+	   			{assign var="check" value="0"}
+	    	{/if}	    	
+	   	{/foreach}
+	   	{if $check}    	
+    	<input name="size_{$size->id()}" type="checkbox" value="{$size->id()}" >{$size->size()}<br />
+    	{/if}
+   	{/foreach}
+    <input class="" type="file" name="product_img" /><br />
+    <input class="" type="file" name="product_small_img" /><br />
+    <input id="ok" type="submit" name="ok" value="{$LANG['product save']}" /><br />    
+</form>

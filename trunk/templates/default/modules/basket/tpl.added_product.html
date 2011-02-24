@@ -1,0 +1,9 @@
+<li count=1 id="item{$basket_product->id()}" onDblClick="onProductInBasketClicked('item{$basket_product->id()}')" onmouseover="tooltipShow('item{$basket_product->id()}','tooltip_{$basket_product->id()}')" class="ui-state-default draggable">
+		<div id="tooltip_{$basket_product->id()}" class="tooltip">
+			<div class="body_tooltip">
+				{$LANG['Click double to remove']}
+			</div>
+		</div> 
+		<span id="basket_count_items_{$basket_product->id()}"></span>
+		{$basket_product->product()}
+</li>
