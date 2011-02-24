@@ -182,8 +182,8 @@ function onRemoveProduct(ok, no, id, category_id, msg) {
  */
 function onProductChange(id_product, id_category) 
 {
-	jQuery('#products_container').empty();
-	jQuery('#categories_container').empty();
+	jQuery('#main_page').empty();
+	jQuery('#main_page').empty();
 	jQuery.post("index.php?module=products&page=product_page&product_id=" + id_product + "&category_id=" + id_category,{
 		//producer_name: jQuery("#producer_name") .attr("value"),
 		//product_description: jQuery("#product_description") .text()
@@ -192,7 +192,7 @@ function onProductChange(id_product, id_category)
 	{
 		content = jQuery("#content", data);
 		errors = jQuery("#errors", data);
-		jQuery('#products_container').append(content.html());
+		jQuery('#main_page').append(content.html());
 		jQuery('#top_page').empty() ;
 		jQuery('#top_page').append(errors.html());
 		jQuery(function() {

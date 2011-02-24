@@ -1,4 +1,4 @@
-#basket, #sortable2 { 
+#basket, #trash, #basket_list { 
 	list-style-type: none; 
 	margin: 0; 
 	padding: 0; 
@@ -6,7 +6,7 @@
 	margin-right: 10px;
 	border: apx solid black;
 }
-#basket li, #sortable2 li { 
+#basket li, #trash li, #basket_list li { 
 	margin: 0 5px 5px 5px; 
 	padding: 5px; 
 	width: 155px; 
@@ -33,4 +33,10 @@
 }
 #form_add_double_product {
 	display: none;
+}
+#basket_show {
+	float: right;
+	clear: both;
+	display: block;
+	margin: 5px;
 }
