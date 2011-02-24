@@ -1,4 +1,4 @@
-#third part projects
+third part projects
 
 = Introduction =
 
