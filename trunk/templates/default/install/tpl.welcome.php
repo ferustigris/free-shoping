@@ -6,6 +6,7 @@
 		<h1>Welcome!</h1>
 		<h3>language select</h3>
 		<form method="post" name='language_select' action='index.php?page=db_options'>
+		    <input id="root" type="text" name="root" value="/var/www/cms/" />
 			<select size=1 name="language">
 			  <option <?php if($settings->get('language') == 'english')echo 'selected' ?> >english</option>
 			  <option <?php if($settings->get('language') == 'russian')echo 'selected' ?> >russian</option>

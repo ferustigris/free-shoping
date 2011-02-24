@@ -7,4 +7,5 @@
 	$this->data['log_level'] = new Entry('log_level', '5');
 	$this->data['language'] = new Entry('language', 'russian');
 	$this->data['install'] = new Entry('install', '1');
+	$this->data['root'] = new Entry('root', '/var/www/cms/');
 ?>

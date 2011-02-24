@@ -151,6 +151,8 @@
 			$get = new FormsGet();
 			$post = new FormsPost();
 			$settings->set('install', false);
+			if($post->get('root'))
+				$settings->set('root', $post->get('root'));
 			if($post->get('language'))
 				$settings->set('language', $post->get('language'));
 			if($post->get('db_user'))
