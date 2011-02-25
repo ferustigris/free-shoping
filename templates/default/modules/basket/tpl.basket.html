@@ -1,12 +1,36 @@
 <form onsubmit="return onConfirm();">
-	<div id="form_add_double_product">{$LANG['Product has been in cart. Add double product?']}</div>
+	<div id="form_add_double_product" class="connected_basket">{$LANG['Product has been in cart. Add double product?']}</div>
 {*	<ul id="basket" name="basket" class="connectedSortable">
 	</ul>
 *}
-	<div id="basket" name="basket">
+	<div id="basket_container" name="basket_container">
+		<div id="basket" name="basket">
+		</div>
 	</div>
 	<button id="basket_show" type="submit" name="basket_show" value="{$LANG['Confirm!']}" >{$LANG['Confirm!']}</button>
 </form>
+<div id="basket_for_copy" name="basket_for_copy">
+	<div count=1 id="basket_element_clone">
+{*		<div id="tooltip_sdfd" class="tooltip">
+			<div class="body_tooltip">
+				{$LANG['Click double to remove']}
+			</div>
+		</div> 
+		*}
+			<h3>
+				<a href="#">
+					<span>
+					</span>
+					1111
+				</a>
+			</h3>
+			<div>
+				<p>Cras dictum </p>
+			</div>
+	
+	</div>
+
+</div>
 
 
 

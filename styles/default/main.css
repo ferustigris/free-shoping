@@ -14,6 +14,7 @@
 	margin-left: 200px; /* Отступ слева */ 
 	min-height: 20px; 
 	min-width: 200px; 
+	padding: 0px;
 } 
 #bottom_page { /* низ */ 
 	min-height: 80px; 
@@ -34,6 +35,7 @@
 }
 .portlet { 
 	margin: 5px; 
+	margin-top: 0px;
 	background: #efefef;
 }
 .portlet:hover { 
