@@ -219,7 +219,8 @@ function onProductChange(id_product, id_category)
 		                primary: "ui-icon-arrowreturnthick-1-s"
 		            }
 			});
-			onProductPageLoad() ;
+			//onProductPageLoad() ;
+			//setBasketIcons() ;
 		}) ;
 
 	});

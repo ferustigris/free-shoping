@@ -24,8 +24,8 @@ class Tpl {//extends Template {
 		$this->id = 1;
 		require('modules/templates/smarty/Smarty.class.php');
 		$this->smarty = new Smarty;
-		$smarty->force_compile = false;
-		$this->smarty->debugging = true;
+		$smarty->force_compile = true;
+		$this->smarty->debugging = false;
 		$this->smarty->caching = false;
 		$this->smarty->cache_lifetime = 0;
 
