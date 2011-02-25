@@ -3,12 +3,15 @@
  * \return no
  */
 $(function() {
-		jQuery("#basket").html(jQuery.cookie('basket_content'));
+		
 		if(!jQuery.cookie('basket_content') )
+		{
 			jQuery('#basket_show').hide();
+			jQuery("#basket_container").hide() ;
+		} else {
+			jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length);
+		}
 		setBasketIcons();
-		accordion('basket') ;
-		accordion('basket_for_copy') ;
 });
 /*! удаляем элемент из корзины
  * \params no
@@ -27,52 +30,30 @@ function onProductInBasketClicked(id)
  */
 function onBuy(id) 
 {
-	jQuery.post("index.php?module=basket&action=add_product&page=added_product",{
-		id_product: id
-		//jQuery("#size_name") .attr("value")
-	},
-	function(data) 
-	{
-		content = jQuery("#content", data);
-		errors = jQuery("#errors", data);
-		//jQuery('#sizes_list').append(content.html());
-		jQuery('#top_page').empty() ;
-		jQuery('#top_page').append(errors.html());
-		new_id = 0;
-		jQuery('.basket_element_clone').each(function(a,b) {
-			if(parseInt(b.attr('id')) > new_id)
-				new_id = parseInt(b.attr('id')) + 1;
-		});
-		if(jQuery('#item' + id).html())
-			jQuery('#form_add_double_product').dialog({
-				resizable: false,
-				height:200,
-				modal: true,
-				buttons: {
-					'ok': function() {
-						jQuery( this ).dialog( "close" );
-						count = parseInt(jQuery('#item' + id).attr('count')) + 1;
-						jQuery('#item' + id).innerHTML = content.html();
-						jQuery('#item' + id).attr('count', count);//basket_count_items_
-						jQuery('#basket_count_items_' + id).html(count);//
-					},
-					'Отмена': function() {
-						jQuery( this ).dialog( "close" );
-					}
+	if(jQuery.cookie('basket_content').search('id_product=' + id + ',') > -1)
+		jQuery('#form_add_double_product').dialog({
+			resizable: false,
+			height:200,
+			modal: true,
+			buttons: {
+				'ok': function() 
+				{
+					jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_product=' + id + ',;');
+					jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length);
+					jQuery('#basket_show').show();
+					jQuery( this ).dialog( "close" );
+				},
+				'Отмена': function() {
+					jQuery( this ).dialog( "close" );
 				}
-			});
-		else
-		{
-			jQuery('#basket_element_clone')
-			.clone().appendTo(jQuery('#basket'))
-			.attr('id', new_id).show();
-		}
-		jQuery.cookie('basket_content', jQuery('#basket').html());
-		jQuery('#basket_element_clone')basket_container
+			}
+		});
+	else
+	{
+		jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_product=' + id + ',;');
+		jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length);
 		jQuery('#basket_show').show();
-	});
-
-	
+	}
 	return false;
 }
 /*! set icons
