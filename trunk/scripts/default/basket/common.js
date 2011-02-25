@@ -9,7 +9,7 @@ $(function() {
 			jQuery('#basket_show').hide();
 			jQuery("#basket_container").hide() ;
 		} else {
-			jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length);
+			jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
 		}
 		setBasketIcons();
 });
@@ -30,31 +30,42 @@ function onProductInBasketClicked(id)
  */
 function onBuy(id) 
 {
-	if(jQuery.cookie('basket_content').search('id_product=' + id + ',') > -1)
-		jQuery('#form_add_double_product').dialog({
-			resizable: false,
-			height:200,
-			modal: true,
-			buttons: {
-				'ok': function() 
-				{
-					jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_product=' + id + ',;');
-					jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length);
-					jQuery('#basket_show').show();
-					jQuery( this ).dialog( "close" );
-				},
-				'Отмена': function() {
-					jQuery( this ).dialog( "close" );
-				}
-			}
-		});
-	else
+	if(jQuery.cookie('basket_content'))
 	{
-		jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_product=' + id + ',;');
-		jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length);
-		jQuery('#basket_show').show();
+		if(jQuery.cookie('basket_content').search('id_product=' + id + ',') > -1)
+		{
+			jQuery('#form_add_double_product').dialog({
+				resizable: false,
+				height:200,
+				modal: true,
+				buttons: {
+					'ok': function() 
+					{
+						addProduct(id);
+						jQuery( this ).dialog( "close" );
+					},
+					'Отмена': function() {
+						jQuery( this ).dialog( "close" );
+					}
+				}
+			});
+			return false;
+		}
 	}
+	addProduct(id);
 	return false;
+}
+/*! add product to basket
+ * \params
+ * - id - id product
+ * \return no
+ */
+function addProduct(id)
+{
+	jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_product=' + id + ',;');
+	jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
+	jQuery('#basket_show').show();	
+	jQuery('#basket_container').show();	
 }
 /*! set icons
  * \params no

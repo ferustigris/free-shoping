@@ -96,3 +96,19 @@ function tooltipShow(id, tooltip)
 		e.style.display = 'none'; 
 	}, true) ;
 }
+/*! image preview function, demonstrating the ui.dialog used as a modal window
+ * \params
+ * - link - link to image
+ * \return no
+ */
+function viewLargerImage( $link ) {
+	var src = $link.attr( "src" ),
+		title = $link.attr( "alt" );
+		var img = $( "<img src='" + src + "' alt='" + title + "' style='display: none; padding: 20px;' />" )
+			.appendTo( "body" ).dialog({
+				title: title,
+				width: 750,
+				height: 550,
+				modal: true
+			});
+}

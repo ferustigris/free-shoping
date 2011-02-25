@@ -1,0 +1,179 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Горизонтальное выпадающее меню на основе ненумерованного списка (UL LI)</title>
+<meta name="keywords" lang="en" content="menu, drop-down, list, horisontal, javascript" />
+<meta name="keywords" lang="ru" content="меню, выпадающее, список" />
+
+<META name="Author" content="Bulat Khromov" />
+<!-- www.web-utils.net/menu -->
+
+<style type="text/css">
+.clear {clear:left;font-size:0px;line-height:0px;}
+#menu {
+
+border:0px red solid;
+}
+#menu ul {
+	
+	font-family: Verdana, Helvetica, Sans-serif, Arial;
+	font-size: 10px;
+	text-transform:uppercase;
+  	
+}
+#menu ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #9A9A9A;
+	float: left;
+	border-right:0px;
+}
+#menu li {
+	float: left;
+	position: relative;
+	background: #eee;
+	back\ground: none;
+	border-right:1px solid #9A9A9A;
+}
+#menu ul a {
+	color: #333;
+	text-decoration: none;
+	display: block;  
+	padding: 4px 10px;
+	text-align:center;  
+	line-height:20px;
+}
+
+#menu ul a:hover {
+	color: #fff;
+	background: #cf003d;
+}
+#menu li:hover,
+#menu li.jshover {
+	background: #cf003d;
+	color:#fff;
+}
+
+#menu li:hover a,
+#menu li.jshover a {
+	color:#fff;
+}
+
+/* UL UL */
+
+#menu ul ul {
+	border: 1px solid #9A9A9A;
+	float: left; 
+	display: none;
+	position: absolute;
+	background: #002C5A;
+	padding: 8px 0px;
+	width: 200px;
+}
+#menu li li {
+	border-right:0px;
+	width: 200px;
+}
+
+#menu li li a { 
+	text-align:left;
+	line-height:normal;
+	color:#fff;
+	
+}
+
+
+#menu li:hover ul,
+#menu li.jshover ul {
+	display: block;
+}
+
+
+/* UL UL UL */
+
+#menu li:hover li ul,
+#menu li.jshover li ul {
+	display: none;
+	top: -9px;
+	left: 200px;
+	lef\t: 200px;
+}
+#menu li:hover li:hover ul,
+#menu li.jshover li.jshover ul {
+	display: block;
+}
+
+/* fix for IE6 */
+* html body #menu a.a_2, * html body #menu a.a_3 {
+height:15px;
+}
+
+</style>
+<script type="text/javascript">
+	jsHover = function(id, tag) {
+		var hEls = document.getElementById(id).getElementsByTagName(tag);
+		for (var i=0, len=hEls.length; i<len; i++) {
+			hEls[i].onmouseover=function() { this.className+=" jshover"; }
+			hEls[i].onmouseout=function() { this.className=this.className.replace(" jshover", ""); }
+		}
+	}
+	function menu() { // run only for IE6
+		if (window.attachEvent && navigator.userAgent.indexOf("Opera")==-1) 
+		jsHover("menu", "li");
+	}
+</script>
+</head>
+
+<body>
+	<h1>Горизонтальное выпадающее меню на основе ненумерованного списка (UL, LI)</h1>
+	<p>В примере используется <strong>CSS</strong> для списка UL и простой Javascript хак для Explorer 6. В остальных барузерах менюшка работает на CSS без применения javascript</p>
+	<div id="menu">
+		<ul>
+			<li class="li_1"><a href="#null" class="a_1">Javascript</a></li>
+			<li class="li_1"><a href="#null" class="a_1">CSS menu</a>
+				<ul>
+					<li><a href="#null" class="a_2">Пример CSS based menu</a></li>
+					<li><a href="#null" class="a_2">Другой пример</a></li>
+				</ul>
+			</li>
+			<li class="li_1"><a href="#null" class="a_1">Для вебмастера</a>
+				<ul>
+					<li><a href="#null" class="a_2">Trainer vacancies Sales presentations</a></li>
+					<li><a href="#null" class="a_2">Training material presentations</a></li>
+					<li><a href="#null" class="a_2">Sales support material positive</a>
+						<ul>
+							<li><a href="#null" class="a_3">Sales presentations</a></li>
+							<li><a href="#null" class="a_3">Client objections and positive responses</a></li>
+							<li><a href="#null" class="a_3">FAQ</a></li>
+							<li><a href="#null" class="a_3">Pricing</a></li>
+						</ul>
+					</li>		
+					<li><a href="#null" class="a_2">Для дизайнера</a></li>
+				</ul>
+			</li>
+			<li class="li_1"><a href="#null" class="a_1">St. Moritz</a></li>
+			<li class="li_1"><a href="#null" class="a_1">References</a>
+				<ul>
+					<li><a href="#null" class="a_2">Russia</a></li>
+					<li><a href="#null" class="a_2">International</a></li>
+				</ul>
+			</li>
+			<li class="li_1"><a href="#null" class="a_1">Training products</a></li>
+			
+			
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<script type="text/javascript">		
+		menu();
+	</script>
+	
+<p>
+<a href="http://web-utils.net/menu">&lt&lt; http://web-utils.net/menu</a>
+</p>
+</body>
+</html>

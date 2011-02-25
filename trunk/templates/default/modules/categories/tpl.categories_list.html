@@ -16,7 +16,7 @@
 		<div class="category_list_item">
 		   	<a href="{$category->link()}" onclick="return onCategoryChange({$category->id()});">
 		   		<p class="category_list_item_title">{$category->title()}</p>
-		   		<img class="category_list_item_img" src="{$category->small_img()}" title="{$category->title()}" />
+		   		<img class="category_list_item_img" src="{$category->small_img()}" title="{$category->title()}" alt="{$category->title()}" />
 		   	</a>
 		</div>   	
 	{/foreach}
