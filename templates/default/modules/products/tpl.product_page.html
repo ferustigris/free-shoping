@@ -1,34 +1,58 @@
-<br />
 <div id="product_container">
-	<div class="buttons_container">
-		<form onsubmit="return onCategoryChange({$products_product->category() ->id()});" class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list&category_id={$products_product->category() ->id()}" method="POST">
-		    <button class="buttons_line back" type="submit" name="back" value="{$LANG['back']}" >{$LANG['back']}</button>    
-		</form>
-		<form onsubmit="return onBuy({$products_product->id()});" class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php" method="POST">
-		    <button class="buttons_line buy" type="submit" name="buy" value="{$LANG['buy']}" >{$LANG['buy']}</button>    
-		</form>
-	</div>
-	<div class="product_params_container">
-		<h3>{$products_product->product()}</h3>
-		<div>{$products_product->description()}</div>
-		<div>
-			<span>{$LANG['material']}</span>
-			<span class="param">{$products_product->material()->material()}</span>
+		<div class="buttons_container">
+			<form class="buttons_line" onsubmit="return onCategoryChange({$products_product->category() ->id()});" ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list&category_id={$products_product->category() ->id()}" method="POST">
+			    <button class="buttons_line back" type="submit" name="back" value="{$LANG['back']}" >{$LANG['back']}</button>    
+			</form>
+			<form class="buttons_line" onsubmit="return onBuy({$products_product->id()});" ENCTYPE="multipart/form-data"  action="index.php" method="POST">
+			    <button class="buttons_line buy" type="submit" name="buy" value="{$LANG['buy']}" >{$LANG['buy']}</button>
+			</form>
 		</div>
-		<div>
-			<span>{$LANG['producer']}</span>
-			<span class="param">{$products_product->producer()->producer()}</span>
-		</div>
-		<div>{$LANG['product sizes']}</div>
-		<p id="feedback">
-		<span>You've selected:</span> <span id="select-result">none</span>.
-		</p>
-		{assign var='i' value=true}
-		<ol id="selectable">
-			{foreach from=$products_product->sizes() item=size}
-				<li class="ui-widget-content {if $i}{assign var='i' value=false}ui-selected{/if} one_size">{$size->size()}</li>
+		<div class="product_params_container">
+
+			<div class="category_list_item">
+			   	<a href="{$products_product->img()}" class="child_product_list_item_img">
+			   		<p class="category_list_item_title">{$products_product->product()}</p>
+			   		<img class="category_list_item_img" src="{$products_product->small_img()}" title="{$products_product->product()}" alt="{$products_product->product()}" />
+			   	</a>
+			</div>   	   	
+
+			{foreach from=$products_product->child() item=product}
+				<div class="category_list_item child_list_item">
+				   	<a href="{$product->img()}" class="child_product_list_item_img">
+				   		<p class="category_list_item_title">{$product->product()}</p>
+				   		<img class="category_list_item_img child_product_list_item_img" src="{$product->small_img()}" title="{$product->product()}" alt="{$product->product()}" />
+				   	</a>
+				</div>   	   	
 			{/foreach}
-		</ol>
-	</div>
-</div>
+		</div>
+		<div class="product_params_container">
+			<div class="product_childs_products_container">
+			sdfgsagdf
+			safasdf
+			</div>
 	
+			<div class="product_description_container">
+				<h3>{$products_product->product()}</h3>
+				<div>{$products_product->description()}</div>
+				<div>
+					<span>{$LANG['material']}</span>
+					<span class="param">{$products_product->material()->material()}</span>
+				</div>
+				<div>
+					<span>{$LANG['producer']}</span>
+					<span class="param">{$products_product->producer()->producer()}</span>
+				</div>
+				<div>{$LANG['product sizes']}</div>
+				<p id="feedback">
+				<span>You've selected:</span> <span id="select-result">none</span>.
+				</p>
+				{assign var='i' value=true}
+				<ol id="selectable">
+					{foreach from=$products_product->sizes() item=size}
+						<li class="ui-widget-content {if $i}{assign var='i' value=false}ui-selected{/if} one_size">{$size->size()}</li>
+					{/foreach}
+				</ol>
+			</div>
+			
+		</div>
+</div>

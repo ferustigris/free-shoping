@@ -18,7 +18,33 @@ jQuery(function() {
             primary: "ui-icon-plusthick"
         }
 	});
+	selectableChildProduct();
 }) ;
+/*! select for child products
+ * \params no
+ * \return no
+ */
+function selectableChildProduct() 
+{
+	//resolve the icons behavior with event delegation
+	$( "a.child_product_list_item_img" ).click(function( event ) {
+		$target = $( event.target );
+		viewLargerImage( $target );
+		return false;
+	});
+	return false;
+	/*$( "#selectableChildProducts" ).selectable({
+		autoRefresh: false,
+		stop: function() {
+			var result = $( "#select-result" ).empty();
+			$( ".ui-selected", this ).each(function() {
+				var index = $( "#selectableChildProducts li" ).index( this );
+				result.append( " #" + ( index + 1 ) );
+			});
+		}
+	});
+	$("#childProduct1").addClass("ui-selected") ;*/
+};
 /*! set cool editor
  * \params no
  * \return no
@@ -219,6 +245,7 @@ function onProductChange(id_product, id_category)
 		                primary: "ui-icon-arrowreturnthick-1-s"
 		            }
 			});
+			selectableChildProduct();
 			//onProductPageLoad() ;
 			//setBasketIcons() ;
 		}) ;

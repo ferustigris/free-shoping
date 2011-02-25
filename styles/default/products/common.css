@@ -44,10 +44,29 @@
 /* <- selected size */
 #product_container {
 	padding: 0px;
+	width: 100%;
 }
 .product_params_container {
-	margin: 10px;
+	margin: 0px;
+	width: 100%;
+	min-height: 260px;
 }
 .param {
 	font-weight: bold;
+}
+.child_list_item {
+	width: 108px;
+	height: 108px;	
+}
+img.child_product_list_item_img {
+	max-height: 80px;
+	max-width: 80px;
+}
+.product_description_container {
+	width: 400px;
+	padding: 0px;
+}
+.product_childs_products_container {
+	margin-left: 400px; /* Отступ слева */
+	float: right; 
 }
