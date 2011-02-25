@@ -16,7 +16,6 @@ jQuery(function() {
  */
 function onCategoryChange(id) 
 {
-	jQuery('#categories_container').empty() ;
 	jQuery('#main_page').empty() ;
 	//onProductChange(-1, id);
 	jQuery.post("index.php?module=categories&page=categories_list&category_id=" + id,{

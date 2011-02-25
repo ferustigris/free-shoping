@@ -9,8 +9,6 @@
 	function installed()
 	{
 		global $settings;//! settings manager
-		include_once "libs/class.settings.php";
-		$settings = new Settings("/var/www/cms/settings.php") ;
 		return $settings->get('install') == true;
 	}
 	/*! create some globals classes
@@ -22,15 +20,21 @@
 		global $db;//! DB
 		global $settings;//! settings manager
 		include_once "libs/class.database.php";
-		if($db = new DataBase($settings->get("db_name"), $settings->get("db_prefix"), $settings->get("db_user"), $settings->get("db_passwd")))
+		if(($db = $settings->get("db_name"))&&($prefix = $settings->get("db_prefix"))&&($user = $settings->get("db_user"))&&($passwd = $settings->get("db_passwd")))
 		{
-			if(!load_modules())
+			if($db = new DataBase($db, $prefix, $user, $passwd))
 			{
-				include_once "modules/install/include/class.installer.php";
-				$installer = new Installer();
-				$installer->load();
+				if(!load_modules())
+				{
+					include_once "modules/install/include/class.installer.php";
+					$installer = new Installer();
+					$installer->load();
+					return false;
+				}
+				return true;
 			}
 		}
+		return false;
 	}
 	/*! load modules
 	 * \params no

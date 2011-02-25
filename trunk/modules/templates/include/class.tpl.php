@@ -24,15 +24,15 @@ class Tpl {//extends Template {
 		$this->id = 1;
 		require('modules/templates/smarty/Smarty.class.php');
 		$this->smarty = new Smarty;
-		$smarty->force_compile = true;
-		$this->smarty->debugging = false;
+		$smarty->force_compile = false;
+		$this->smarty->debugging = true;
 		$this->smarty->caching = false;
-		$this->smarty->cache_lifetime = 120;
+		$this->smarty->cache_lifetime = 0;
 
-		$this->smarty->setTemplateDir('templates/'.$this->s_name);
-		$this->smarty->setCompileDir('modules/templates/compiled');
-		$this->smarty->setCacheDir('modules/templates/cache');
-		$this->smarty->setConfigDir('templates/default/configs');
+		$this->smarty->setTemplateDir('templates/'.$this->s_name."/");
+		$this->smarty->setCompileDir('modules/templates/compiled/');
+		$this->smarty->setCacheDir('modules/templates/cache/');
+		$this->smarty->setConfigDir('templates/default/configs/');
 	}
 	/*! access to smarty
 	 * \params no

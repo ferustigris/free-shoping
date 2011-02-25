@@ -1,4 +1,6 @@
 <?php
 	include_once 'class.tpl.php';
-	$this->set_var('template', new Tpl($this, $GLOBALS['settings']->get('template'))) ;
+	$tpl = $GLOBALS['settings']->get('template');
+	if(!$tpl)$tpl = "default";
+	$this->set_var('template', new Tpl($this, $tpl)) ;
 ?>

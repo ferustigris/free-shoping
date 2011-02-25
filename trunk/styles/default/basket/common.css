@@ -1,14 +1,15 @@
-#basket, #trash, #basket_list { 
+#basket, #trash, #basket_list, #basket_element_clone  { 
 	list-style-type: none; 
-	margin: 0; 
-	padding: 0; 
+	margin: 0px; 
+	padding: 0px; 
+	min-height: 20px;
 	float: left; 
-	margin-right: 10px;
-	border: apx solid black;
+	border: 0px solid gray;
 }
-#basket li, #trash li, #basket_list li { 
+#basket li, #trash li, #basket_list li, #basket_element_clone  li { 
 	margin: 0 5px 5px 5px; 
 	padding: 5px; 
+	padding-left: 0px; 
 	width: 155px; 
 }
 /* buy button */
@@ -39,4 +40,7 @@
 	clear: both;
 	display: block;
 	margin: 5px;
+}
+#basket_element_clone {
+	display: none;
 }
