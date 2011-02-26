@@ -1,14 +1,19 @@
 <form onsubmit="return onConfirm();">
-	{*<div id="form_add_double_product">{$LANG['Product has been in cart. Add double product?']}</div>
-	<ul id="basket_list" name="basket_list" class="connectedSortable">
-	{$basket_list}
-	</ul>
-	<ul id="trash" name="trash" class="connectedSortable">
-	<li>asd</li>
-	</ul>*}
-	<div id="basket_confirm_products" class="connected_basket">
-		{$basket_confirm_products}
-	</div>
-
+	<div id="basket_confirm_products_list">
+	{foreach from=$basket_products item=product}
+		<h3><a href="#">{$product->product()}</a></h3>
 	
+		<div>
+			{if ISSET($basket_childs[$product->id()])}
+				<ul>
+				{foreach from=$basket_childs[$product->id()] item=child}
+					<li>{$child->product()}, {$basket_child_sizes[$product->id()][$child->id()]}</li>
+				{/foreach}
+				</ul>
+			{/if}
+			{*<p>{$product->description()}</p>*}
+		</div>
+	{/foreach}
+	</div>
+	<button id="busket_order_ok" type="submit" name="busket_order_ok" value="{$LANG['confirm ok']}" >{$LANG['confirm ok']}</button>
 </form>

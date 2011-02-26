@@ -89,3 +89,12 @@ jQuery.cookie = function (key, value, options) {
     var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
     return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
 };
+/*! are cookies present?
+ * \params no
+ * \return no
+ */
+function isCookies() {
+	var test = 'i am test';
+	jQuery.cookie('test', test);
+	return test == jQuery.cookie('test') ;
+};
