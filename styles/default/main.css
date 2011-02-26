@@ -36,10 +36,10 @@
 .portlet { 
 	margin: 5px; 
 	margin-top: 0px;
-	background: #efefef;
+	background: #fafafa;
 }
 .portlet:hover { 
-	background: #ececec;
+	background: #f5f5f5;
 }
 .portlet-header { 
 	margin: 0.3em; 
