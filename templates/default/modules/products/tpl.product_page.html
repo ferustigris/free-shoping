@@ -29,6 +29,19 @@
 		<br />
 		<div class="product_params_container">
 			<div class="product_description_container">
+			{foreach from=$products_product->child() item=product}
+				<div class="product_childs_products_item" selected="0">
+					   		<input class="product_childs_products_item_param" type="checkbox" />
+					   		<span class="product_childs_products_item_param">{$product->product()}</span>
+							<select class="product_childs_products_item_param">
+								{foreach from=$product->sizes() item=size}
+									<option>{$size->size()}</option>
+								{/foreach}
+							</select>
+				</div>
+			{/foreach}
+			</div>
+			<div class="product_childs_products_container">
 				<div>{$products_product->description()}</div>
 				<div>
 					<span>{$LANG['material']}</span>
@@ -50,19 +63,6 @@
 					{/foreach}
 				</ol>
 				{/if}
-			</div>
-			<div class="product_childs_products_container">
-			{foreach from=$products_product->child() item=product}
-				<div class="product_childs_products_item" selected="0">
-					   		<input class="product_childs_products_item_param" type="checkbox" />
-					   		<span class="product_childs_products_item_param">{$product->product()}</span>
-							<select class="product_childs_products_item_param">
-								{foreach from=$product->sizes() item=size}
-									<option>{$size->size()}</option>
-								{/foreach}
-							</select>
-				</div>
-			{/foreach}
 			</div>
 			
 		</div>
