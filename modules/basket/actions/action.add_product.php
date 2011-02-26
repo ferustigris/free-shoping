@@ -2,14 +2,17 @@
 	//include_once("include/iface.log.php");
 	include_once('modules/products/include/class.product.php');
 	//! save login and password to cookies session
-	$this->log(LOG_NOTICE, 'product added = '.$this->forms_post()->get('id_product'));
+	//$this->log(LOG_NOTICE, 'product added = '.$this->forms_post()->get('id_product'));
 	$str = '';
-	$valid = false;
+	if($this->options()->get($_SERVER['REMOTE_ADDR']))
+		$str = $this->options()->get($_SERVER['REMOTE_ADDR']);
+	$valid = true;
 	if($id = $this->forms_post()->get('id_product'))
 	{
 		if($new_product = new Product($this, $id))
 		{
 			$str = $str.'id_product='.$id.',';
+			$valid = count($new_product->child()) == 0;
 			foreach($new_product->child() as $child)
 			{
 				if($this->forms_post()->get('item_'.$child->id()))
@@ -25,9 +28,10 @@
 		if($valid)
 		{
 			$str = $str.';';
+			$this->options()->set($_SERVER['REMOTE_ADDR'], $str);
 			header('Location:index.php?module=products&page=product_page&product_id='.$id);
 		}
 
 	}
-	$this->log(LOG_ERROR, "Can\'t add product! No enath actual parameters?".$str);
+	$this->log(LOG_ERROR, "Can't add product! No enougth actual parameters?");
 ?>

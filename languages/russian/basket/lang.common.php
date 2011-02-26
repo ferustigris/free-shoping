@@ -9,4 +9,5 @@
 
 	$this->data['You not select anythink!'] = 'Вы ничего не выбрали!';
 	$this->data['Products in basket: '] = 'Товаров в корзине: ';
+	$this->data["Can't add product! No enougth actual parameters?"] = "Товар не добавлен! Не выбрано ни одного товара...";
 ?>
