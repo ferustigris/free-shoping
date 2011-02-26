@@ -11,7 +11,7 @@ class Cookies extends SimpleList {
 	public function __construct($prefix)
 	{
 		$this->set('cookies_enable', true);
-		$this->prefix = $prefix;
+		$this->prefix = $prefix.'_';
 	}
 	/*! destruct
 	 * \params no

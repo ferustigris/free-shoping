@@ -20,6 +20,8 @@
 		});
 
 		$( ".column" ).disableSelection();
+		if(!isCookies())
+			$( "nocookies" ).show();
 	});
 /*! открывает эдит для ввода
  * \params 
