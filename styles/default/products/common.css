@@ -81,10 +81,10 @@ h3.product_description_container {
 }
 .product_childs_products_item {
 	height: 30px;
-	width: 180px;
+	width: 220px;
 	background: #fafafa;
 	margin: 0px;
-	margin-bottom: 5px;
+	margin-bottom: 20px;
 	padding: 12px;
 	border: 2px solid #dedede;
 }
