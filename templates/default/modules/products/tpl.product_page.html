@@ -1,12 +1,30 @@
 <div id="product_container">
+
+	<noscript>
+		<style>
+		#product_js_to_basket {
+			display: none;
+		}
+		</style>
+		
+	</noscript>
+
+
 		<div class="buttons_container">
 			<form class="buttons_line" onsubmit="return onCategoryChange({$products_product->category() ->id()});" ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list&category_id={$products_product->category() ->id()}" method="POST">
 			    <button class="buttons_line back" type="submit" name="back" value="{$LANG['back']}" >{$LANG['back']}</button>    
 			</form>
-			<form class="buttons_line" onsubmit="return onBuy({$products_product->id()});" ENCTYPE="multipart/form-data"  action="index.php" method="POST">
+			<form id="product_js_to_basket" class="buttons_line" onsubmit="return onBuy({$products_product->id()});" ENCTYPE="multipart/form-data"  action="index.php?module=basket&action=add_product&page=confirm" method="POST">
 			    <button class="buttons_line buy" type="submit" name="buy" value="{$LANG['buy']}" >{$LANG['buy']}</button>
 			</form>
+		<input type="hidden" value="asd" name ="asd" />
 		</div>
+		<noscript>
+			<div class="buttons_container">
+				<form class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=basket&action=add_product&page=confirm" method="POST">
+			    	<button type="submit" value="{$LANG['buy']}" >{$LANG['buy']}</button>
+			</div>
+		</noscript>
 		<h3 class="product_description_container">{$products_product->product()}</h3>
 		<div class="product_params_container">
 
@@ -31,9 +49,9 @@
 			<div class="product_description_container">
 			{foreach from=$products_product->child() item=product}
 				<div idchild="{$product->id()}" class="product_childs_products_item" selected="0">
-					   		<input class="product_childs_products_item_param" type="checkbox" />
+					   		<input name="item_{$product->id()}" class="product_childs_products_item_param" type="checkbox" />
 					   		<span class="product_childs_products_item_param">{$product->product()}</span>
-							<select class="product_childs_products_item_param">
+							<select name="item_size_{$product->id()}" class="product_childs_products_item_param">
 								{foreach from=$product->sizes() item=size}
 									<option>{$size->size()}</option>
 								{/foreach}
@@ -64,6 +82,9 @@
 				</ol>
 				{/if}
 			</div>
-			
 		</div>
+	<noscript>
+    	<input type="hidden" name="id_product" value="{$products_product->id()}" />
+		</form>
+	</noscript>			
 </div>
