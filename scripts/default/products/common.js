@@ -35,6 +35,18 @@ function selectableChildProduct()
 		$(this).parent().attr('selected', '0');
 		$(this).parent().click();
 	}) ;
+	$("input.product_childs_products_item_param").mouseup(function(event ) {
+		//$(this).parent().click() ;
+		if($(this).attr("checked") == true){
+			$(this).attr("checked", false);
+			//alert(event.result);
+		} else {
+			$(this).attr("checked", true);
+			//alert(event.result);
+		}
+		event.result = false;
+		return false;
+	}) ;
 	$(".product_childs_products_item") .click(function( ) {
 		if($(this).attr('selected') == '0')
 		{
