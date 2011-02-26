@@ -40,7 +40,7 @@ abstract class Module {
 	 * \params no
 	 * \return no
 	 */
-	abstract public function db_options();
+	abstract public function options();
 	/*! access to concrete other module
 	 * \params
          * - module_name - module name

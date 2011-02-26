@@ -11,7 +11,7 @@ include_once "libs/class.sessions.php";
 //! class for modules
 class ModuleEntry extends Module {
 	private $name;//! module name
-	private $db_options;//! db settings
+	private $options;//! db settings
 	private $forms_files;//! data of FILE-forms
 	private $forms_get;//! data of GET-forms
 	private $forms_post;//! data of POST-forms
@@ -34,7 +34,7 @@ class ModuleEntry extends Module {
 		$this->id = $id;
 		$this->cookies = new Cookies($name);
 		$this->sessions = new Sessions($name);
-		$this->db_options = new DynamicList("module_settings", $this->id);
+		$this->options = new DynamicList("module_settings", $this->id);
 	}
 	/*! access to variables
 	 * \params
@@ -77,9 +77,9 @@ class ModuleEntry extends Module {
 	 * \params no
 	 * \return no
 	 */
-	public function db_options()
+	public function options()
 	{
-		return $this->db_options;
+		return $this->options;
 	}
 	/*! access to db
 	 * \params no

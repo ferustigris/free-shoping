@@ -8,8 +8,6 @@
 		</style>
 		
 	</noscript>
-
-
 		<div class="buttons_container">
 			<form class="buttons_line" onsubmit="return onCategoryChange({$products_product->category() ->id()});" ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list&category_id={$products_product->category() ->id()}" method="POST">
 			    <button class="buttons_line back" type="submit" name="back" value="{$LANG['back']}" >{$LANG['back']}</button>    
@@ -21,7 +19,7 @@
 		</div>
 		<noscript>
 			<div class="buttons_container">
-				<form class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=basket&action=add_product&page=confirm" method="POST">
+				<form class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=basket&action=add_product&page=confirm" method="post">
 			    	<button type="submit" value="{$LANG['buy']}" >{$LANG['buy']}</button>
 			</div>
 		</noscript>

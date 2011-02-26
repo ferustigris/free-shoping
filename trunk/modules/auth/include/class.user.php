@@ -44,7 +44,7 @@
 		 */
 		public function priority()
 		{
-			return $this->priority;
+			return 1;//$this->priority;
 		}
 		/*! get user name
 		 * \params no
