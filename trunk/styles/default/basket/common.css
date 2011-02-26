@@ -32,12 +32,12 @@
    z-index: 44;
    display: none;
 }
-#form_add_double_product {
-	display: none;
-}
 #basket_show {
 	float: right;
 	clear: both;
 	display: block;
 	margin: 5px;
+}
+.connected_basket {
+	display: none;
 }
