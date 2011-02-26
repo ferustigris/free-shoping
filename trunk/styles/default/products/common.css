@@ -73,6 +73,7 @@ h3.product_description_container {
 	margin: 0px;
 	padding: 10px;
 	padding-left: 10px;
+	max-width: 240px;
 }
 .product_childs_products_container {
 	/*padding-top: 56px;*/
@@ -82,7 +83,8 @@ h3.product_description_container {
 	height: 30px;
 	width: 180px;
 	background: #fafafa;
-	margin: 3px;
+	margin: 0px;
+	margin-bottom: 5px;
 	padding: 12px;
 	border: 2px solid #dedede;
 }
