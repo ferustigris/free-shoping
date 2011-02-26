@@ -18,7 +18,6 @@ jQuery(function() {
             primary: "ui-icon-plusthick"
         }
 	});
-	selectableChildProduct();
 }) ;
 /*! select for child products
  * \params no
@@ -32,18 +31,29 @@ function selectableChildProduct()
 		viewLargerImage( $target );
 		return false;
 	});
-	return false;
-	/*$( "#selectableChildProducts" ).selectable({
-		autoRefresh: false,
-		stop: function() {
-			var result = $( "#select-result" ).empty();
-			$( ".ui-selected", this ).each(function() {
-				var index = $( "#selectableChildProducts li" ).index( this );
-				result.append( " #" + ( index + 1 ) );
+	$("select.product_childs_products_item_param").change(function( ) {
+		$(this).parent().attr('selected', '0');
+		$(this).parent().click();
+	}) ;
+	$(".product_childs_products_item") .click(function( ) {
+		if($(this).attr('selected') == '0')
+		{
+			$(this).addClass("selected");
+			$(this).attr('selected', '1');
+			$(this).contents(":input").each(function() {
+				$(this).attr("checked", true);
+			});
+		} else {
+			$(this).removeClass("selected");
+			$(this).attr('selected', '0');
+			$(this).contents(":input").each(function() {
+				$(this).attr("checked", false);
 			});
 		}
+
+		return false;
 	});
-	$("#childProduct1").addClass("ui-selected") ;*/
+	return false;
 };
 /*! set cool editor
  * \params no
@@ -246,21 +256,8 @@ function onProductChange(id_product, id_category)
 		            }
 			});
 			selectableChildProduct();
-			//onProductPageLoad() ;
-			//setBasketIcons() ;
 		}) ;
 
 	});
 	return false;
 }
-function onProductPageLoad() {
-	jQuery( "#selectable" ).selectable({
-		stop: function() {
-			var result = jQuery( "#select-result" ).empty();
-			jQuery( ".ui-selected", this ).each(function() {
-				var index = jQuery( "#selectable li" ).index( this );
-				result.append( " #" + ( index + 1 ) );
-			});
-		}
-	});
-};

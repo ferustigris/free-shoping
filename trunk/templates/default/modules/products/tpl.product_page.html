@@ -7,6 +7,7 @@
 			    <button class="buttons_line buy" type="submit" name="buy" value="{$LANG['buy']}" >{$LANG['buy']}</button>
 			</form>
 		</div>
+		<h3 class="product_description_container">{$products_product->product()}</h3>
 		<div class="product_params_container">
 
 			<div class="category_list_item">
@@ -19,20 +20,15 @@
 			{foreach from=$products_product->child() item=product}
 				<div class="category_list_item child_list_item">
 				   	<a href="{$product->img()}" class="child_product_list_item_img">
-				   		<p class="category_list_item_title">{$product->product()}</p>
+				   		<p class="category_list_item_title" src="{$product->small_img()}" title="{$product->product()}" alt="{$product->product()}">{$product->product()}</p>
 				   		<img class="category_list_item_img child_product_list_item_img" src="{$product->small_img()}" title="{$product->product()}" alt="{$product->product()}" />
 				   	</a>
 				</div>   	   	
 			{/foreach}
 		</div>
+		<br />
 		<div class="product_params_container">
-			<div class="product_childs_products_container">
-			sdfgsagdf
-			safasdf
-			</div>
-	
 			<div class="product_description_container">
-				<h3>{$products_product->product()}</h3>
 				<div>{$products_product->description()}</div>
 				<div>
 					<span>{$LANG['material']}</span>
@@ -42,6 +38,7 @@
 					<span>{$LANG['producer']}</span>
 					<span class="param">{$products_product->producer()->producer()}</span>
 				</div>
+				{if count($products_product->sizes())}
 				<div>{$LANG['product sizes']}</div>
 				<p id="feedback">
 				<span>You've selected:</span> <span id="select-result">none</span>.
@@ -52,6 +49,20 @@
 						<li class="ui-widget-content {if $i}{assign var='i' value=false}ui-selected{/if} one_size">{$size->size()}</li>
 					{/foreach}
 				</ol>
+				{/if}
+			</div>
+			<div class="product_childs_products_container">
+			{foreach from=$products_product->child() item=product}
+				<div class="product_childs_products_item" selected="0">
+					   		<input class="product_childs_products_item_param" type="checkbox" />
+					   		<span class="product_childs_products_item_param">{$product->product()}</span>
+							<select class="product_childs_products_item_param">
+								{foreach from=$product->sizes() item=size}
+									<option>{$size->size()}</option>
+								{/foreach}
+							</select>
+				</div>
+			{/foreach}
 			</div>
 			
 		</div>
