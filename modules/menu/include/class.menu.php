@@ -15,7 +15,7 @@ class Menu {//extends Template {
 		$this->parent = $parent;
 		$this->id = $id;
 	}
-	/*! get child menus
+	/*! get all child menus
 	 * \params no
 	 * \return true/false
 	 */
