@@ -63,5 +63,30 @@ class Section {
 		}
 		return $pages;
 	}
+	/*! return free avaible pages
+	 * \params no
+	 * \return list of sections
+	 */
+	public function free_pages()
+	{
+		include_once("class.page.php");
+		global $db;
+		$pages = Array();
+		if($result = $db->query("SELECT ".$db->getPrefix()."module_pages.id, ".$db->getPrefix()."module_pages.s_page
+			FROM ".$db->getPrefix()."module_pages
+			LEFT JOIN ".$db->getPrefix()."tpl_show_pages ON
+			".$db->getPrefix()."tpl_show_pages.id_page=".$db->getPrefix()."module_pages.id
+			WHERE ".$db->getPrefix()."tpl_show_pages.id_page is NULL;"))
+		{
+			while( $line = mysql_fetch_array( $result ) )
+			{
+				$pages[$line[1]] = new Page($line[0], $line[1], '');
+			}
+		}
+		return $pages;
+	}
+	/*SELECT PREFIXmodule_pages.id FROM PREFIXmodule_pages
+LEFT JOIN PREFIXtpl_show_pages ON PREFIXtpl_show_pages.id_page=PREFIXmodule_pages.id
+WHERE PREFIXtpl_show_pages.id_page is NULL*/
 }
 ?>

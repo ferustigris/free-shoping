@@ -218,14 +218,9 @@ class Tpl {//extends Template {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					global $modules;
 					$this->section = $line[0];
 					if(!ISSET($this->modules[$this->section]))
 						$this->modules[$this->section] = Array() ;
-					/*if($line[1] > 0)
-						if(ISSET($modules[$module]))
-							$modules[$module]->load($page);
-							*/
 				}
 			}
 		}
