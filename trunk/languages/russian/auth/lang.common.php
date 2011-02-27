@@ -10,4 +10,9 @@
 
 	$this->data['modules/auth/tpl.enter_form.html'] = 'Вход';
 
+	$this->data['Authorisation form'] = 'Авторизация';
+	$this->data['Registration form'] = 'Регистрация';
+	$this->data['Edit form'] = 'Мои данные';
+	$this->data['Users list'] = 'Пользователи';
+
 ?>

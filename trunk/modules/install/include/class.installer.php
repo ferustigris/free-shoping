@@ -39,16 +39,17 @@
 		 * - $max_priority - page max
 		 * - $page - page name
 		 * - $description - page description
+		 * - menu - are avaible by menu?
 		 * \return no
 		 */
-		public function addPage($page, $min_priority, $max_priority, $description)
+		public function addPage($page, $min_priority, $max_priority, $description, $menu)
 		{
 			global $db;
 			if(ISSET($db))
 			{
 				if($result = $db->query("INSERT INTO ".$db->getPrefix()."module_pages
-					(id_module, i_min_priority, i_max_priority, s_page, s_description)
-					VALUES(".$this->module_id.",".$min_priority.",".$max_priority.",'".$page."','".$description."');"))
+					(id_module, i_min_priority, i_max_priority, s_page, s_description, i_menu)
+					VALUES(".$this->module_id.",".$min_priority.",".$max_priority.",'".$page."','".$description."', ".$menu.");"))
 				{
 					return true;
 				}

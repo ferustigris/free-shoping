@@ -28,6 +28,6 @@
 	$this->addPage('registration_form', 0, 10000, 'Registration form');
 	$this->addAction('enter', 0, 10000, 'Enter user');
 	*/
-	$this->addPage('edit_modules_view', 0, 100, 'link template sections with module pages');
+	$this->addPage('edit_modules_view', 0, 100, 'link template sections with module pages', 1);
 	$this->addAction('save_modules_view', 0, 100, 'save modules pages') ;
 ?>
