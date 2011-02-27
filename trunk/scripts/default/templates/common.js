@@ -26,8 +26,11 @@ function runTemplateModule()
 		//var params = [];
 		$( ".connectedSortableSections" ).each(function(){
 			var section = $(this).attr("id");
+			var index = 1;
 			$(this).contents(".ui-state-page").each(function() {
 				line[$(this).html()] = section;
+				line["sort_" + $(this).html()] = index;//sortable
+				index++;
 				//params[$(this).html()] = section;
 			});
 		});

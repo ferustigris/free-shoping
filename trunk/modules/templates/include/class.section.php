@@ -54,7 +54,8 @@ class Section {
 			".$db->getPrefix()."module_pages, ".$db->getPrefix()."tpl_show_pages
 			WHERE
 			".$db->getPrefix()."module_pages.id=".$db->getPrefix()."tpl_show_pages.id_page
-			AND ".$this->id."=".$db->getPrefix()."tpl_show_pages.id_section;"))
+			AND ".$this->id."=".$db->getPrefix()."tpl_show_pages.id_section
+			ORDER BY ".$db->getPrefix()."tpl_show_pages.i_sort;"))
 		{
 			while( $line = mysql_fetch_array( $result ) )
 			{

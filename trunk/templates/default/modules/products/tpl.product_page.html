@@ -1,13 +1,4 @@
 <div id="product_container">
-
-	<noscript>
-		<style>
-		#product_js_to_basket {
-			display: none;
-		}
-		</style>
-		
-	</noscript>
 		<div class="buttons_container">
 			<form class="buttons_line" onsubmit="return onCategoryChange({$products_product->category() ->id()});" ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list&category_id={$products_product->category() ->id()}" method="POST">
 			    <button class="buttons_line back" type="submit" name="back" value="{$LANG['back']}" >{$LANG['back']}</button>    
