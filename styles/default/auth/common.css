@@ -20,3 +20,6 @@
 .enter_container {
 	text-align: center;
 }
+.enter_error {
+	border: 2px solid red;
+}
