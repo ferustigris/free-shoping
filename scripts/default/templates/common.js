@@ -3,7 +3,19 @@
  * \return no
  */
 $(function() {
-	setSortable();
+	runTemplateModule();
+
+});
+/*! set sortable
+ * \params no
+ * \return no
+ */
+function runTemplateModule() 
+{
+	$( ".connectedSortableSections" ).sortable({
+		connectWith: ".connectedSortableSections",
+		items: "li:not(.ui-state-disabled)"
+	}).disableSelection();
 	jQuery('.save_button').button({
 		icons: {
             primary: "ui-icon-check"
@@ -27,23 +39,13 @@ $(function() {
 		{
 			content = jQuery("#content", data);
 			errors = jQuery("#errors", data);
-			jQuery('#materials_list').append(content.html());
 			jQuery('#top_page').empty() ;
 			jQuery('#top_page').append(errors.html());
+			jQuery('#main_page').empty() ;
+			jQuery('#main_page').append(content.html());
+			runTemplateModule();
 		});
 		return false;
 	});
-	
-});
-/*! set sortable
- * \params no
- * \return no
- */
-function setSortable() 
-{
-	$( ".connectedSortableSections" ).sortable({
-		connectWith: ".connectedSortableSections",
-		items: "li:not(.ui-state-disabled)"
-	}).disableSelection();
 }
 

@@ -24,7 +24,7 @@
 	{/foreach}
 		<ul id="trash_pages" class="connectedSortableSections">
 		<li class="ui-state-default ui-state-disabled">{$LANG['trash pages']}</li>
-		{foreach from=$templates_pages item=page}
+		{foreach from=$templates_free_pages item=page}
 			<li class="ui-state-default ui-state-page">{$page->name()}</li>
 		{/foreach}
 		</ul>
