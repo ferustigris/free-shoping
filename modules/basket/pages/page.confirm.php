@@ -5,7 +5,7 @@
 	{
 		$str = $this->options()->get($_SERVER['REMOTE_ADDR']);
 	}
-	echo $str;
+	//echo $str;
 	$this->add_tpl('confirm');
 	$products = Array() ;
 	$products_sizes = Array() ;

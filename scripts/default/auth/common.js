@@ -8,4 +8,7 @@ jQuery(function() {
                 primary: "ui-icon-key"
             }
 	});
+//	jQuery('#login').focus(function() {
+	//	alert(1);
+	//});
 }) ;

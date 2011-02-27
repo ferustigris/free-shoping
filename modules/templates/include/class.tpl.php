@@ -318,9 +318,9 @@ class Tpl {//extends Template {
 	 */
 	public function get_avaible_sections()
 	{
-		include_once("libs/class.section.php");
+		include_once("class.section.php");
 		global $db;
-		$sections = NULL;
+		$sections = Array();
 		if($result = $db->query("SELECT id, s_section FROM
 			".$db->getPrefix()."tpl_sections
 			WHERE
@@ -339,9 +339,9 @@ class Tpl {//extends Template {
 	 */
 	public function get_avaible_pages()
 	{
-		include_once("libs/class.section.php");
+		include_once("class.page.php");
 		global $db;
-		$pages = NULL;
+		$pages = Array();
 		if($result = $db->query("SELECT ".$db->getPrefix()."module_pages.id, s_page, s_description FROM
 			".$db->getPrefix()."module_pages, ".$db->getPrefix()."modules
 			WHERE
@@ -350,7 +350,7 @@ class Tpl {//extends Template {
 		{
 			while( $line = mysql_fetch_array( $result ) )
 			{
-				$pages[$line[1]] = new Section($line[0], $line[1], $line[2]);
+				$pages[$line[1]] = new Page($line[0], $line[1], $line[2]);
 			}
 		}
 		return $pages;
@@ -377,11 +377,13 @@ class Tpl {//extends Template {
 	 * - id_page - page id
 	 * \return true/false
 	 */
-	public function remove_page_in_section($id_page)
+	public function remove_page_from_section($id_page)
 	{
 		global $db;
+		echo "DELETE FROM ".$db->getPrefix()."tpl_show_pages
+		WHERE id_page=".((integer)$id_page).";";
 		return $db->query("DELETE FROM ".$db->getPrefix()."tpl_show_pages
-		WHERE id_page=".$id_page.";") ;
+		WHERE id_page=".(integer)$id_page.";");
 	}
 }
 ?>
