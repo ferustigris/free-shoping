@@ -13,7 +13,7 @@ class Section {
 	 */
 	public function __construct($id, $name, $description)
 	{
-		$this->id = $id;
+		$this->id = (integer)$id;
 		$this->name = $name;
 		$this->description = $description;
 	}
@@ -40,6 +40,28 @@ class Section {
 	public function description()
 	{
 		return $this->description;
+	}
+	/*! return all avaible pages
+	 * \params no
+	 * \return list of sections
+	 */
+	public function pages()
+	{
+		include_once("class.page.php");
+		global $db;
+		$pages = Array();
+		if($result = $db->query("SELECT ".$db->getPrefix()."module_pages.id, s_page, s_description FROM
+			".$db->getPrefix()."module_pages, ".$db->getPrefix()."tpl_show_pages
+			WHERE
+			".$db->getPrefix()."module_pages.id=".$db->getPrefix()."tpl_show_pages.id_page
+			AND ".$this->id."=".$db->getPrefix()."tpl_show_pages.id_section;"))
+		{
+			while( $line = mysql_fetch_array( $result ) )
+			{
+				$pages[$line[1]] = new Page($line[0], $line[1], $line[2]);
+			}
+		}
+		return $pages;
 	}
 }
 ?>

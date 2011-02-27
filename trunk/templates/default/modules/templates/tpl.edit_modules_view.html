@@ -1,13 +1,32 @@
 <form action='index.php?module=templates&action=save_modules_view' method='POST'>
-	{foreach from=$templates_pages item=page}
-	<div>{$page->name()}
-		<select size=1 name='{$page->name()}'>
-			<option>{$LANG['Hide']}</option>
-		{foreach from=$templates_sections item=section}
-			<option>{$section->name()}</option>
+	<button class="save_button" type="submit" id="save_button" name="save_button" value="{$LANG['Save']}" >{$LANG['Save']}</button>
+	<br />
+	<noscript>
+		{foreach from=$templates_pages item=page}
+		<div>{$page->name()}
+			<select size=1 name='{$page->name()}'>
+				<option>{$LANG['Hide']}</option>
+			{foreach from=$templates_sections item=section}
+				<option>{$section->name()}</option>
+			{/foreach}
+			</select>
+		</div>
 		{/foreach}
-		</select>
-	</div>
+		<input id="ok" type="submit" name="ok" value="{$LANG['Save']}" />
+	</noscript>
+	{foreach from=$templates_sections item=section}
+		<ul id="{$section->name()}" class="connectedSortableSections">
+		<li class="ui-state-default ui-state-disabled">{$section->name()}</li>
+		{foreach from=$section->pages() item=page}
+			<li class="ui-state-default ui-state-page">{$page->name()}</li>
+		{/foreach}
+		</ul>
 	{/foreach}
-	<input id="ok" type="submit" name="ok" value="{$LANG['Save']}" />
+		<ul id="trash_pages" class="connectedSortableSections">
+		<li class="ui-state-default ui-state-disabled">{$LANG['trash pages']}</li>
+		{foreach from=$templates_pages item=page}
+			<li class="ui-state-default ui-state-page">{$page->name()}</li>
+		{/foreach}
+		</ul>
 </form>
+	

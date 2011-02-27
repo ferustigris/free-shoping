@@ -37,6 +37,7 @@ function onFocusHandler(id, default_value)
 	{
 		e.value = '';
 	}
+	return true;
 }
 /*! закрывает эдит для ввода
  * \params

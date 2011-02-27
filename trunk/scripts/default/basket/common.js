@@ -3,7 +3,7 @@
  * \return no
  */
 $(function() {
-		
+		setBasketIcons();
 		if(jQuery.cookie('basket_content'))
 		{
 			if(jQuery.cookie('basket_content').length() < 2 )
@@ -17,7 +17,6 @@ $(function() {
 			jQuery('#basket_show').hide();
 			jQuery("#basket_container").hide() ;
 		}
-		setBasketIcons();
 });
 /*! удаляем элемент из корзины
  * \params no
