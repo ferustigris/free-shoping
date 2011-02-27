@@ -12,9 +12,9 @@
 					$this->log(LOG_DEBUG, "Remove page=".$page->name());
 					if($sel = $this->forms_post()->get($page->name()))
 					{
-						if(ISSET($sections[$sel]))
+						if(ISSET($sections[$sel])&&($sort_index = $this->forms_post()->get("sort_".$page->name())))
 						{
-							$tpl->set_page_in_section($sections[$sel]->id(), $page->id());
+							$tpl->set_page_in_section($sections[$sel]->id(), $page->id(), $sort_index);
 							$this->log(LOG_DEBUG, "Add page=".$page->name().", section=".$sections[$sel]->name());
 						}
 					}

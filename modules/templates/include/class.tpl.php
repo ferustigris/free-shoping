@@ -240,7 +240,8 @@ class Tpl {//extends Template {
 			".$db->getPrefix()."modules.id=".$db->getPrefix()."module_pages.id_module
 			AND ".$db->getPrefix()."module_pages.id=".$db->getPrefix()."tpl_show_pages.id_page
 			AND ".$db->getPrefix()."tpl_show_pages.id_section=".$db->getPrefix()."tpl_sections.id
-			AND ".$db->getPrefix()."tpl_sections.id_tpl=".$this->id.";";
+			AND ".$db->getPrefix()."tpl_sections.id_tpl=".$this->id."
+			ORDER BY ".$db->getPrefix()."tpl_show_pages.i_sort;";
 		if($result = $db->query($query))
 		{
 			while( $line = mysql_fetch_array( $result ) )
@@ -354,14 +355,18 @@ class Tpl {//extends Template {
 	 * \params
 	 * - id_section - section id
 	 * - id_page - page id
+	 * - $sort_index - for sortable
 	 * \return true/false
 	 */
-	public function set_page_in_section($id_section, $id_page)
+	public function set_page_in_section($id_section, $id_page, $sort_index)
 	{
 		global $db;
 		//$this->remove_page_in_section($id_page);
-		if($result = $db->query("INSERT INTO ".$db->getPrefix()."tpl_show_pages(id_page, id_section)
-			VALUES (".$id_page.', '.$id_section.') ;'))
+		$sort_index = (integer)$sort_index;
+		$id_page = (integer)$id_page;
+		$id_section = (integer)$id_section;
+		if($result = $db->query("INSERT INTO ".$db->getPrefix()."tpl_show_pages(id_page, id_section, i_sort)
+			VALUES (".$id_page.', '.$id_section.', '.$sort_index.');'))
 		{
 			return true;
 		}
