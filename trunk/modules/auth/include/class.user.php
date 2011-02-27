@@ -134,6 +134,25 @@
 			}
 			return false;
 		}
+		/*! user present
+		 * \params
+		 * - $user_name - user name
+		 * \return yes/no
+		 */
+		public function user_present($user_name)
+		{
+			global $db;
+			if($result = $db->query("SELECT COUNT(*) FROM ".$db->getPrefix()."users
+			WHERE
+			s_name='".$user_name."';"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					return $line[0] > 0;
+				}
+			}
+			return false;
+		}
 		/*
 		//remove user
 		public function removeUser($id)
