@@ -23,6 +23,14 @@ class Menu {//extends Template {
 	{
 		$list = Array();// = NULL;
 		$i = 0;
+		$priority = AUTH_NOBODY;
+		if($muser = $this->parent->get_module('auth'))
+		{
+			if($user = $muser->get_var('user'))
+			{
+				$priority = $user->priority();
+			}
+		}
 		if($db = $this->parent->db())
 		{
 			if($result = $db->query("SELECT
@@ -31,7 +39,10 @@ class Menu {//extends Template {
 				".$db->getPrefix()."modules,
 				".$db->getPrefix()."module_pages
 				WHERE
-				".$db->getPrefix()."modules.id=".$db->getPrefix()."module_pages.id_module;"))
+				".$db->getPrefix()."module_pages.i_min_priority<=".$priority."
+				AND ".$db->getPrefix()."module_pages.i_menu=1
+				AND ".$db->getPrefix()."module_pages.i_max_priority>=".$priority."
+				AND ".$db->getPrefix()."modules.id=".$db->getPrefix()."module_pages.id_module;"))
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
