@@ -3,7 +3,8 @@
 	margin: 0; 
 	padding: 0; 
 	float: left; 
-	margin-right: 10px; 
+	margin-right: 10px;
+	min-height: 300px; 
 }
 .connectedSortableSections li { 
 	margin: 0 5px 5px 5px; 
