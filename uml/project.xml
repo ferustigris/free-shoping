@@ -26,7 +26,7 @@
     </TopologyBody>
     <ClassBody name="db">
         <top x="261,1279999999999" y="-505,256" type="9" id="1" name="STATE_1##" short_description=""/>
-        <top x="-1,403999999999996" y="-494,769" type="9" id="2" name="sdf##" short_description=""/>
+        <top x="-89,404" y="-493,769" type="9" id="2" name="sdf#1|2|#4|3|" short_description="edas"/>
     </ClassBody>
     <TopologyBody name="товар">
         <top x="-11,74400000000003" y="160,476" type="7" id="1" name="товар" short_description=""/>
@@ -58,7 +58,7 @@
         <edge from="1" type="0" to="3" data=""/>
         <top x="-498,626" y="-447,89" type="2" id="4" name="templates" short_description=""/>
         <edge from="1" type="0" to="4" data=""/>
-        <top x="-62,75999999999999" y="-446" type="2" id="5" name="products" short_description="Модуль товаров">
+        <top x="-62,75999999999999" y="-446" type="2" id="5" name="products" short_description="">
             <top x="-270,84" y="-158" type="7" id="12" name="NODE_12" short_description=""/>
             <top x="-301,73" y="-435,25" type="2" id="13" name="материалы" short_description=""/>
             <edge from="12" type="0" to="13" data=""/>
@@ -72,7 +72,7 @@
             <edge from="12" type="0" to="18" data=""/>
         </top>
         <edge from="1" type="0" to="5" data=""/>
-        <top x="-285,894" y="-484,29" type="2" id="6" name="auth" short_description="Авторизация"/>
+        <top x="-285,894" y="-484,29" type="2" id="6" name="auth" short_description=""/>
         <edge from="1" type="0" to="6" data=""/>
         <top x="-730,3679999999999" y="-170,36" type="2" id="7" name="log" short_description=""/>
         <edge from="1" type="0" to="7" data=""/>
@@ -84,9 +84,11 @@
         <edge from="1" type="0" to="10" data=""/>
         <top x="37,40999999999997" y="27,75" type="2" id="11" name="contacts(static_pages?)" short_description=""/>
         <edge from="1" type="0" to="11" data=""/>
-        <top x="66,19399999999996" y="-150,29" type="2" id="17" name="spammer" short_description="Массовая рассылка, уведомления о заказах и прочее&#xa;"/>
+        <top x="66,19399999999996" y="-150,29" type="2" id="17" name="spammer" short_description=""/>
         <edge from="1" type="0" to="17" data=""/>
-        <top x="-45,44000000000005" y="123" type="2" id="19" name="renesance" short_description="Реставратор, резервное копирование&#xa;"/>
+        <top x="-45,44000000000005" y="123" type="2" id="19" name="renesance" short_description=""/>
         <edge from="1" type="0" to="19" data=""/>
+        <top x="-368,578" y="158,99" type="2" id="20" name="oreders" short_description=""/>
+        <edge from="1" type="0" to="20" data=""/>
     </TopologyBody>
 </project>

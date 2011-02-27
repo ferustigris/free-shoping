@@ -6,7 +6,6 @@
 		$str = $this->options()->get($_SERVER['REMOTE_ADDR']);
 	}
 	//echo $str;
-	$this->add_tpl('confirm');
 	$products = Array() ;
 	$products_sizes = Array() ;
 	$products_childs = Array() ;
@@ -51,11 +50,12 @@
 				$products[] = $new_product;
 			}
 		}
-		$this->assign('products', $products);
-		$this->assign('childs', $products_childs);
-		$this->assign('child_sizes', $products_sizes);
-		//$this->log(LOG_ERROR, 'Helloe, word!');
-		$this->cookies()->set('content', '');
-		$this->add_ajax_tpl('confirm');
 	} else $this->log(LOG_ERROR, 'No enought actual products!');
+	$this->assign('products', $products);
+	$this->assign('childs', $products_childs);
+	$this->assign('child_sizes', $products_sizes);
+	//$this->log(LOG_ERROR, 'Helloe, word!');
+	$this->cookies()->set('content', '');
+	$this->add_ajax_tpl('confirm');
+	$this->add_tpl('confirm');
 ?>
