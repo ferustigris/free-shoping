@@ -1,5 +1,5 @@
 <?php
-	$this->addPage('enter_form', 10000, 10000, 'Authorisation form', 1);
+	$this->addPage('enter_form', 10000, 10000, 'Authorisation form', 0);
 	$this->addPage('registration_form', 10000, 10000, 'Registration form', 1);
 	$this->addPage('edit_form', 0, 9999, 'Edit form', 1);
 	$this->addPage('users', 0, 99, 'Users list', 1);
