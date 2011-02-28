@@ -3,47 +3,46 @@
     {$LANG['login']}: <b> {$auth_user->name()} </b>
     </div>
 	<div>
+    {$LANG['your full name']}:
+    </div>
+	<div>
+    <input class="form_entry" type="text" name="full_name" value="{$auth_user->get('full_name')}" />
+    </div>
+	<div>
     {$LANG['phone']}:
     </div>
 	<div>
-    <input class="enter_form_item" type="text" name="phone" value="{$auth_user->get('phone')}" />
-    </div>
-	<div>
-    {$LANG['mail']}:
-    </div>
-	<div>
-    <input class="enter_form_item" type="text" name="mail" value="{$auth_user->get('mail')}" />
+    <input class="form_entry" type="text" name="phone" value="{$auth_user->get('phone')}" />
     </div>
 	<div>
     {$LANG['address']}:
     </div>
 	<div>
-    <input class="enter_form_item" type="text" name="address" value="{$auth_user->get('address')}" />
+    <input class="form_entry" type="text" name="address" value="{$auth_user->get('address')}" />
     </div>
 	<div>
-    {$LANG['your full name']}:
+    {$LANG['mail']}:
     </div>
 	<div>
-    <input class="enter_form_item" type="text" name="full_name" value="{$auth_user->get('full_name')}" />
+    <input class="form_entry" type="text" name="mail" value="{$auth_user->get('mail')}" />
     </div>
 	<div>
-    <input id="ok" type="submit" name="ok" value="{$LANG['Save']}" />    
+    <input id="auth_edit_user_ok" type="submit" name="auth_edit_user_ok" value="{$LANG['Save']}" />    
     </div>
-	<br />
 	<br />
 	<div>
     {$LANG['Change password']}    
     </div>
 	<div>
-    {$LANG['password']}:
+    {$LANG['new password']}:
     </div>
 	<div>
-    <input class="enter_form_item" type="password" name="password1" value="" />
+    <input class="form_entry" type="password" name="password1" value="" />
     </div>
 	<div>
     {$LANG['retype password']}:
     </div>
 	<div>
-    <input class="enter_form_item" type="password" name="password2" value="" />
+    <input class="form_entry" type="password" name="password2" value="" />
     </div>
 </form>

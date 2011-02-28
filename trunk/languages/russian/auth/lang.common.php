@@ -17,6 +17,7 @@
 	$this->data['Users list'] = 'Пользователи';
 
 	$this->data['login'] = 'Ваш логин';
+	$this->data['new password'] = 'Новый пароль';
 	$this->data['password'] = 'Пароль';
 	$this->data['retype password'] = 'Проверка пароля';
 	$this->data['address'] = 'Почтовый адрес(для доставки)';
@@ -25,6 +26,8 @@
 	$this->data['your full name'] = 'Ваше настоящее имя';
 	$this->data['Change password'] = 'Изменение пароля';
 	$this->data['logout'] = 'Выйти';
-	
-	
+	$this->data['for registration enter next data'] = 'Введите данные для регистрации:';
+
+
+
 ?>
