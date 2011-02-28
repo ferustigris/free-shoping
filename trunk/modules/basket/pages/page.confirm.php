@@ -50,7 +50,7 @@
 				$products[] = $new_product;
 			}
 		}
-	} else $this->log(LOG_ERROR, 'No enought actual products!');
+	} else $this->log(LOG_NOTICE, 'No enought actual products!');
 	$this->assign('products', $products);
 	$this->assign('childs', $products_childs);
 	$this->assign('child_sizes', $products_sizes);
