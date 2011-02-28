@@ -15,7 +15,7 @@ jQuery(function() {
 	}).attr('disabled',true);
 	jQuery('#registration_password1').keyup(checkPassword);
 	jQuery('#registration_password2').keyup(checkPassword);
-}) ;
+});
 function checkPassword() {
 	if(jQuery('#registration_password1').attr('value') != jQuery('#registration_password2').attr('value'))
 			//||jQuery('#registration_password1').attr('value').length() < 3)

@@ -107,7 +107,8 @@
 		{
 			global $db;
 			$users = Array();
-			$result = $db->query("SELECT s_name, s_passwd FROM ".$db->getPrefix()."users WHERE i_priority > ".$this->priority.";");
+			$result = $db->query("SELECT s_name, s_passwd FROM ".$db->getPrefix()."users 
+			WHERE i_priority > ".$this->priority.";");
 			if($result)
 			{
 				while( $line = mysql_fetch_array( $result ) )

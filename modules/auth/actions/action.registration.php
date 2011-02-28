@@ -15,7 +15,7 @@
 			{
 				if($m_user = $this->get_var('user'))
 				{
-					if($m_user->user_present($login))
+					if(!$m_user->user_present($login))
 					{
 						if($user = $m_user->new_user($login, $password, AUTH_USER))
 						{

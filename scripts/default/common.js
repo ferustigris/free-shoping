@@ -19,7 +19,7 @@
 			$( this ).parents( ".portlet:first" ).find( ".portlet-content" ).toggle();
 		});
 
-		$( ".column" ).disableSelection();
+		//$( ".column" ).disableSelection();
 		if(!isCookies())
 			$( "nocookies" ).show();
 	});

@@ -6,7 +6,7 @@ $(function() {
 		setBasketIcons();
 		if(jQuery.cookie('basket_content'))
 		{
-			if(jQuery.cookie('basket_content').length() < 2 )
+			if(jQuery.cookie('basket_content').split(';').length < 2 )
 			{
 				jQuery('#basket_show').hide();
 				jQuery("#basket_container").hide() ;
@@ -16,7 +16,7 @@ $(function() {
 		} else {
 			jQuery('#basket_show').hide();
 			jQuery("#basket_container").hide() ;
-		}
+		};
 });
 /*! удаляем элемент из корзины
  * \params no
