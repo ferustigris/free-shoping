@@ -1,7 +1,8 @@
 <?php
 	$this->data['buy'] = 'В корзину!';
 	$this->data['Confirm!'] = 'К списку';
-	$this->data['confirm ok'] = 'Беру!';
+	$this->data['confirm ok'] = 'Беру!';//No enought actual products!
+		$this->data['No enought actual products!'] = 'В корзине ничего нет!';//
 
 	$this->data['modules/basket/tpl.basket.html'] = 'Корзина';
 	$this->data['Click double to remove'] = 'Двойной щелчек для удаления';
