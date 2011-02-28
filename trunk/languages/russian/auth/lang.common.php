@@ -16,4 +16,15 @@
 	$this->data['Edit form'] = 'Мои данные';
 	$this->data['Users list'] = 'Пользователи';
 
+	$this->data['login'] = 'Ваш логин';
+	$this->data['password'] = 'Пароль';
+	$this->data['retype password'] = 'Проверка пароля';
+	$this->data['address'] = 'Почтовый адрес(для доставки)';
+	$this->data['phone'] = 'Телефон';
+	$this->data['mail'] = 'Электронный адрес';
+	$this->data['your full name'] = 'Ваше настоящее имя';
+	$this->data['Change password'] = 'Изменение пароля';
+	$this->data['logout'] = 'Выйти';
+	
+	
 ?>

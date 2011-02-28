@@ -23,3 +23,9 @@
 .enter_error {
 	border: 2px solid red;
 }
+#logout_button {
+	position: absolute;
+	right: 10%;
+	top: 10px;	
+	font-size: x-small;
+}
