@@ -1,6 +1,7 @@
-<form action='index.php?module=templates&action=save_modules_view' method='POST'>
+<form action='index.php?module=templates&action=save_modules_view' method='post'>
 	<button class="save_button" type="submit" id="save_button" name="save_button" value="{$LANG['Save']}" >{$LANG['Save']}</button>
 	<br />
+	<input type="hidden" name="redirect" value="index.php" />
 	<noscript>
 		{foreach from=$templates_pages item=page}
 		<div>{$page->name()}

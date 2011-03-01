@@ -1,4 +1,5 @@
 <form>
+	{if count($basket_products)>0}
 	<div class="header_message">
 	{$LANG['your choose']}:
 	</div>
@@ -19,7 +20,10 @@
 	<div>
 	{$LANG['total price']}: <b>{$basket_total_price}</b> {$LANG['dollar']}
 	</div>
-	{if count($basket_products)>0}
 	<button id="busket_order_ok" type="submit" name="busket_order_ok" value="{$LANG['confirm ok']}" >{$LANG['confirm ok']}</button>
+	{else}
+	<div>
+	{$LANG['your basket is empty']}
+	</div>
 	{/if}
 </form>

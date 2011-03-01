@@ -24,10 +24,10 @@ class Tpl {//extends Template {
 		$this->id = 1;
 		require('modules/templates/smarty/Smarty.class.php');
 		$this->smarty = new Smarty;
-		$smarty->force_compile = true;
+		$smarty->force_compile = false;
 		$this->smarty->debugging = false;
 		$this->smarty->caching = false;
-		$this->smarty->cache_lifetime = 0;
+		$this->smarty->cache_lifetime = 10;
 
 		$this->smarty->setTemplateDir('templates/'.$this->s_name."/");
 		$this->smarty->setCompileDir('modules/templates/compiled/');
@@ -70,6 +70,12 @@ class Tpl {//extends Template {
 		$this->css();
 		$this->js();
 		$this->loadActions() ;
+		if(ISSET($_POST['redirect']))
+			if($_POST['redirect'])
+			{
+				header("Location: ".$_POST['redirect']);
+				return;
+			}
 		$this->loadModules() ;
 		$this->assign('TPL', 'modules', $this->modules);
 		$this->smarty->display("tpl.index.html");

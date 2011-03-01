@@ -20,7 +20,8 @@
 		global $db;//! DB
 		global $settings;//! settings manager
 		include_once "libs/class.database.php";
-		if(($db = $settings->get("db_name"))&&($prefix = $settings->get("db_prefix"))&&($user = $settings->get("db_user"))&&($passwd = $settings->get("db_passwd")))
+		$prefix = $settings->get("db_prefix");
+		if(($db = $settings->get("db_name"))&&($user = $settings->get("db_user"))&&($passwd = $settings->get("db_passwd")))
 		{
 			if($db = new DataBase($db, $prefix, $user, $passwd))
 			{
