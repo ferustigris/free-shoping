@@ -1,6 +1,6 @@
 <?php
 if(!defined('LOG_DEBUG'))define('LOG_DEBUG', 7);
-if(!defined('LOG_TODO'))define('LOG_TODO', 6);
+if(!defined('LOG_TODO'))define('LOG_TODO', 7);
 if(!defined('LOG_NOTICE'))define('LOG_NOTICE', 5);
 if(!defined('LOG_INFO'))define('LOG_INFO', 6);
 if(!defined('LOG_ERROR'))define('LOG_ERROR', 3);

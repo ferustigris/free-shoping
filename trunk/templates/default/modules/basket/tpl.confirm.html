@@ -1,19 +1,23 @@
 <form>
+	<div class="header_message">
+	{$LANG['your choose']}:
+	</div>
 	<div id="basket_confirm_products_list">
-	{foreach from=$basket_products item=product}
-		<h3><a href="#">{$product->product()}</a></h3>
+	{foreach from=$basket_products item=product_entry}
+		<h3><a href="#">{$product_entry['product']->product()} ({$product_entry['price']} {$LANG['dollar']})</a></h3>
 	
 		<div>
-			{if ISSET($basket_childs[$product->id()])}
 				<ul>
-				{foreach from=$basket_childs[$product->id()] item=child}
-					<li>{$child->product()}, {$basket_child_sizes[$product->id()][$child->id()]}</li>
+				{foreach from=$product_entry['childs'] item=child}
+					<li>{$child->product()}, {$product_entry['sizes'][$child->id()]}</li>
 				{/foreach}
 				</ul>
-			{/if}
 			{*<p>{$product->description()}</p>*}
 		</div>
 	{/foreach}
+	</div>
+	<div>
+	{$LANG['total price']}: <b>{$basket_total_price}</b> {$LANG['dollar']}
 	</div>
 	{if count($basket_products)>0}
 	<button id="busket_order_ok" type="submit" name="busket_order_ok" value="{$LANG['confirm ok']}" >{$LANG['confirm ok']}</button>

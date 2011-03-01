@@ -1,6 +1,7 @@
 .category_list_item {
 	background: #fafafa;
 	width: 240px;
+	v-align: center;
 	height: 240px;
 	float: left;
 	text-align: center;

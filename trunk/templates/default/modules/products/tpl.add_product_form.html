@@ -21,7 +21,17 @@
    	{foreach from=$products_sizes item=size}
     	<input name="size_{$size->id()}" type="checkbox" value="{$size->id()}" checked>{$size->size()}<br />
    	{/foreach}
+	<div>
+    {$LANG['product price']}:
+    </div>
+    <input id="product_price" size=5 type="text" name="product_price" value="0" />{$LANG['dollar']}<br />
+	<div>
+    {$LANG['full image']}:
+    </div>
     <input class="form_entry" class="" type="file" name="product_img" /><br />
+	<div>
+    {$LANG['small image']}:
+    </div>
     <input class="form_entry" class="" type="file" name="product_small_img" /><br />
     <input type="submit" name="ok" value="{$LANG['product save']}" /><br />    
 </form>

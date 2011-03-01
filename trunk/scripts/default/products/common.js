@@ -45,6 +45,7 @@ function selectableChildProduct()
 			//alert(event.result);
 		}
 		event.result = false;
+		calcCommonPrice();
 		return false;
 	}) ;
 	$(".product_childs_products_item") .click(function( ) {
@@ -62,11 +63,21 @@ function selectableChildProduct()
 				$(this).attr("checked", false);
 			});
 		}
-
+		calcCommonPrice();
 		return false;
 	});
 	return false;
 };
+function calcCommonPrice() {
+	var price = 0;
+	jQuery('div.product_childs_products_item').each(function() {
+		if($(this).attr('selected') == '1')
+		{
+			price = price + parseInt($(this).attr('price'));
+		};
+		jQuery("#product_price_common").html(price);
+	});	
+}
 /*! set cool editor
  * \params no
  * \return no
@@ -201,13 +212,13 @@ function onAddMaterialClick() {
  * \return no
  */
 function onRemoveProduct(ok, no, id, category_id, msg) {	
-	document.getElementById('form_remove_product').text = msg;
+	jQuery('#form_remove_product').html(msg);
 	jQuery('#form_remove_product').dialog({
 		resizable: false,
 		height:200,
 		modal: true,
 		buttons: {
-			ok: function() {
+			'ok': function() {
 				jQuery( this ).dialog( "close" );
 				jQuery.get('index.php?module=products&action=product_remove&product_id=' + id,{},function() {
 					onCategoryChange(category_id);					
