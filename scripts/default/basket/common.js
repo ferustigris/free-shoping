@@ -8,6 +8,7 @@ jQuery(function() {
  */
 function onConfirmStart() {
 		//setBasketIcons();
+	if(jQuery('#basket_order_ok'))
 	jQuery('#basket_order_ok').button({
 		icons: {
 	        primary: "ui-icon-check"
@@ -171,6 +172,7 @@ function onConfirm()
  */
 function accordion(id) 
 {
+	if($( "#" + id ))
 	$( "#" + id ).accordion({
 		collapsible: true,
 		active: false,
