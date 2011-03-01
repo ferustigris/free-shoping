@@ -82,3 +82,9 @@ a {
 a:hover {
 	color: black;
 }
+button {
+	margin-right: 9px !impotant;
+	margin-left: 0px !impotant;
+	margin-top: 0px !impotant;
+	margin-bottom: 9px !impotant;
+}
