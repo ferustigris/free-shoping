@@ -1,31 +1,39 @@
+jQuery(function() {
+	setProductIcons();
+	if(jQuery('#product_description'))
+		CKEDITOR.replace( 'product_description',
+		{
+			customConfig : 'scripts/ckeditor/config.js'
+		});
+});
 /*! set buttons icons
  * \params no
  * \return no
  */
 function setProductIcons() {
-	jQuery('.edit_button').button({
+	if(jQuery('.edit_button'))
+		jQuery('.edit_button').button({
 			icons: {
                 primary: "ui-icon-wrench"
             }
-	});
-	jQuery('.remove_button').button({
-		icons: {
-            primary: "ui-icon-closethick"
-        }
-	});
-	jQuery('.add_button').button({
-		icons: {
-            primary: "ui-icon-plusthick"
-        }
-	});
-	jQuery('.back').button({
-		icons: {
-            primary: "ui-icon-arrowreturnthick-1-s"
-        }
-	});
-	CKEDITOR.replace( 'product_description',
-		{
-			customConfig : 'scripts/ckeditor/config.js'
+		});
+	if(jQuery('.remove_button'))
+		jQuery('.remove_button').button({
+			icons: {
+	            primary: "ui-icon-closethick"
+	        }
+		});
+	if(jQuery('.add_button'))
+		jQuery('.add_button').button({
+			icons: {
+	            primary: "ui-icon-plusthick"
+	        }
+		});
+	if(jQuery('.back'))
+		jQuery('.back').button({
+			icons: {
+	            primary: "ui-icon-arrowreturnthick-1-s"
+	        }
 		});
 };
 /*! select for child products
