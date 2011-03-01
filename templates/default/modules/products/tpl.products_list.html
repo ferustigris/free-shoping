@@ -1,5 +1,4 @@
 {*<h3>{$LANG['products list']}</h3>*}
-<div id="products_container">
 {foreach from=$products_list item=product}
 	<div class="category_list_item">
 	   	<a href="{$product->link()}" onclick="return onProductChange({$product->id()}, -1);">
@@ -8,4 +7,3 @@
 	   	</a>
 	</div>   	   	
 {/foreach}
-</div>
