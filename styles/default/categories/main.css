@@ -1,12 +1,16 @@
 .category_list_item {
 	background: #fafafa;
-	width: 240px;
+	width: 238px;
 	v-align: center;
-	height: 240px;
+	height: 238px;
 	float: left;
 	text-align: center;
 	clear: none;
-	margin: 10px;
+	margin: 5px;
+	margin-right: 9px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 9px;
 	padding: 0px;
 	color: black;
 	border: solid  #dedede 2px;
