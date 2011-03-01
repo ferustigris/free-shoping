@@ -2,11 +2,16 @@
  * \params no
  * \return no
  */
-$(function() {
-		setBasketIcons();
-		accordion("basket_confirm_products_list");
-		if(jQuery.cookie('basket_content'))
-		{
+function onConfirmStart() {
+		//setBasketIcons();
+	jQuery('#basket_order_ok').button({
+		icons: {
+	        primary: "ui-icon-check"
+	    }
+	});
+	accordion("basket_confirm_products_list");
+	if(jQuery.cookie('basket_content'))
+	{
 			if(jQuery.cookie('basket_content').split(';').length < 2 )
 			{
 				jQuery('#basket_show').hide();
@@ -14,11 +19,11 @@ $(function() {
 			} else {
 				jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
 			}
-		} else {
+	} else {
 			jQuery('#basket_show').hide();
 			jQuery("#basket_container").hide() ;
-		};
-});
+	};
+};
 /*! удаляем элемент из корзины
  * \params no
  * \return no
@@ -126,11 +131,6 @@ function setBasketIcons()
 	        primary: "ui-icon-check"
 	    }
 	});
-	jQuery('#busket_order_ok').button({
-		icons: {
-	        primary: "ui-icon-check"
-	    }
-	});
 }
 /*! user want confirm his order
  * \params no
@@ -150,10 +150,7 @@ function onConfirm()
 			jQuery('#top_page').append(errors.html());
 			jQuery('#basket').empty();
 			jQuery('#main_page').html(content.html());
-			//jQuery('#basket_show').hide();
-			//jQuery('#basket_container').hide();
-			accordion("basket_confirm_products_list");
-			setBasketIcons() ;
+			onConfirmStart() ;
 	});
 	return false;
 }
