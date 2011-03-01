@@ -1,4 +1,9 @@
-<h3>{$LANG['product sizes']}</h3>
+{*<h3>{$LANG['product sizes']}</h3>*}
+<form onSubmit="return onAddSizeClick();" ENCTYPE="multipart/form-data"  action="index.php?module=products&page=size_add&action=size_save" method="POST">
+    <button type="submit" class="add_button" name="size_save_button" value="{$LANG['product save']}" >{$LANG['product save']}</button>
+    <br />    
+    <input onfocus="onFocusHandler('size_name', '{$LANG['size name']}');" onblur="onBlurHandler('size_name', '{$LANG['size name']}');" class="form_entry" type="text" id="size_name" name="size_name" value="{$LANG['size name']}" />
+</form>
 <ul id="sizes_list">
 {foreach from=$products_sizes item=mat}
 <li id="size_item_{$mat->id()}">{$mat->size()}
@@ -12,7 +17,6 @@
 </li>
 {/foreach}
 </ul>
-<form onSubmit="return onAddSizeClick();" ENCTYPE="multipart/form-data"  action="index.php?module=products&page=size_add&action=size_save" method="POST">
-    <input onfocus="onFocusHandler('size_name', '{$LANG['size name']}');" onblur="onBlurHandler('size_name', '{$LANG['size name']}');" class="form_entry" type="text" id="size_name" name="size_name" value="{$LANG['size name']}" />
-    <button type="submit" name="ok" value="{$LANG['product save']}" >{$LANG['product save']}</button>    
-</form>
+<script>
+setProductIcons();
+</script>

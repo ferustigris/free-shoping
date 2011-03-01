@@ -15,6 +15,7 @@
 	$this->data['material'] = 'Материал: ';
 	$this->data['producer'] = 'Производитель: ';
 	$this->data['product sizes'] = 'Размеры';
+	$this->data['size_add'] = 'Размеры';
 	$this->data['products list'] = 'Товары';
 	$this->data['remove'] = 'Удалить';
 	$this->data['edit'] = 'Редактировать';

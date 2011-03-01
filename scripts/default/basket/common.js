@@ -1,4 +1,4 @@
-/*! Создаем контейнеры корзины
+/*! Создаем контейнеры списока заказов
  * \params no
  * \return no
  */
@@ -10,6 +10,12 @@ function onConfirmStart() {
 	    }
 	});
 	accordion("basket_confirm_products_list");
+};
+/*! Создаем контейнеры корзины
+ * \params no
+ * \return no
+ */
+function onBasketStart() {
 	if(jQuery.cookie('basket_content'))
 	{
 			if(jQuery.cookie('basket_content').split(';').length < 2 )
@@ -23,6 +29,11 @@ function onConfirmStart() {
 			jQuery('#basket_show').hide();
 			jQuery("#basket_container").hide() ;
 	};
+	jQuery('#basket_show').button({
+		icons: {
+	        primary: "ui-icon-check"
+	    }
+	});
 };
 /*! удаляем элемент из корзины
  * \params no
@@ -124,11 +135,6 @@ function setBasketIcons()
 	jQuery('.buy').button({
 		icons: {
 	        primary: "ui-icon-cart"
-	    }
-	});
-	jQuery('#basket_show').button({
-		icons: {
-	        primary: "ui-icon-check"
 	    }
 	});
 }

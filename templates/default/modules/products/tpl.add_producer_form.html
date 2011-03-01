@@ -1,4 +1,10 @@
-<h3>{$LANG['producers']}</h3>
+<form onSubmit="return onAddProducerClick();" ENCTYPE="multipart/form-data"  action="index.php?module=products&page=producer_add&action=producer_save" method="POST">
+    <button class="add_button" type="submit" name="producer_save_button" value="{$LANG['product save']}">{$LANG['product save']}</button>
+    <br />    
+    <input  id="producer_name" onfocus="onFocusHandler('producer_name', '{$LANG['producer name']}');" onblur="onBlurHandler('producer_name', '{$LANG['producer name']}');" class="form_entry" type="text" name="producer_name" value="{$LANG['producer name']}" /><br />
+    <textarea id="product_description"  name="product_description">{$LANG['product description']}</textarea><br />
+</form>
+{*<h3>{$LANG['producers']}</h3>*}
 <ul id="producers_list">
 {foreach from=$products_producers item=producer}
 <li id="producer_item_{$producer->id()}">{$producer->producer()}
@@ -11,8 +17,6 @@
 </noscript>
 {/foreach}
 </ul>
-<form onSubmit="return onAddProducerClick();" ENCTYPE="multipart/form-data"  action="index.php?module=products&page=producer_add&action=producer_save" method="POST">
-    <input  id="producer_name" onfocus="onFocusHandler('producer_name', '{$LANG['producer name']}');" onblur="onBlurHandler('producer_name', '{$LANG['producer name']}');" class="form_entry" type="text" name="producer_name" value="{$LANG['producer name']}" /><br />
-    <textarea id="product_description"  name="product_description">{$LANG['product description']}</textarea><br />
-    <input type="submit" name="ok" value="{$LANG['product save']}" /><br />    
-</form>
+<script>
+setProductIcons();
+</script>
