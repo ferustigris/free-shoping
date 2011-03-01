@@ -1,3 +1,7 @@
+jQuery(function() {
+	onConfirmStart();
+	onBasketStart();
+});
 /*! Создаем контейнеры списока заказов
  * \params no
  * \return no
