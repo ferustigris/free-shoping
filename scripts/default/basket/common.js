@@ -9,11 +9,11 @@ jQuery(function() {
 function onConfirmStart() {
 		//setBasketIcons();
 	if(jQuery('#basket_order_ok'))
-	jQuery('#basket_order_ok').button({
-		icons: {
-	        primary: "ui-icon-check"
-	    }
-	});
+		jQuery('#basket_order_ok').button({
+			icons: {
+		        primary: "ui-icon-check"
+		    }
+		});
 	accordion("basket_confirm_products_list");
 };
 /*! Создаем контейнеры корзины
@@ -21,24 +21,27 @@ function onConfirmStart() {
  * \return no
  */
 function onBasketStart() {
-	if(jQuery.cookie('basket_content'))
+	if(jQuery('#basket_show')&&jQuery("#basket_container"))
 	{
-			if(jQuery.cookie('basket_content').split(';').length < 2 )
-			{
+		if(jQuery.cookie('basket_content'))
+		{
+				if(jQuery.cookie('basket_content').split(';').length < 2 )
+				{
+					jQuery('#basket_show').hide();
+					jQuery("#basket_container").hide() ;
+				} else {
+					jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
+				}
+		} else {
 				jQuery('#basket_show').hide();
 				jQuery("#basket_container").hide() ;
-			} else {
-				jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
-			}
-	} else {
-			jQuery('#basket_show').hide();
-			jQuery("#basket_container").hide() ;
+		};
+		jQuery('#basket_show').button({
+			icons: {
+		        primary: "ui-icon-check"
+		    }
+		});
 	};
-	jQuery('#basket_show').button({
-		icons: {
-	        primary: "ui-icon-check"
-	    }
-	});
 };
 /*! удаляем элемент из корзины
  * \params no
