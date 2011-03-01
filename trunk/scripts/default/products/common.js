@@ -2,7 +2,7 @@
  * \params no
  * \return no
  */
-jQuery(function() {
+function setProductIcons() {
 	jQuery('.edit_button').button({
 			icons: {
                 primary: "ui-icon-wrench"
@@ -18,7 +18,12 @@ jQuery(function() {
             primary: "ui-icon-plusthick"
         }
 	});
-}) ;
+	jQuery('.back').button({
+		icons: {
+            primary: "ui-icon-arrowreturnthick-1-s"
+        }
+	});
+};
 /*! select for child products
  * \params no
  * \return no
@@ -254,33 +259,9 @@ function onProductChange(id_product, id_category)
 		jQuery('#main_page').append(content.html());
 		jQuery('#top_page').empty() ;
 		jQuery('#top_page').append(errors.html());
-		jQuery(function() {
-			jQuery(function() {
-				jQuery('.edit_button').button({
-						icons: {
-			                primary: "ui-icon-wrench"
-			            }
-				});
-				jQuery('.remove_button').button({
-					icons: {
-			            primary: "ui-icon-closethick"
-			        }
-				});
-				jQuery('.add_button').button({
-					icons: {
-			            primary: "ui-icon-plusthick"
-			        }
-				});
-				setBasketIcons() ;
-			}) ;
-			jQuery('.back').button({
-					icons: {
-		                primary: "ui-icon-arrowreturnthick-1-s"
-		            }
-			});
-			selectableChildProduct();
-		}) ;
-
+		setBasketIcons() ;
+		selectableChildProduct();
+		setProductIcons();
 	});
 	return false;
 }
