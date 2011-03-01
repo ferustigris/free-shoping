@@ -1,14 +1,22 @@
+jQuery(function() {
+	onCategoryStart();
+});
 /*! set icons
  * \params no
  * \return no
  */
-jQuery(function() {
+function onCategoryStart() {
+	jQuery('.add_button').button({
+		icons: {
+            primary: "ui-icon-plusthick"
+        }
+	});
 	jQuery('.back').button({
 			icons: {
                 primary: "ui-icon-arrowreturnthick-1-s"
             }
 	});
-}) ;
+};
 /*! change category
  * \params
  *  - id - id category
@@ -29,14 +37,7 @@ function onCategoryChange(id)
 		jQuery('#main_page').append(content.html());
 		jQuery('#top_page').empty() ;
 		jQuery('#top_page').append(errors.html());
-		jQuery(function() {
-			jQuery('.back').button({
-					icons: {
-		                primary: "ui-icon-arrowreturnthick-1-s"
-		            }
-			});
-		}) ;
-
+		onCategoryStart();
 	});
 	return false;
 };

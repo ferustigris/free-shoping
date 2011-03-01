@@ -23,6 +23,10 @@ function setProductIcons() {
             primary: "ui-icon-arrowreturnthick-1-s"
         }
 	});
+	CKEDITOR.replace( 'product_description',
+		{
+			customConfig : 'scripts/ckeditor/config.js'
+		});
 };
 /*! select for child products
  * \params no
