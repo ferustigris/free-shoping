@@ -246,6 +246,48 @@ class Product {
 		}
 		return NULL;
 	}
+	/*! set price
+	 * \params
+	 * - $price - $price
+	 * \return yes/no
+	 */
+	public function set_price($price)
+	{
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("UPDATE
+				".$db->getPrefix()."products
+				SET i_price=".$price."
+				WHERE id=".$this->id.";"))
+			{
+					return true;
+			}
+		}
+		return NULL;
+	}
+	/*! price of product
+	 * \params no
+	 * \return path
+	 */
+	public function price()
+	{
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("SELECT
+				i_price
+				FROM
+				".$db->getPrefix()."products
+				WHERE
+				id=".$this->id.";"))
+			{
+				while( $line = mysql_fetch_array($result) )
+				{
+					return $line[0];
+				}
+			}
+		}
+		return 0;
+	}
 	/*! get material
 	 * \params no
 	 * \return material name

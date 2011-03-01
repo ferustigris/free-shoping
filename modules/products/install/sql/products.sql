@@ -4,7 +4,8 @@ CREATE TABLE `DB`.`PREFIXproducts` (
   `id_product` int(11) NOT NULL COMMENT 'parent product',
   `id_material` int(11) NOT NULL DEFAULT '-1' COMMENT 'material',
   `id_producer` int(11) NOT NULL DEFAULT '-1' COMMENT 'producer',
+  `i_price` int(11) NOT NULL DEFAULT '0' COMMENT 'product price',
   `s_product` text NOT NULL COMMENT 'name of product',
   `s_description` text NOT NULL COMMENT 'description',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='products list'
+  ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='products list'

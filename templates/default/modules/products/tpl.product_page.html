@@ -14,20 +14,19 @@
 			    	<button type="submit" value="{$LANG['buy']}" >{$LANG['buy']}</button>
 			</div>
 		</noscript>
-		<h3 class="product_description_container">{$products_product->product()}</h3>
+		<h3 class="product_description_container">{$products_product->product()} (<span id="product_price_common">{$products_product->price()}</span> {$LANG['dollar']})</h3>
 		<div class="product_params_container">
 
 			<div class="category_list_item">
 			   	<a href="{$products_product->img()}" class="child_product_list_item_img">
-			   		<p class="category_list_item_title">{$products_product->product()}</p>
-			   		<img class="category_list_item_img" src="{$products_product->small_img()}" title="{$products_product->product()}" alt="{$products_product->product()}" />
+			   		<img class="category_list_item_img product_main_image" src="{$products_product->small_img()}" title="{$products_product->product()}" alt="{$products_product->product()}" />
 			   	</a>
 			</div>   	   	
 
 			{foreach from=$products_product->child() item=product}
 				<div class="category_list_item child_list_item">
 				   	<a href="{$product->img()}" class="child_product_list_item_img">
-				   		<p class="category_list_item_title" src="{$product->small_img()}" title="{$product->product()}" alt="{$product->product()}">{$product->product()}</p>
+				   		{*<p class="category_list_item_title" src="{$product->small_img()}" title="{$product->product()}" alt="{$product->product()}">{$product->product()}</p>*}
 				   		<img class="category_list_item_img child_product_list_item_img" src="{$product->small_img()}" title="{$product->product()}" alt="{$product->product()}" />
 				   	</a>
 				</div>   	   	
@@ -37,7 +36,7 @@
 		<div class="product_params_container">
 			<div class="product_description_container">
 			{foreach from=$products_product->child() item=product}
-				<div idchild="{$product->id()}" class="product_childs_products_item" selected="0">
+				<div idchild="{$product->id()}" class="product_childs_products_item" selected="0" price="{$product->price()}">
 					   		<input name="item_{$product->id()}" class="product_childs_products_item_param" type="checkbox" />
 					   		<span class="product_childs_products_item_param">{$product->product()}</span>
 							<select name="item_size_{$product->id()}" class="product_childs_products_item_param">
@@ -45,6 +44,7 @@
 									<option>{$size->size()}</option>
 								{/foreach}
 							</select>
+							{$product->price()} {$LANG['dollar']}
 				</div>
 			{/foreach}
 			</div>
@@ -58,7 +58,7 @@
 					<span>{$LANG['producer']}</span>
 					<span class="param">{$products_product->producer()->producer()}</span>
 				</div>
-				{if count($products_product->sizes())}
+				{*if count($products_product->sizes())}
 				<div>{$LANG['product sizes']}</div>
 				<p id="feedback">
 				<span>You've selected:</span> <span id="select-result">none</span>.
@@ -69,7 +69,7 @@
 						<li class="ui-widget-content {if $i}{assign var='i' value=false}ui-selected{/if} one_size">{$size->size()}</li>
 					{/foreach}
 				</ol>
-				{/if}
+				{/if*}
 			</div>
 		</div>
 	<noscript>

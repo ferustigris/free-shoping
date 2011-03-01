@@ -13,6 +13,8 @@
 	$this->data["Can't add product! No enougth actual parameters?"] = "Товар не добавлен! Не выбрано ни одного товара...";
 
 	$this->data['Confirmation form'] = 'Корзина';
+	$this->data['total price'] = 'Всего';
+	$this->data['your choose'] = 'Вы выбрали';
 
 
 ?>

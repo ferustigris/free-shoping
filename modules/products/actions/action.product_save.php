@@ -3,7 +3,8 @@
 	if(($name = $this->forms_post()->get('product_name'))&&
 			($description = $this->forms_post()->get('product_description'))&&
 			($parent = $this->forms_post()->get('product_parent'))&&
-			($category = $this->forms_post()->get('product_category'))
+			($category = $this->forms_post()->get('product_category'))&&
+			($product_price = $this->forms_post()->get('product_price'))
 			)
 	{
 		$this->log(LOG_DEBUG, 'saving product...');
@@ -31,7 +32,8 @@
 						//producers
 						if($id_producer = $this->forms_post()->get('product_producer'))
 							$new_product->set_producer($id_producer) ;
-						//sizes
+						$new_product->set_price($product_price) ;
+							//sizes
 						if($sizes = new Size($this, -1))
 						{
 							if($all_sizes = $sizes->all())

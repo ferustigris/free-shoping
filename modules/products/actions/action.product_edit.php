@@ -3,7 +3,8 @@
 	if(($name = $this->forms_post()->get('product_name'))&&
 		($description = $this->forms_post()->get('product_description'))&&
 		($id = $this->forms_post()->get('product_id'))&&
-		($category = $this->forms_post()->get('product_category'))
+		($category = $this->forms_post()->get('product_category'))&&
+		($product_price = $this->forms_post()->get('product_price'))
 		)
 	{
 		if($product = new Product($this, $id))
@@ -35,6 +36,7 @@
 				$product->set_description($description) ;
 				//name
 				$product->set_name($name) ;
+				$product->set_price($product_price) ;
 				//materials
 				if($id_material = $this->forms_post()->get('product_material'))
 					$product->set_material($id_material) ;

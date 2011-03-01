@@ -4,6 +4,7 @@
  */
 $(function() {
 		setBasketIcons();
+		accordion("basket_confirm_products_list");
 		if(jQuery.cookie('basket_content'))
 		{
 			if(jQuery.cookie('basket_content').split(';').length < 2 )
@@ -149,8 +150,8 @@ function onConfirm()
 			jQuery('#top_page').append(errors.html());
 			jQuery('#basket').empty();
 			jQuery('#main_page').html(content.html());
-			jQuery('#basket_show').hide();
-			jQuery('#basket_container').hide();
+			//jQuery('#basket_show').hide();
+			//jQuery('#basket_container').hide();
 			accordion("basket_confirm_products_list");
 			setBasketIcons() ;
 	});

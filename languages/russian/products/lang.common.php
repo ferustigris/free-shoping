@@ -31,5 +31,9 @@
 
 	$this->data['Remove product?'] = 'Удалить товар?';
 	$this->data['back'] = 'Назад';
+	$this->data['product price'] = 'Цена';
+	$this->data['full image'] = 'Огромная картинка';
+	$this->data['small image'] = 'Миниатюра';
+	$this->data['dollar'] = 'руб.';
 
 ?>
