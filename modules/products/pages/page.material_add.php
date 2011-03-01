@@ -4,5 +4,6 @@
 	{
 		$this->assign('materials', $mat->all());
 		$this->add_tpl('add_material_form');
+		$this->add_ajax_tpl('add_material_form');
 	}
 ?>

@@ -4,5 +4,6 @@
 	{
 		$this->assign('producers', $producer->all());
 		$this->add_tpl('add_producer_form');
+		$this->add_ajax_tpl('add_producer_form');
 	}
 ?>
