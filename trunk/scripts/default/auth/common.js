@@ -3,24 +3,26 @@
  * \return no
  */
 jQuery(function() {
-	jQuery('#enter_ok').button({
+	if(jQuery('#enter_ok'))
+		jQuery('#enter_ok').button({
 			icons: {
                 primary: "ui-icon-key"
             }
-	});
-	jQuery('#registration_ok').button({
-		icons: {
-            primary: "ui-icon-key"
-        }
-	}).attr('disabled',true);
-	jQuery('#auth_edit_user_ok').button({
-		icons: {
-            primary: "ui-icon-check"
-        }
-	});
-	jQuery('#registration_password1').keyup(checkPassword);
-	jQuery('#registration_password2').keyup(checkPassword);
-	
+		});
+	if(jQuery('#registration_ok'))
+		jQuery('#registration_ok').button({
+			icons: {
+	            primary: "ui-icon-key"
+	        }
+		}).attr('disabled',true);
+	if(jQuery('#auth_edit_user_ok'))
+		jQuery('#auth_edit_user_ok').button({
+			icons: {
+	            primary: "ui-icon-check"
+	        }
+		});
+	if(jQuery('#registration_password1'))jQuery('#registration_password1').keyup(checkPassword);
+	if(jQuery('#registration_password2'))jQuery('#registration_password2').keyup(checkPassword);
 });
 function checkPassword() {
 	if(jQuery('#registration_password1').attr('value') != jQuery('#registration_password2').attr('value'))

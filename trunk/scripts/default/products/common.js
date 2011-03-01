@@ -1,10 +1,10 @@
 jQuery(function() {
 	setProductIcons();
-	if(jQuery('#product_description'))
+	/*if(jQuery('#product_description'))
 		CKEDITOR.replace( 'product_description',
 		{
 			customConfig : 'scripts/ckeditor/config.js'
-		});
+		});*/
 });
 /*! set buttons icons
  * \params no
