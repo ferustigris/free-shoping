@@ -9,7 +9,7 @@
 	$products = Array() ;
 	$total_price = 0;
 	$products_lines = explode(';', $str);
-	if($str)
+	if(count($products_lines) > 1)
 	{
 		foreach($products_lines as $line)
 		{

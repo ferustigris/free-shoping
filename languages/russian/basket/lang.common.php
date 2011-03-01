@@ -15,6 +15,7 @@
 	$this->data['Confirmation form'] = 'Корзина';
 	$this->data['total price'] = 'Всего';
 	$this->data['your choose'] = 'Вы выбрали';
+	$this->data['your basket is empty'] = 'Ваша корзина пуста!';
 
 
 ?>
