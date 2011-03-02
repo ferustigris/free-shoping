@@ -2,10 +2,10 @@
     <button class="add_button" type="submit" name="material_save_button" value="{$LANG['product save']}">{$LANG['product save']}</button>
     <br />    
     <input id="material_name" onfocus="onFocusHandler('material_name', '{$LANG['material name']}');" onblur="onBlurHandler('material_name', '{$LANG['material name']}');" class="form_entry" type="text" name="material_name" value="{$LANG['material name']}" /><br />
-    <textarea id="product_description" name="product_description">{$LANG['product description']}</textarea><br />
+    <textarea class="form_entry" id="product_description" name="product_description">{$LANG['product description']}</textarea><br />
 </form>
 {*<h3>{$LANG['materials']}</h3>*}
-<ul id="materials_list">
+<ul id="materials_list" class="no_bullets">
 {foreach from=$products_materials item=material}
 <li id="material_item_{$material->id()}">{$material->material()}
 <noscript>

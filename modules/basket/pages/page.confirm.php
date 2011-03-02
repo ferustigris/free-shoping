@@ -46,6 +46,8 @@
 			}
 			if($new_product)
 			{
+				if($product_price == 0)
+					$product_price = $new_product->price();
 				$products[] = Array('product' => $new_product, 'childs' => $products_childs, 'sizes' => $products_sizes, 'price' => $product_price);
 				$total_price += $product_price;
 			}

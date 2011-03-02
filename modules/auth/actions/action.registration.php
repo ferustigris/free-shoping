@@ -25,6 +25,7 @@
 							if($phone)$user->set('phone', $phone);
 							if($mail)$user->set('mail', $mail);
 							if($address)$user->set('address', $address);
+							$this->log(LOG_NOTICE, "User added!");
 							$this->init() ;
 						} else $this->log(LOG_ERROR, "Module auth not found!");
 					} else $this->log(LOG_ERROR, "User already exists!");

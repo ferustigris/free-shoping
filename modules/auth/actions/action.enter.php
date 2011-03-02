@@ -8,5 +8,5 @@
 		$this->sessions()->set('login', $login);
 		$this->sessions()->set('password', $password);
 	}
-	$this->init() ;
+	$this->redirect("index.php");
 ?>

@@ -1,48 +1,44 @@
 <form action="index.php?module=auth&action=edit&page=edit_form" method="post">
-	<div>
+	<div class="form_entry">
     {$LANG['login']}: <b> {$auth_user->name()} </b>
     </div>
-	<div>
+	<div class="wrapper">
     {$LANG['your full name']}:
     </div>
-	<div>
+	<div class="wrapper">
     <input class="form_entry" type="text" name="full_name" value="{$auth_user->get('full_name')}" />
     </div>
-	<div>
+	<div class="wrapper">
     {$LANG['phone']}:
     </div>
-	<div>
+	<div class="wrapper">
     <input class="form_entry" type="text" name="phone" value="{$auth_user->get('phone')}" />
     </div>
-	<div>
+	<div class="wrapper">
     {$LANG['address']}:
     </div>
-	<div>
+	<div class="wrapper">
     <input class="form_entry" type="text" name="address" value="{$auth_user->get('address')}" />
     </div>
-	<div>
+	<div class="wrapper">
     {$LANG['mail']}:
     </div>
-	<div>
+	<div class="wrapper">
     <input class="form_entry" type="text" name="mail" value="{$auth_user->get('mail')}" />
     </div>
-	<div>
-    <input id="auth_edit_user_ok" type="submit" name="auth_edit_user_ok" value="{$LANG['Save']}" />    
+	<div class="wrapper">
+    <button id="auth_edit_user_ok" class="save_button" type="submit" name="auth_edit_user_ok" value="{$LANG['Save']}">{$LANG['Save']}</button>    
     </div>
-	<br />
-	<div>
-    {$LANG['Change password']}    
+	<div class="wrapper">
+    {$LANG['Change password']}. {$LANG['new password']}:
     </div>
-	<div>
-    {$LANG['new password']}:
-    </div>
-	<div>
+	<div class="wrapper">
     <input class="form_entry" type="password" name="password1" value="" />
     </div>
-	<div>
+	<div class="wrapper">
     {$LANG['retype password']}:
     </div>
-	<div>
+	<div class="wrapper">
     <input class="form_entry" type="password" name="password2" value="" />
     </div>
 </form>

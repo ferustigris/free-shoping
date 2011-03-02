@@ -26,8 +26,10 @@
 	$this->data['your full name'] = 'Ваше настоящее имя';
 	$this->data['Change password'] = 'Изменение пароля';
 	$this->data['logout'] = 'Выйти';
-	$this->data['for registration enter next data'] = 'Введите данные для регистрации:';
+	$this->data['User added!'] = 'Вы зарегистрированы.';
 
+	$this->data['for registration enter next data'] = 'Введите данные для регистрации:';
+	$this->data['more than 3 symbol'] = 'не менее 3 символов';
 
 
 ?>

@@ -6,6 +6,10 @@
 	float: left; 
 	border: 0px solid gray;
 }
+#basket_confirm_products_list {
+	margin-left: 200px;
+	width: 500px;
+	}
 #basket li, #trash li, #basket_list li, #basket_element_clone  li { 
 	margin: 0 5px 5px 5px; 
 	padding: 5px; 
