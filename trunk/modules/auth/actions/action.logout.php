@@ -4,6 +4,6 @@
 		$user->logout();
 		$this->sessions()->set('login', NULL);
 		$this->sessions()->set('password', NULL);
-		$this->init() ;
+		$this->redirect("index.php") ;
 	}
 ?>

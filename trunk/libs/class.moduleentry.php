@@ -47,6 +47,15 @@ class ModuleEntry extends Module {
 			return NULL;
 		return $this->vars[$var_name];
 	}
+	/*! redirect
+	 * \params
+	 * - url - name
+	 * \return no
+	 */
+	public function redirect($url)
+	{
+		header("Location: ".$url);
+	}
 	/*! access to variables
 	 * \params
 	 * - var_name - name

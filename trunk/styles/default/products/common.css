@@ -4,9 +4,19 @@
 	margin-right: auto;
 	margin: 0px;
 	padding: 0px;
-	margin-bottom: 26px;
-	height: 20px;
+	margin-bottom: 8px;/*26px;*/
+	height: 19px;
 	color: gray;
+}
+div.wrapper {
+	margin: 0px;
+	padding: 0px;
+}
+div.form_entry {
+	height: 40px;
+}
+.add_button, .save_button {
+	margin-bottom: 10px;
 }
 .no_bullets {
 	list-style: none;

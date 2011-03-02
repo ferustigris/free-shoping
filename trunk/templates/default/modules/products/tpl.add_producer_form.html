@@ -2,10 +2,10 @@
     <button class="add_button" type="submit" name="producer_save_button" value="{$LANG['product save']}">{$LANG['product save']}</button>
     <br />    
     <input  id="producer_name" onfocus="onFocusHandler('producer_name', '{$LANG['producer name']}');" onblur="onBlurHandler('producer_name', '{$LANG['producer name']}');" class="form_entry" type="text" name="producer_name" value="{$LANG['producer name']}" /><br />
-    <textarea id="product_description"  name="product_description">{$LANG['product description']}</textarea><br />
+    <textarea class="form_entry" id="product_description"  name="product_description">{$LANG['product description']}</textarea><br />
 </form>
 {*<h3>{$LANG['producers']}</h3>*}
-<ul id="producers_list">
+<ul id="producers_list" class="no_bullets">
 {foreach from=$products_producers item=producer}
 <li id="producer_item_{$producer->id()}">{$producer->producer()}
 <noscript>

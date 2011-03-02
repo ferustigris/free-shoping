@@ -4,7 +4,7 @@
     <br />    
     <input onfocus="onFocusHandler('size_name', '{$LANG['size name']}');" onblur="onBlurHandler('size_name', '{$LANG['size name']}');" class="form_entry" type="text" id="size_name" name="size_name" value="{$LANG['size name']}" />
 </form>
-<ul id="sizes_list">
+<ul id="sizes_list" class="no_bullets">
 {foreach from=$products_sizes item=mat}
 <li id="size_item_{$mat->id()}">{$mat->size()}
 <noscript>

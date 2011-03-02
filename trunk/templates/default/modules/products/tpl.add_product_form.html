@@ -3,7 +3,7 @@
     <button class="add_button" type="submit" name="product_save_button" value="{$LANG['product save']}" >{$LANG['product save']}</button>
     <br />    
     <input id="product_name" onfocus="onFocusHandler('product_name', '{$LANG['product name']}');" onblur="onBlurHandler('product_name', '{$LANG['product name']}');" class="form_entry" type="text" name="product_name" value="{$LANG['product name']}" /><br />
-    <textarea id="product_description" name="product_description"><p>{$LANG['product description']}</p></textarea><br />
+    <textarea class="form_entry" id="product_description" name="product_description"><p>{$LANG['product description']}</p></textarea><br />
     <input name="product_parent" type="hidden" value="{$products_parent_product}" />
     <select size=1 name="product_category">
     	{foreach from=$products_allcats item=cat}
