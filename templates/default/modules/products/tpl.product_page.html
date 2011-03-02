@@ -32,8 +32,7 @@
 				</div>   	   	
 			{/foreach}
 		</div>
-		<br />
-		<div class="product_params_container">
+		<div class="product_params_container" style="border: 1px solid white; margin-top: -10px;">
 			<div class="product_description_container">
 			{foreach from=$products_product->child() item=product}
 				<div idchild="{$product->id()}" class="product_childs_products_item" selected="0" price="{$product->price()}">
@@ -77,6 +76,3 @@
 		</form>
 	</noscript>			
 </div>
-<script>
-setProductIcons();
-</script>
