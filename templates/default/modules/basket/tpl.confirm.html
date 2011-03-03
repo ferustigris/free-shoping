@@ -5,20 +5,22 @@
 	</div>
 	<div id="basket_confirm_products_list">
 	{foreach from=$basket_products item=product_entry}
-		<h3><a href="#">{$product_entry['product']->product()} ({$product_entry['price']} {$LANG['dollar']})</a></h3>
-	
-		<div>
+		<div class="confirm_one_product_container" price="{$product_entry['price']}">
+		<h3><a class="name_of_product_on_confirm_page" href="#">{$product_entry['product']->product()} ({$product_entry['price']} {$LANG['dollar']})</a></h3>
+		<div class="child_products_list_on_confirm_page">
 				<ul>
 				{foreach from=$product_entry['childs'] item=child}
 					<li>{$child->product()}, {$product_entry['sizes'][$child->id()]}</li>
 				{/foreach}
 				</ul>
 			{*<p>{$product->description()}</p>*}
+			<a class="remove_product_from_basket" href="#" style="float: right; margin-right: -30px; font-size: x-small">{$LANG['remove from basket']}</a>
+		</div>
 		</div>
 	{/foreach}
 	</div>
-	<div>
-	{$LANG['total price']}: <b>{$basket_total_price}</b> {$LANG['dollar']}
+	<div class="header_message">
+	{$LANG['total price']}: <b id="total_price_container">{$basket_total_price}</b> {$LANG['dollar']}
 	</div>
 	<button id="basket_order_ok" type="submit" name="basket_order_ok" value="{$LANG['confirm ok']}" >{$LANG['confirm ok']}</button>
 	{else}
