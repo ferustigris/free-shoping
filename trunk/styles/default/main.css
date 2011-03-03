@@ -5,7 +5,7 @@
 	margin-right: auto; /* Отступ слева */ 
 }
 #left_page { /* Левая колонка*/ 
-	width: 200px; /* Ширина слоя */ 
+	width: 201px; /* Ширина слоя */ 
 	float: left; /* Состыковка с соседним слоем */ 
 	min-height: 20px; 
 	padding: 0px;
@@ -36,7 +36,7 @@
 /* <- главные секции */
 /* для меню-контейнеров -> */
 .column { 
-	width: 196px; 
+	width: 197px; 
 	padding: 0px;
 	margin: 0px;
 	float: left; 
@@ -87,4 +87,5 @@ button {
 	margin-left: 0px !impotant;
 	margin-top: 0px !impotant;
 	margin-bottom: 9px !impotant;
+	height: 40px;
 }
