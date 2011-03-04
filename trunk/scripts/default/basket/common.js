@@ -16,12 +16,31 @@ function onConfirmStart() {
 		});
 	accordion("basket_confirm_products_list");
 	jQuery('.remove_product_from_basket').click(function () {
+		var par = $(this).parent().parent().parent();
 		$(this).parent().parent().detach();
+		var new_basket = '';
+		par.contents('.confirm_one_product_container').each(function(){
+			new_basket += 'id_product=' + $(this).attr('id_product') + ',';
+			$(this).contents('.child_products_list_on_confirm_page').each(function(){
+				$(this).contents('ul').each(function(){
+					$(this).contents('li').each(function(){
+						new_basket += 'id_child=' + $(this).attr('id_child') + ',';
+						new_basket += 'id_size="' + $(this).attr('id_size') + '",';
+					});
+				});
+			});
+			new_basket += ';';
+		});
+		
+		jQuery.cookie('basket_content', new_basket);
+		//alert(jQuery.cookie('basket_content'));
+		if(jQuery("#count_in_basket"))jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
 		var total_price = 0;
 		$('.confirm_one_product_container').each(function(){
 			total_price += parseInt($(this).attr('price'));
-		})
+		});
 		$('#total_price_container').html(total_price);
+		accordion("basket_confirm_products_list");
 	});
 };
 /*! Создаем контейнеры корзины
@@ -138,7 +157,7 @@ function addProduct(id)
 		});
 		jQuery.cookie('basket_content', jQuery.cookie('basket_content') + ';');
 		jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
-		jQuery('#basket_show').show();	
+		jQuery('#basket_show').show();
 		jQuery('#basket_container').show();
 	}
 }

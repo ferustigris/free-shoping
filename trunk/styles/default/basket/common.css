@@ -9,7 +9,8 @@
 #basket_confirm_products_list {
 	margin-left: 200px;
 	width: 500px;
-	}
+	margin-bottom: 20px;
+}
 #basket li, #trash li, #basket_list li, #basket_element_clone  li { 
 	margin: 0 5px 5px 5px; 
 	padding: 5px; 
@@ -50,8 +51,20 @@
 }
 .header_message {
 	margin-top: 9px;
-	height: 40px;
+	height: 40px !impotant;
 	margin-bottom: 9px;
+}
+h3.header_message {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+#you_choose_message {
+	margin-top: 30px;
+	height: 40px !impotant;
+	margin-bottom: 10px;
+}
+#basket_order_ok {
+	font-weight: bold;
 }
 .child_products_list_on_confirm_page {
 	margin-left: 20px;
