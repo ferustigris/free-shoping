@@ -1,7 +1,8 @@
 <?php
 	include_once('modules/products/include/class.product.php');
 	if(($name = $this->forms_post()->get('product_name'))&&
-		($description = $this->forms_post()->get('product_description'))&&
+			($article = $this->forms_post()->get('product_article'))&&
+			($description = $this->forms_post()->get('product_description'))&&
 		($id = $this->forms_post()->get('product_id'))&&
 		($category = $this->forms_post()->get('product_category'))&&
 		($product_price = $this->forms_post()->get('product_price'))
@@ -36,6 +37,7 @@
 				$product->set_description($description) ;
 				//name
 				$product->set_name($name) ;
+				$product->set_article($article) ;
 				$product->set_price($product_price) ;
 				//materials
 				if($id_material = $this->forms_post()->get('product_material'))

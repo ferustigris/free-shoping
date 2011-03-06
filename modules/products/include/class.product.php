@@ -70,7 +70,7 @@ class Product {
 		}
 		return $list;
 	}
-	/*! link
+	/*! product
 	 * \params no
 	 * \return text
 	 */
@@ -80,6 +80,29 @@ class Product {
 		{
 			if($result = $db->query("SELECT
 				s_product
+				FROM
+				".$db->getPrefix()."products
+				WHERE
+				id=".$this->id.";"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					return $line[0];
+				}
+			}
+		}
+		return NULL;
+	}
+	/*! article
+	 * \params no
+	 * \return text
+	 */
+	public function article()
+	{
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("SELECT
+				s_article
 				FROM
 				".$db->getPrefix()."products
 				WHERE
@@ -165,13 +188,13 @@ class Product {
 	 * - $img_small - small img
 	 * \return true/false
 	 */
-	public function add($category_id, $name, $description, $img_full, $img_small)
+	public function add($category_id, $article, $name, $description, $img_full, $img_small)
 	{
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("INSERT INTO
-				".$db->getPrefix()."products(id_product, id_category, s_product, s_description)
-				VALUES(".$this->id.", ".$category_id.", '".$name."', '".$description."');"))
+				".$db->getPrefix()."products(id_product, id_category, s_article, s_product, s_description)
+				VALUES(".$this->id.", ".$category_id.", '".$article."', '".$name."', '".$description."');"))
 			{
 				$id = mysql_insert_id();
 					$pr = new Product($this->module, $id);
@@ -450,9 +473,9 @@ class Product {
 		}
 		return NULL;
 	}
-	/*! set producer
+	/*! set product name
 	 * \params
-	 * - $producer_id - producer id
+	 * - $name - product name
 	 * \return yes/no
 	 */
 	public function set_name($name)
@@ -462,6 +485,25 @@ class Product {
 			if($result = $db->query("UPDATE
 				".$db->getPrefix()."products
 				SET s_product='".$name."'
+				WHERE id=".$this->id.";"))
+			{
+					return true;
+			}
+		}
+		return NULL;
+	}
+	/*! set product article
+	 * \params
+	 * - article - product article
+	 * \return yes/no
+	 */
+	public function set_article($article)
+	{
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("UPDATE
+				".$db->getPrefix()."products
+				SET s_article='".$article."'
 				WHERE id=".$this->id.";"))
 			{
 					return true;

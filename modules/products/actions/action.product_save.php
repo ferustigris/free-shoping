@@ -1,6 +1,7 @@
 <?php
 	include_once('modules/products/include/class.product.php');
 	if(($name = $this->forms_post()->get('product_name'))&&
+			($article = $this->forms_post()->get('product_article'))&&
 			($description = $this->forms_post()->get('product_description'))&&
 			($parent = $this->forms_post()->get('product_parent'))&&
 			($category = $this->forms_post()->get('product_category'))&&
@@ -24,7 +25,7 @@
 						$small_img->move($img_small);
 					} else
 						$img->copy($img_small, 200, 200) ;
-					if($new_product = $product->add($category, $name, $description, $img_full, $img_small))
+					if($new_product = $product->add($category, $article, $name, $description, $img_full, $img_small))
 					{
 						//materials
 						if($id_material = $this->forms_post()->get('product_material'))
@@ -47,7 +48,10 @@
 								}
 							}
 						}
-						$this->forms_get()->set('product_id', $new_product->id());
+						if($parent > -1)
+							$this->forms_get()->set('product_id', $parent);
+						else
+							$this->forms_get()->set('product_id', $new_product->id());
 					} else
 						$this->log(LOG_DEBUG, 'Can not add product!');
 				}

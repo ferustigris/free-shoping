@@ -2,6 +2,8 @@
 <form ENCTYPE="multipart/form-data"  action="index.php?module=products&page=product_page&action=product_save" method="POST">
     <button class="add_button" type="submit" name="product_save_button" value="{$LANG['product save']}" >{$LANG['product save']}</button>
     <br />    
+    {$LANG['product article']}<br />
+    <input class="" type="text" name="product_article" value="" /><br />
     <input id="product_name" onfocus="onFocusHandler('product_name', '{$LANG['product name']}');" onblur="onBlurHandler('product_name', '{$LANG['product name']}');" class="form_entry" type="text" name="product_name" value="{$LANG['product name']}" /><br />
     <textarea class="form_entry" id="product_description" name="product_description"><p>{$LANG['product description']}</p></textarea><br />
     <input name="product_parent" type="hidden" value="{$products_parent_product}" />
