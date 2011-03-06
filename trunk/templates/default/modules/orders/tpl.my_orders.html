@@ -7,7 +7,7 @@
 		</h3>
 			<div class="child_products_list_on_confirm_page">
 	{foreach from=$order_line->child() item=order}
-		{$order->product()->product()}
+		{$order->product()->product()}{if ($order->size()->id()>-1)||(count($order->product()->child())==0)}({$order->size()->size()}) - {$order->product()->price()} {$LANG['dollar']}{/if}
 		<br />
 	{/foreach}
 			</div>
