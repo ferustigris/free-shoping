@@ -5,7 +5,7 @@
 	margin-right: auto; /* Отступ слева */ 
 }
 #left_page { /* Левая колонка*/ 
-	width: 201px; /* Ширина слоя */ 
+	width: 191px; /* Ширина слоя */ 
 	float: left; /* Состыковка с соседним слоем */ 
 	min-height: 20px; 
 	padding: 0px;
@@ -36,13 +36,13 @@
 /* <- главные секции */
 /* для меню-контейнеров -> */
 .column { 
-	width: 197px; 
+	width: 191px; 
 	padding: 0px;
 	margin: 0px;
 	float: left; 
 }
 .portlet { 
-	margin: 5px; 
+	margin: 0px; 
 	margin-top: 0px;
 	background: #fafafa;
 }
@@ -57,15 +57,16 @@
 	background: #f5f5f5;
 }
 .portlet-header { 
-	margin: 0.3em; 
-	padding-bottom: 4px; 
-	padding-left: 0.3em; 
+	padding: 10px;
+	height: 18px;
+	margin: 0px;
+	vertical-align: middle; 
 }
 .portlet-header .ui-icon { 
 	float: right; 
 }
 .portlet-content { 
-	padding: 0.1em; 
+	padding: 9px; 
 }
 .ui-sortable-placeholder { 
 	border: 1px dotted black; 

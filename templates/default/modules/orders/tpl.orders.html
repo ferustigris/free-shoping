@@ -5,12 +5,16 @@
 			{{date("H:i d/m/Y", $order_line->date())}} {$order_line->user()->name()}
 			</a>
 		</h3>
-			<div class="child_products_list_on_confirm_page">
+			<div class="orders_child_products_list">
 	{foreach from=$order_line->child() item=order}
-		{$order->product()->product()}
-				<br />
+		<div class="orders_child_product_item">
+		{assign var=product_title value=($order->size()->id()>-1)||(count($order->product()->child())==0)}
+		{if !$product_title}<b>{else}
+			{$order->product()->article()}: {/if}{$order->product()->product()}{if $product_title} ({$order->size()->size()}) - {$order->product()->price()} {$LANG['dollar']}{/if}
+		{if !$product_title}</b>{/if}
+		</div>
 	{/foreach}
-				<form method="post" action="index.php?module=orders&action=change_order&page=orders">
+				<form class="orders_child_product_item orders_child_product_buttons" method="post" action="index.php?module=orders&action=change_order&page=orders">
 					<input type="hidden" name="id_order" value="{$order_line->id()}" />
 					<select name="id_state">
 	{foreach from=$orders_states item=state}
