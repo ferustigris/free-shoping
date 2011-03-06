@@ -1,22 +1,29 @@
-<form>
+<form action="index.php?module=orders&page=my_orders&action=make_order" method="post">
 	{if count($basket_products)>0}
 	<button id="basket_order_ok" type="submit" name="basket_order_ok" value="{$LANG['confirm ok']}" >{$LANG['confirm ok']}</button>
 	<div id="you_choose_message">
 	{$LANG['your choose']}:
 	</div>
 	<div id="basket_confirm_products_list">
+	{assign var=index value=0}
 	{foreach from=$basket_products item=product_entry}
 		<div class="confirm_one_product_container" price="{$product_entry['price']}" id_product="{$product_entry['product']->id()}">
+			<input type="hidden" name="id_product{$index}" value="{$product_entry['product']->id()}" />
 			<h3 class="header_message"><a class="name_of_product_on_confirm_page" href="#">{$product_entry['product']->product()} ({$product_entry['price']} {$LANG['dollar']})</a></h3>
 			<div class="child_products_list_on_confirm_page">
 					<ul>
 					{foreach from=$product_entry['childs'] item=child}
-						<li id_child="{$child->id()}" id_size="{$product_entry['sizes'][$child->id()]}">{$child->product()}, {$product_entry['sizes'][$child->id()]}</li>
+						{assign var=index value=$index+1}
+						<input type="hidden" name="id_product{$index}" value="{$child->id()}" />
+						<input type="hidden" name="id_size{$index}" value="{$product_entry['sizes'][$child->id()]->id()}" />
+						<li id_child="{$child->id()}" id_size="{$product_entry['sizes'][$child->id()]->id()}">{$child->product()}, {$product_entry['sizes'][$child->id()]->size()}</li>
 					{/foreach}
 					</ul>
 				<a class="remove_product_from_basket" href="#" style="float: right; margin-right: -30px; font-size: x-small">{$LANG['remove from basket']}</a>
+				{$index}
 			</div>
 		</div>
+		{assign var=index value=$index+1}
 	{/foreach}
 	</div>
 	<div class="header_message">

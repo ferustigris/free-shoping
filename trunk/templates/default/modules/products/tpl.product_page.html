@@ -40,7 +40,7 @@
 					   		<span class="product_childs_products_item_param">{$product->product()}</span>
 							<select name="item_size_{$product->id()}" class="product_childs_products_item_param">
 								{foreach from=$product->sizes() item=size}
-									<option>{$size->size()}</option>
+									<option value="{$size->id()}">{$size->size()}</option>
 								{/foreach}
 							</select>
 							{$product->price()} {$LANG['dollar']}

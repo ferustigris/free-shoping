@@ -25,7 +25,7 @@ function onConfirmStart() {
 				$(this).contents('ul').each(function(){
 					$(this).contents('li').each(function(){
 						new_basket += 'id_child=' + $(this).attr('id_child') + ',';
-						new_basket += 'id_size="' + $(this).attr('id_size') + '",';
+						new_basket += 'id_size=' + $(this).attr('id_size') + ',';
 					});
 				});
 			});
@@ -151,7 +151,7 @@ function addProduct(id)
 			{
 				jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_child=' + $(this) .attr('idchild') + ',');
 				$(this).contents('select').each(function() {
-					jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_size="' + $(this).val() + '",');
+					jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_size=' + $(this).val() + ',');
 				}) ;
 			}
 		});

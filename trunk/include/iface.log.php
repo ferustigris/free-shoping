@@ -16,4 +16,3 @@ abstract class Log {
 	abstract public function add($level, $module, $msg);
 }
 ?>
-

@@ -23,7 +23,7 @@ class DataBase {
 	 * \params no
 	 * \return value
 	 */
-	public function __destruct() 
+	public function __destruct()
 	{
 		$this->disconnect();
 	}
@@ -31,7 +31,7 @@ class DataBase {
 	 * \params no
 	 * \return value
 	 */
-	public function getDBName() 
+	public function getDBName()
 	{
 		return $this->db_name;
 	}
@@ -39,7 +39,7 @@ class DataBase {
 	 * \params no
 	 * \return no
 	 */
-	private function connect() 
+	private function connect()
 	{
 		if($this->con)return;
 		$this->db=mysql_connect('localhost:3306', $this->user, $this->passwd);
@@ -50,7 +50,7 @@ class DataBase {
 	 * \params no
 	 * \return no
 	 */
-	private function disconnect() 
+	private function disconnect()
 	{
 		$this->con = 0;
 		mysql_close();
@@ -60,7 +60,7 @@ class DataBase {
 	 * - str - sql
 	 * \return no
 	 */
-	public function query($str) 
+	public function query($str)
 	{
 		if(!$this->con)return 0;
 		return mysql_query($str);
@@ -69,7 +69,7 @@ class DataBase {
 	 * \params no
 	 * \return no
 	 */
-	public function getPrefix() 
+	public function getPrefix()
 	{
 		return $this->prefix;
 	}
@@ -78,15 +78,23 @@ class DataBase {
 	 * - table - table name
 	 * \return no
 	 */
-	public function getFreeID($table) 
+	public function getFreeID($table)
 	{
 		if(!$this->con)return 0;
-		if($result = $this->query("SELECT MAX(id) FROM `".$this->getPrefix().$table."`;")) 
+		if($result = $this->query("SELECT MAX(id) FROM `".$this->getPrefix().$table."`;"))
 		{
 			$line = mysql_fetch_array( $result );
 			return $line[0];
 		}
 		return 1;
+	}
+	/*! get last inserted id
+	 * \params no
+	 * \return no
+	 */
+	public function getLastId()
+	{
+		return mysql_insert_id();
 	}
 }
 ?>

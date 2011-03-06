@@ -39,7 +39,7 @@
 						} else
 						if(($new_child)&&($value_lines[0] == 'id_size'))
 						{
-							$products_sizes[$new_child->id()] = $value_lines[1];
+							$products_sizes[$new_child->id()] = new Size($this, $value_lines[1]);
 						}
 					}
 				}
