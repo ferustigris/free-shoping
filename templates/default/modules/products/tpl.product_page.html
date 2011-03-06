@@ -3,10 +3,9 @@
 			<form class="buttons_line" onsubmit="return onCategoryChange({$products_product->category() ->id()});" ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list&category_id={$products_product->category() ->id()}" method="POST">
 			    <button class="buttons_line back" type="submit" name="back" value="{$LANG['back']}" >{$LANG['back']}</button>    
 			</form>
-			<form id="product_js_to_basket" class="buttons_line" onsubmit="return onBuy({$products_product->id()});" ENCTYPE="multipart/form-data"  action="index.php?module=basket&action=add_product&page=confirm" method="POST">
+			<form id="product_js_to_basket" class="buttons_line hidden" onsubmit="return onBuy({$products_product->id()});" ENCTYPE="multipart/form-data"  action="index.php?module=basket&action=add_product&page=confirm" method="POST">
 			    <button class="buttons_line buy" type="submit" name="buy" value="{$LANG['buy']}" >{$LANG['buy']}</button>
 			</form>
-		<input type="hidden" value="asd" name ="asd" />
 		</div>
 		<noscript>
 			<div class="buttons_container">
@@ -71,8 +70,8 @@
 				{/if*}
 			</div>
 		</div>
-	<noscript>
     	<input type="hidden" name="id_product" value="{$products_product->id()}" />
+	<noscript>
 		</form>
 	</noscript>			
 </div>

@@ -23,6 +23,9 @@
 					$new_order->add($user->id(), $product_line['product']->id(), $product_line['size']->id());
 				}
 			} else $this->log(LOG_ERROR, "Could not create order!");
+			if($basketm = $this->get_module('basket'))
+				$basketm->cookies()->set('content', '');
+			$this->options()->set($_SERVER['REMOTE_ADDR'], '');
 		} else $this->log(LOG_ERROR, "Could not create order!");
 	} else $this->log(LOG_ERROR, "No enought actual products!");
 ?>

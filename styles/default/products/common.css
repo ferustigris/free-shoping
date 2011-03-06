@@ -8,6 +8,14 @@
 	height: 19px;
 	color: gray;
 }
+.hidden {
+	display: none;
+}
+.buy {
+	display: block;
+	margin-right: 300px;
+	clear: both;
+}
 div.wrapper {
 	margin: 0px;
 	padding: 0px;
@@ -104,6 +112,7 @@ h3.product_description_container {
 	margin-bottom: 0px;
 	vertical-align: middle;
 	width: 100%;
+	display: block;
 }
 .buttons_container {
 	margin: 0px;

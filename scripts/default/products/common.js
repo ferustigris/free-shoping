@@ -43,6 +43,8 @@ function setProductIcons() {
 function selectableChildProduct() 
 {
 	//resolve the icons behavior with event delegation
+	if(jQuery('#product_js_to_basket'))
+		jQuery('#product_js_to_basket').removeClass("hidden");
 	$( "a.child_product_list_item_img" ).click(function( event ) {
 		$target = $( event.target );
 		viewLargerImage( $target );
