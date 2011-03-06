@@ -2,13 +2,17 @@
 {foreach from=$orders_list item=order_line}
 		<h3 class="header_message">
 			<a class="name_of_product_on_confirm_page" href="#">
-			{{date("H:i d/m/Y", $order_line->date())}}
+			{{date("H:i d.m.Y", $order_line->date())}}
 			</a>
 		</h3>
 			<div class="child_products_list_on_confirm_page">
 	{foreach from=$order_line->child() item=order}
-		{$order->product()->product()}{if ($order->size()->id()>-1)||(count($order->product()->child())==0)}({$order->size()->size()}) - {$order->product()->price()} {$LANG['dollar']}{/if}
-		<br />
+		<div class="orders_child_product_item">
+		{assign var=product_title value=($order->size()->id()>-1)||(count($order->product()->child())==0)}
+		{if !$product_title}<b>{/if}
+			{$order->product()->product()}{if $product_title} ({$order->size()->size()}) - {$order->product()->price()} {$LANG['dollar']}{/if}
+		{if !$product_title}</b>{/if}
+		</div>
 	{/foreach}
 			</div>
 {/foreach}
