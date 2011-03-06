@@ -1,3 +1,15 @@
-{foreach from=$orders_list item=order}
-	{$order->product()->product()}
+	<div id="basket_confirm_products_list">
+{foreach from=$orders_list item=order_line}
+		<h3 class="header_message">
+			<a class="name_of_product_on_confirm_page" href="#">
+			{{date("H:i d/m/Y", $order_line->date())}}
+			</a>
+		</h3>
+			<div class="child_products_list_on_confirm_page">
+	{foreach from=$order_line->child() item=order}
+		{$order->product()->product()}
+		<br />
+	{/foreach}
+			</div>
 {/foreach}
+	</div>
