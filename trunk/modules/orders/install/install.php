@@ -6,12 +6,12 @@
 	global $db;
 	if($db)
 	{
-		$db->query("INSERT INTO	".$db->getPrefix()."order_states(i_code, s_name) VALUES(99,'canceled');");
-		$db->query("INSERT INTO	".$db->getPrefix()."order_states(i_code, s_name) VALUES(100,'finish');");
 		$db->query("INSERT INTO	".$db->getPrefix()."order_states(i_code, s_name) VALUES(10,'started');");
 		$db->query("INSERT INTO	".$db->getPrefix()."order_states(i_code, s_name) VALUES(20,'accepted');");
 		$db->query("INSERT INTO	".$db->getPrefix()."order_states(i_code, s_name) VALUES(30,'order');");
 		$db->query("INSERT INTO	".$db->getPrefix()."order_states(i_code, s_name) VALUES(40,'delivery');");
+		$db->query("INSERT INTO	".$db->getPrefix()."order_states(i_code, s_name) VALUES(99,'canceled');");
+		$db->query("INSERT INTO	".$db->getPrefix()."order_states(i_code, s_name) VALUES(100,'finish');");
 	}
 
 ?>
