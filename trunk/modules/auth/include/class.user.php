@@ -31,6 +31,23 @@
 			}
 			parent::__construct("user_options", $this->id);
 		}
+		/*! get user
+		 * \params
+		 * id - user id
+		 * \return new user
+		 */
+		public function user($id)
+		{
+			global $db;
+			if($result = $db->query("SELECT s_name, s_passwd FROM ".$db->getPrefix()."users WHERE id=".$id.";"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					return new UserImpl($line[0], $line[1]);
+				}
+			}
+			return NULL;
+		}
 		/*! create user
 		 * \params no
 		 * \return no
@@ -107,7 +124,7 @@
 		{
 			global $db;
 			$users = Array();
-			$result = $db->query("SELECT s_name, s_passwd FROM ".$db->getPrefix()."users 
+			$result = $db->query("SELECT s_name, s_passwd FROM ".$db->getPrefix()."users
 			WHERE i_priority > ".$this->priority.";");
 			if($result)
 			{
