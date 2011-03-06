@@ -9,7 +9,7 @@
 			$orders = $parent_order->child();
 			foreach($orders as $order)
 			{
-				if($order->user_id() == $user->id())
+				if($order->user()->id() == $user->id())
 					$my_orders[] = $order;
 			}
 		} else $this->log(LOG_ERROR, "You are not found!");
