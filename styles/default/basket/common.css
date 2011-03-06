@@ -63,16 +63,34 @@ h3.header_message {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-#you_choose_message {
+.you_choose_message {
+	margin-left: 200px;
 	margin-top: 30px;
 	height: 40px !impotant;
 	margin-bottom: 10px;
 }
+.confirm_price_container {
+	vertical-align: top;
+	padding-bottom: 10px;
+}
+.confirm_list_child_products {
+	margin: 0px;
+	margin-left: 10px;
+	padding: 0px;
+}
+.confirm_list_child_products_item {
+	margin: 0px;
+	height: 40px;
+	padding: 0px;
+	margin-bottom: 10px;
+}
 #basket_order_ok {
 	font-weight: bold;
+	margin-left: 10px;
 }
 .child_products_list_on_confirm_page {
-	margin-left: 20px;
+	margin-left: 0px;
+	margin-bottom: 10px;
 }
 .name_of_product_on_confirm_page{
 	margin-left: 10px;

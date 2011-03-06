@@ -1,7 +1,7 @@
 <form action="index.php?module=orders&page=my_orders&action=make_order" method="post">
 	{if count($basket_products)>0}
 	<button id="basket_order_ok" type="submit" name="basket_order_ok" value="{$LANG['confirm ok']}" >{$LANG['confirm ok']}</button>
-	<div id="you_choose_message">
+	<div class="you_choose_message">
 	{$LANG['your choose']}:
 	</div>
 	<div id="basket_confirm_products_list">
@@ -11,12 +11,12 @@
 			<input type="hidden" name="id_product{$index}" value="{$product_entry['product']->id()}" />
 			<h3 class="header_message"><a class="name_of_product_on_confirm_page" href="#">{$product_entry['product']->product()} ({$product_entry['price']} {$LANG['dollar']})</a></h3>
 			<div class="child_products_list_on_confirm_page">
-					<ul>
+					<ul class="confirm_list_child_products">
 					{foreach from=$product_entry['childs'] item=child}
 						{assign var=index value=$index+1}
 						<input type="hidden" name="id_product{$index}" value="{$child->id()}" />
-						<input type="hidden" name="id_size{$index}" value="{$product_entry['sizes'][$child->id()]->id()}" />
-						<li id_child="{$child->id()}" id_size="{$product_entry['sizes'][$child->id()]->id()}">{$child->product()}, {$product_entry['sizes'][$child->id()]->size()}</li>
+						<inputtype="hidden" name="id_size{$index}" value="{$product_entry['sizes'][$child->id()]->id()}" />
+						<li class="confirm_list_child_products_item"  id_child="{$child->id()}" id_size="{$product_entry['sizes'][$child->id()]->id()}">{$child->product()} ({$product_entry['sizes'][$child->id()]->size()})</li>
 					{/foreach}
 					</ul>
 				<a class="remove_product_from_basket" href="#" style="float: right; margin-right: -30px; font-size: x-small">{$LANG['remove from basket']}</a>
@@ -25,11 +25,11 @@
 		{assign var=index value=$index+1}
 	{/foreach}
 	</div>
-	<div class="header_message">
+	<div class="you_choose_message confirm_price_container">
 	{$LANG['total price']}: <b id="total_price_container">{$basket_total_price}</b> {$LANG['dollar']}
 	</div>
 	{else}
-	<div>
+	<div class="you_choose_message">
 	{$LANG['your basket is empty']}
 	</div>
 	{/if}
