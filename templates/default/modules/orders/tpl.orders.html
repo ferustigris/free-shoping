@@ -8,8 +8,20 @@
 			<div class="child_products_list_on_confirm_page">
 	{foreach from=$order_line->child() item=order}
 		{$order->product()->product()}
-		<br />
+				<br />
 	{/foreach}
+				<form method="post" action="index.php?module=orders&action=change_order&page=orders">
+					<input type="hidden" name="id_order" value="{$order_line->id()}" />
+					<select name="id_state">
+	{foreach from=$orders_states item=state}
+		{if $state->code()>=$order_line->state()->code()}
+						<option value="{$state->id()}" {if $state->id()==$order_line->state()->id()}selected{/if}>{$state->name()}</option>
+		{/if}
+	{/foreach}
+					</select>
+					<button id="orders_save_order">{$LANG['Save']}</button>
+				</form>
 			</div>
+		
 {/foreach}
 	</div>

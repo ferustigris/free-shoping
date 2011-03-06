@@ -89,6 +89,48 @@ class Order {
 		}
 		return NULL;
 	}
+	/*! get state
+	 * \params no
+	 * \return state
+	 */
+	public function state()
+	{
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("SELECT
+				id_state
+				FROM
+				".$db->getPrefix()."orders
+				WHERE
+				id=".$this->id.";"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					return new State($this->module, $line[0]);
+				}
+			}
+		}
+		return NULL;
+	}
+	/*! get state
+	 * \params
+	 * id_state - new state
+	 * \return no
+	 */
+	public function set_state($id_state)
+	{
+		$id_state = (integer)$id_state;
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("UPDATE
+				".$db->getPrefix()."orders
+				SET id_state=".$id_state."
+				WHERE
+				id=".$this->id.";"))
+			{
+			}
+		}
+	}
 	/*! get user
 	 * \params no
 	 * \return id

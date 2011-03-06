@@ -89,3 +89,19 @@ button {
 	margin-bottom: 9px !impotant;
 	height: 40px;
 }
+input {
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 9px;
+	padding: 0px;
+}
+select {
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 9px;
+	height: 40px;
+	vertical-align: middle;
+	padding: 7px;
+}
