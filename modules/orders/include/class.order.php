@@ -43,6 +43,52 @@ class Order {
 		}
 		return $list;
 	}
+	/*! get product
+	 * \params no
+	 * \return true/false
+	 */
+	public function product()
+	{
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("SELECT
+				id_product
+				FROM
+				".$db->getPrefix()."orders
+				WHERE
+				id=".$this->id.";"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					return new Product($this->module, $line[0]);
+				}
+			}
+		}
+		return NULL;
+	}
+	/*! get size
+	 * \params no
+	 * \return true/false
+	 */
+	public function size()
+	{
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("SELECT
+				id_size
+				FROM
+				".$db->getPrefix()."orders
+				WHERE
+				id=".$this->id.";"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					return new Size($this->module, $line[0]);
+				}
+			}
+		}
+		return NULL;
+	}
 	/*! get parent
 	 * \params no
 	 * \return parent
@@ -77,14 +123,12 @@ class Order {
 	}
 	/*! add new category
 	 * \params
-	 * - $parent_id - root
-	 * - $name - category name
-	 * - $description - category description
-	 * - $img_full - full img
-	 * - $img_small - small img
-	 * \return true/false
+	 * - id_user - user
+	 * - $id_product - product
+	 * - $id_size - size
+	 * \return new order
 	 */
-	public function add($id_user, $id_product)
+	public function add($id_user, $id_product, $id_size)
 	{
 		if($db = $this->module->db())
 		{
@@ -93,8 +137,8 @@ class Order {
 				if($state = $state->get_by_code(ORDER_BEGIN))
 				{
 					if($result = $db->query("INSERT INTO
-						".$db->getPrefix()."orders(id_parent, id_user, id_product, id_state, i_date)
-						VALUES(".$this->id.", ".$id_user.", ".$id_product.", ".$state->id().", ".time().");"))
+						".$db->getPrefix()."orders(id_parent, id_user, id_product, id_size, id_state, i_date)
+						VALUES(".$this->id.", ".$id_user.", ".$id_product.", ".$id_size.", ".$state->id().", ".time().");"))
 					{
 						return new Order($this->module, $db->getLastId());
 					}
