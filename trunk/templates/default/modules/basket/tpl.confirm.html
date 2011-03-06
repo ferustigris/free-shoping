@@ -15,7 +15,7 @@
 					{foreach from=$product_entry['childs'] item=child}
 						{assign var=index value=$index+1}
 						<input type="hidden" name="id_product{$index}" value="{$child->id()}" />
-						<inputtype="hidden" name="id_size{$index}" value="{$product_entry['sizes'][$child->id()]->id()}" />
+						<input type="hidden" name="id_size{$index}" value="{$product_entry['sizes'][$child->id()]->id()}" />
 						<li class="confirm_list_child_products_item"  id_child="{$child->id()}" id_size="{$product_entry['sizes'][$child->id()]->id()}">{$child->product()} ({$product_entry['sizes'][$child->id()]->size()})</li>
 					{/foreach}
 					</ul>

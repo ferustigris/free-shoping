@@ -29,9 +29,9 @@
 		{
 			$str = $str.';';
 			$this->options()->set($_SERVER['REMOTE_ADDR'], $str);
-			header('Location:index.php?module=products&page=product_page&product_id='.$id);
+			$this->redirect('index.php?module=products&page=product_page&product_id='.$id);
 		}
 
-	}
+	} else
 	$this->log(LOG_ERROR, "Can't add product! No enougth actual parameters?");
 ?>
