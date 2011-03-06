@@ -2,3 +2,9 @@
 	margin: 0px;
 	padding: 20px;
 }
+.menu_item {
+	height: 40px;
+	margin: 0px;
+	margin-bottom: 10px;
+	padding-bottom: 0px;
+}

@@ -1,6 +1,6 @@
 <ul type="circle" class="left_menu">
 {foreach from=$menu_menus item=menu_item}
-	<li>
+	<li class="menu_item">
 		<a href="{$menu_item->link()}" onclick="return loadAjaxPage('{$menu_item->link()}');">
 		{$menu_item->title()} 
 		</a>

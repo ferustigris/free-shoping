@@ -64,10 +64,11 @@ div.form_entry {
 	width: 100%;
 }
 .product_params_container {
-	margin: 0px;
+	margin: -10px;
 	pading: 0px;
 	width: 100%;
-	min-height: 260px;
+	min-height: 240px;
+	vertical-align: top;
 }
 .param {
 	font-weight: bold;
@@ -92,6 +93,7 @@ div.product_description_container {
 	float: left;
 	width: 235px;
 	margin: 0px;
+	margin-left: 0px;
 }
 h3.product_description_container {
 	height: 20px;
@@ -111,11 +113,11 @@ h3.product_description_container {
 }
 .product_childs_products_item {
 	height: 38px;
-	width: 214px;
+	width: 210px;
 	background: #fafafa;
 	margin: 0px;
 	margin-bottom: 10px;
-	padding: 11px;
+	padding: 10px;
 	border: 2px solid #dedede;
 }
 .product_childs_products_item:hover {
