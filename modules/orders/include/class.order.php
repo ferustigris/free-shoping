@@ -89,6 +89,58 @@ class Order {
 		}
 		return NULL;
 	}
+	/*! get user
+	 * \params no
+	 * \return id
+	 */
+	public function user()
+	{
+		if($db = $this->module->db())
+		{
+			if($userm = $this->module->get_module('auth'))
+			{
+				if($user = $userm->get_var('user'))
+				{
+					if($result = $db->query("SELECT
+						id_user
+						FROM
+						".$db->getPrefix()."orders
+						WHERE
+						id=".$this->id.";"))
+					{
+						while( $line = mysql_fetch_array( $result ) )
+						{
+							return $user->user($line[0]);
+						}
+					}
+				}
+			}
+		}
+		return NULL;
+	}
+	/*! get date
+	 * \params no
+	 * \return seconds from 1970
+	 */
+	public function date()
+	{
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("SELECT
+				i_date
+				FROM
+				".$db->getPrefix()."orders
+				WHERE
+				id=".$this->id.";"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					return $line[0];
+				}
+			}
+		}
+		return -1;
+	}
 	/*! get parent
 	 * \params no
 	 * \return parent
