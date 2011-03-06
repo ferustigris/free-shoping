@@ -10,16 +10,19 @@
 		$products[] = Array('product' => new Product($this, $id_product), 'size' => new Size($this, $id_size));
 		$i++;
 	}
-	/*if($id_product = $this->forms_post()->get('id_product'))
+	if((count($products) > 0)&&($userm = $this->get_module('auth')))
 	{
-		if($new_product = new Product($this, $id))
+		if(($parent_order = new Order($this, -1))&&($user = $userm->get_var('user')))
 		{
+			if($new_order = $parent_order->add($user->id(), -1, -1))
+			{
+				foreach($products as $product_line)
+				{
 
-		}
-	}*/
-	foreach($products as $product_line)
-	{
-		$this->log(LOG_ERROR, $product_line['product']->product());
-	}
-
+					$this->log(LOG_ERROR, $product_line['product']->product());
+					$new_order->add($user->id(), $product_line['product']->id(), $product_line['size']->id());
+				}
+			} else $this->log(LOG_ERROR, "Could not create order!");
+		} else $this->log(LOG_ERROR, "Could not create order!");
+	} else $this->log(LOG_ERROR, "No enought actual products!");
 ?>
