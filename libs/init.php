@@ -21,7 +21,8 @@
 		global $settings;//! settings manager
 		include_once "libs/class.database.php";
 		$prefix = $settings->get("db_prefix");
-		if(($db = $settings->get("db_name"))&&($user = $settings->get("db_user"))&&($passwd = $settings->get("db_passwd")))
+		$passwd = $settings->get("db_passwd");
+		if(($db = $settings->get("db_name"))&&($user = $settings->get("db_user")))
 		{
 			if($db = new DataBase($db, $prefix, $user, $passwd))
 			{
@@ -35,6 +36,7 @@
 				return true;
 			}
 		}
+		echo "DB not loaded";
 		return false;
 	}
 	/*! load modules
@@ -47,7 +49,7 @@
 		global $modules;//! modules list
 		include_once "libs/class.moduleentry.php";
 		//load sys modules
-		if($result = $db->query("SELECT id,s_name FROM ".$db->getPrefix()."modules WHERE is_active>0 ORDER BY is_active;"))
+		if($result = $db->query("SELECT id, s_name FROM ".$db->getPrefix()."modules WHERE is_active>0 ORDER BY is_active;"))
 		{
 			while( $line = mysql_fetch_array( $result ) )
 			{
@@ -58,12 +60,6 @@
 		if(ISSET($modules) )
 			foreach($modules as $module)
 				$module->init();
-		//init modules
-		/*if(ISSET($modules) )
-			foreach($modules as $module)
-				$module->start();
-
-		*/
 		return ISSET($modules);
 	}
 	/*! draw html
@@ -74,6 +70,7 @@
 	{
 		global $modules;//! modules list
 		if(ISSET($modules['templates']))
+		{
 			if($tpl = $modules['templates']->get_var('template'))
 			{
 				if(ISSET($_SERVER['HTTP_X_REQUESTED_WITH']))
@@ -84,5 +81,6 @@
 					}
 				$tpl->html();
 			}
+		} else echo "not loaded templates module!";
 	}
 ?>

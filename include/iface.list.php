@@ -17,4 +17,3 @@ abstract class SimpleList {
 	abstract public function get($field);
 }
 ?>
-

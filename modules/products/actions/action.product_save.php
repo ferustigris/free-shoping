@@ -4,7 +4,7 @@
 			($description = $this->forms_post()->get('product_description'))&&
 			($parent = $this->forms_post()->get('product_parent'))&&
 			($category = $this->forms_post()->get('product_category'))&&
-			($product_price = $this->forms_post()->get('product_price'))
+			($product_price = $this->forms_post()->get('product_price') != NULL)
 			)
 	{
 		$this->log(LOG_DEBUG, 'saving product...');

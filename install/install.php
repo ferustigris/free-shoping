@@ -10,8 +10,7 @@
 		if(($db = $settings->get("db_name"))&&($user = $settings->get("db_user"))&&($passwd = $settings->get("db_passwd")))
 		{
 			$db = new DataBase($db, $prefix, $user, $passwd);
-			echo "db created!";
-		} else echo "1";
+		};
 		$installer = new Installer();
 		$installer->load();
 		//$installer->install($module);
