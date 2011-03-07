@@ -20,7 +20,7 @@
 	margin: 0px;
 } 
 #bottom_page { /* низ */ 
-	min-height: 80px; 
+	min-height: 89px; 
 	clear: both;
 } 
 #top_page { /* top */ 
@@ -89,7 +89,6 @@ button {
 	margin-top: 0px !impotant;
 	margin-bottom: 9px !impotant;
 	height: 40px;
-	font-size: large;
 }
 input {
 	margin-right: 0px;
@@ -104,4 +103,27 @@ select {
 	margin-top: 0px;
 	margin-bottom: 9px;
 	vertical-align: middle;
+}
+.bottom_page_container {
+	width: 900px; /* Общая ширина колонок */ 
+	margin-left: auto; /* Отступ слева */ 
+	margin-right: auto; /* Отступ слева */ 
+}
+.bottom_page_item_top, .bottom_page_item_bottom {
+	height: 40px;
+	margin: 0px;
+	padding: 0px;
+	vertical-align: middle;
+}
+.bottom_page_item_top {
+	margin-bottom: 9px;
+}
+.bottom_page_item {
+	float: left;
+	margin-left: 60px;
+	color: gray !important;
+}
+.bottom_page_item_content {
+	position: relative;
+	top: -15px; 
 }

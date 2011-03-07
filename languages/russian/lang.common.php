@@ -9,4 +9,10 @@
 	$this->data['cancel'] = 'Отмена';
 	$this->data['JS not work...'] = 'JavaScript не включен. Для комфортной работы рекомендуется включить.';
 	$this->data['Cookies not work...'] = 'Cookies отключены.Рекомендуется включить.';
+	$this->data['We in'] = 'Мы в';
+	$this->data['vkontakte'] = 'контакте';
+	$this->data['Write to us'] = 'Пишите нам';
+	$this->data['Call us'] = 'Звоните нам';
+
+
 ?>
