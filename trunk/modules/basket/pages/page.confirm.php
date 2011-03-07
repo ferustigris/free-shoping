@@ -4,6 +4,7 @@
 	if(!$str)
 	{
 		$str = $this->options()->get($_SERVER['REMOTE_ADDR']);
+		$this->log(LOG_DEBUG, "your basket on server");
 	}
 	//echo $str;
 	$products = Array() ;

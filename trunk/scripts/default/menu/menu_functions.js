@@ -22,3 +22,11 @@ function loadAjaxPage(page)
 	});
 	return false;
 }
+jQuery(function() {
+	url = jQuery.cookie('redirect');
+	jQuery.cookie('redirect', '');
+	if(url)
+	{
+		loadAjaxPage(url);
+	}
+});

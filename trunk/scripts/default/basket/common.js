@@ -26,6 +26,7 @@ function onConfirmStart() {
 					jQuery('#top_page').empty();
 					if(!content.html())
 					{//no autorization!
+						jQuery.cookie('redirect', 'index.php?module=basket&page=confirm');
 						loadAjaxPage('index.php?module=auth&page=registration_form');
 					}
 					jQuery('#top_page').append(errors.html());
@@ -187,7 +188,7 @@ function addProduct(id)
 			});
 			jQuery('select').each(function(){
 				line[$(this).attr('name')] = $(this).val();
-				alert(3 + $(this).attr('name') + $(this).val());
+				//alert(3 + $(this).attr('name') + $(this).val());
 			});
 			jQuery.post("index.php?module=basket&page=confirm&action=add_product",
 					line,

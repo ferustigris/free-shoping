@@ -1,9 +1,17 @@
-.enter_form_item {
+.enter_form_item, #login, #passwd_input {
 	padding-left: auto;
 	padding-right: auto;
 	width: 164px;
-	margin: 5px;
+	margin: 0px;
 	color: gray;
+}
+#login {
+	margin-top: 0px;
+	margin-bottom: 15px;	
+}
+#passwd_input {
+	margin-top: 8px;
+	margin-bottom: 7px;	
 }
 .registration_form_entry {
 	margin: 0px;
