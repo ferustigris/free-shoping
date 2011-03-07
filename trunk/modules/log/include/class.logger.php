@@ -60,7 +60,6 @@ class Logger extends Log {
 		if($level <= $this->level)
 		{
 			global $modules;
-			static $i = 0;
 			if(ISSET($modules['languages']))
 			{
 				if($lang = $modules['languages']->get_var('lang'))
@@ -68,7 +67,7 @@ class Logger extends Log {
 			}
 			$message = ($level == LOG_DEBUG ? $module.": " : "").$msg;
 			$message = ($level == LOG_TODO ? $module." TODO: " : "").$msg;
-			$this->msg[$i++] = new Message($level, $message);
+			$this->msg[] = new Message($level, $message);
 			if(ISSET($modules['templates']))
 			{
 				if($tpl = $modules['templates']->get_var('template'))

@@ -14,7 +14,7 @@
 				$img_full = 'images/categories/'.time() .'_'.basename($img->path()) .'.'.'jpg';
 				$img_small = 'images/categories/'.time() .'_'.basename($img->path()) .'_small.'.'jpg';
 				$img->move($img_full) ;
-				$this->log(LOG_ERROR, 'DANGER: image resize');
+				$this->log(LOG_TODO, 'DANGER: image resize');
 				if($small_img = $this->forms_files()->get('category_small_img'))
 				{
 					$small_img->move($img_small);

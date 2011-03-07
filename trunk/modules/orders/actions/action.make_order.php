@@ -1,6 +1,17 @@
 <?php
 	include_once('modules/products/include/class.product.php');
 	include_once('modules/orders/include/class.order.php');
+	if($mod_auth = $this->get_module('auth'))
+	{
+		if($user = $mod_auth->get_var('user'))
+		{
+			if($user->priority() >= AUTH_NOBODY)
+			{
+				$this->redirect('index.php?module=auth&page=registration_form');
+				die();
+			}
+		}
+	}
 	$i = 0;
 	$products = Array();
 	while($id_product = $this->forms_post()->get('id_product'.$i))

@@ -159,13 +159,15 @@ function addProduct(id)
 		{
 			jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_product=' + id + ',');
 			jQuery('div.product_childs_products_item').each(function() {
-				if($(this).attr('selected') == '1')
-				{
-					jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_child=' + $(this) .attr('idchild') + ',');
-					$(this).contents('select').each(function() {
-						jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_size=' + $(this).val() + ',');
-					}) ;
-				}
+					if($(this).attr('selected') == '1')
+					{
+						jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_child=' + $(this) .attr('idchild') + ',');
+						$(this).contents('div.product_params_2').each(function() {
+							$(this).contents('select').each(function() {
+								jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_size=' + $(this).val() + ',');
+							}) ;
+						}) ;
+					}
 			});
 			jQuery.cookie('basket_content', jQuery.cookie('basket_content') + ';');
 			jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
