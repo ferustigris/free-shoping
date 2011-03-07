@@ -33,7 +33,8 @@ class Order {
 				WHERE
 				id_parent=".$this->id."
 				AND ".$db->getPrefix()."orders.id_state=".$db->getPrefix()."order_states.id
-				AND ".$db->getPrefix()."order_states.i_code>0;"))
+				AND ".$db->getPrefix()."order_states.i_code>0
+				ORDER BY ".$db->getPrefix()."orders.i_date;"))
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
@@ -64,7 +65,7 @@ class Order {
 				}
 			}
 		}
-		return NULL;
+		return new Product($this->module, -1);
 	}
 	/*! get size
 	 * \params no
@@ -87,7 +88,7 @@ class Order {
 				}
 			}
 		}
-		return NULL;
+		return new Size($this->module, -1);
 	}
 	/*! get state
 	 * \params no
@@ -110,7 +111,7 @@ class Order {
 				}
 			}
 		}
-		return NULL;
+		return new State($this->module, -1);
 	}
 	/*! get state
 	 * \params
@@ -158,7 +159,7 @@ class Order {
 				}
 			}
 		}
-		return NULL;
+		return $user->user(-1);
 	}
 	/*! get date
 	 * \params no
@@ -205,7 +206,7 @@ class Order {
 				}
 			}
 		}
-		return NULL;
+		return new Order($this->module, -1);
 	}
 	/*! id
 	 * \params no

@@ -46,7 +46,7 @@
 					return new UserImpl($line[0], $line[1]);
 				}
 			}
-			return NULL;
+			return new UserImpl('', '');
 		}
 		/*! create user
 		 * \params no
