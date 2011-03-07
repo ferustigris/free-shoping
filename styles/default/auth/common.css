@@ -5,6 +5,28 @@
 	margin: 5px;
 	color: gray;
 }
+.registration_form_entry {
+	margin: 0px;
+	padding: 0px;
+}
+#registration_header {
+	height: 40px;
+	margin: 0px;
+	padding: 0px;
+}
+.registration_wrapper1, .registration_wrapper2 {
+	height: 20px;
+	margin: 0px;
+	padding: 0px;
+}
+#registration_ok {
+	height: 40px;
+	margin: 0px;
+	margin-bottom: 10px;
+}
+.registration_wrapper2 {
+	margin-bottom: 10px;
+}
 #registration {
 	float: right;
 	display: block;
@@ -21,11 +43,16 @@
 	text-align: center;
 }
 .enter_error {
-	border: 2px solid red;
+	border: 1px solid #ff8f8f;
 }
 #logout_button {
 	position: absolute;
 	right: 10%;
 	top: 0px;	
 	font-size: x-small;
+}
+#registration_form {
+	margin: 0px;
+	margin-left: 200px;
+	padding: 0px;
 }

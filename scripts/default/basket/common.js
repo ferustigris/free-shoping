@@ -24,6 +24,10 @@ function onConfirmStart() {
 					content = jQuery("#content", data);
 					errors = jQuery("#errors", data);
 					jQuery('#top_page').empty();
+					if(!content.html())
+					{//no autorization!
+						loadAjaxPage('index.php?module=auth&page=registration_form');
+					}
 					jQuery('#top_page').append(errors.html());
 					jQuery('#main_page').html(content.html());
 					if(!jQuery.cookie('basket_content'))
