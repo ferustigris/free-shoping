@@ -6,12 +6,12 @@
 	color: gray;
 }
 #login {
-	margin-top: 0px;
-	margin-bottom: 15px;	
+	margin-top: 8px;
+	margin-bottom: 17px;	
 }
 #passwd_input {
-	margin-top: 8px;
-	margin-bottom: 7px;	
+	margin-top: 2px;
+	margin-bottom: 3px;	
 }
 .registration_form_entry {
 	margin: 0px;
@@ -30,7 +30,6 @@
 #registration_ok {
 	height: 40px;
 	margin: 0px;
-	margin-bottom: 10px;
 }
 .registration_wrapper2 {
 	margin-bottom: 10px;

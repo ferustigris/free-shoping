@@ -47,7 +47,7 @@
 	background: #fafafa;
 }
 .left_menu_item {
-	margin-bottom: 9px;
+	margin-bottom: 8px;
 }
 .main_page_item {
 	padding: 0px;
@@ -67,7 +67,7 @@
 	float: right; 
 }
 .portlet-content { 
-	padding: 9px; 
+	padding: 0px; 
 }
 .ui-sortable-placeholder { 
 	border: 1px dotted black; 
@@ -97,6 +97,7 @@ input {
 	margin-top: 0px;
 	margin-bottom: 9px;
 	padding: 0px;
+	height: 25px;
 }
 select {
 	margin-right: 0px;
@@ -104,6 +105,7 @@ select {
 	margin-top: 0px;
 	margin-bottom: 9px;
 	vertical-align: middle;
+	height: 25px;
 }
 .bottom_page_container {
 	width: 900px; /* Общая ширина колонок */ 
