@@ -1,5 +1,23 @@
+<div class="bottom_page_container">
 {foreach from=$TPL_modules['bottom'] item=module}
 	<div>
 		{include file=$module}
 	</div>
 {/foreach}
+	<div class="bottom_page_item">
+		<div class="bottom_page_item_top">
+			<img height=40 width=40 src="images/default/mail.png" /><span class="bottom_page_item_content">{$LANG['Write to us']}: <a href="mailto://shop@free-shoping.ru" title="shop@free-shoping.ru"><b>shop@free-shoping.ru</b></a></span>
+		</div>
+		<div class="bottom_page_item_bottom">
+			<img height=40 width=40 src="images/default/icq.png" /><span class="bottom_page_item_content">ICQ: <b style="color: black;">567-322-591</b></span>
+		</div>
+	</div>
+	<div class="bottom_page_item">
+		<div class="bottom_page_item_top">
+			<img height=40 width=40 src="images/default/phone.png" /><span class="bottom_page_item_content">{$LANG['Call us']}: <b style="color: black;">+7-920-154-05-72</b></span>
+		</div>
+		<div class="bottom_page_item_bottom">
+			<img height=40 width=40 src="images/default/vkontakte.png" /><span class="bottom_page_item_content">{$LANG['We in']} <a href="#" title="{$LANG['We in']} vkontakte"><b>{$LANG['vkontakte']}</b></a></span>
+		</div>
+	</div>
+</div>
