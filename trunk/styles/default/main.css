@@ -89,6 +89,7 @@ button {
 	margin-top: 0px !impotant;
 	margin-bottom: 9px !impotant;
 	height: 40px;
+	font-size: large;
 }
 input {
 	margin-right: 0px;
@@ -102,7 +103,6 @@ select {
 	margin-left: 0px;
 	margin-top: 0px;
 	margin-bottom: 9px;
-	height: 40px;
+	height: 30px;
 	vertical-align: middle;
-	padding: 7px;
 }

@@ -143,3 +143,7 @@ h3.product_description_container {
 .product_childs_products_item_param {
 	padding-left: 15px;
 }
+.product_params_2, .product_params_1 {
+	margin-bottom: 10px;
+	height: 30px;
+}
