@@ -35,14 +35,18 @@
 			<div class="product_description_container">
 			{foreach from=$products_product->child() item=product}
 				<div idchild="{$product->id()}" class="product_childs_products_item" selected="0" price="{$product->price()}">
-					   		<input name="item_{$product->id()}" class="product_childs_products_item_param" type="checkbox" />
-					   		<span class="product_childs_products_item_param">{$product->product()}</span>
-							<select name="item_size_{$product->id()}" class="product_childs_products_item_param">
-								{foreach from=$product->sizes() item=size}
-									<option value="{$size->id()}">{$size->size()}</option>
-								{/foreach}
-							</select>
-							{$product->price()} {$LANG['dollar']}
+					   		<div class="product_params_1">
+						   		<input name="item_{$product->id()}" class="product_childs_products_item_param" type="checkbox" />
+						   		<span class="product_childs_products_item_param">{$product->product()}</span>
+					   		</div>
+					   		<div class="product_params_2">
+								<select name="item_size_{$product->id()}" class="product_childs_products_item_param">
+									{foreach from=$product->sizes() item=size}
+										<option value="{$size->id()}">{$size->size()}</option>
+									{/foreach}
+								</select>
+								{$product->price()} {$LANG['dollar']}
+					   		</div>
 				</div>
 			{/foreach}
 			</div>

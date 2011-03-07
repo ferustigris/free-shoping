@@ -72,14 +72,18 @@ function selectableChildProduct()
 		{
 			$(this).addClass("selected");
 			$(this).attr('selected', '1');
-			$(this).contents(":input").each(function() {
-				$(this).attr("checked", true);
+			$(this).contents("div").each(function() {
+				$(this).contents(":input").each(function() {
+					$(this).attr("checked", true);
+				});
 			});
 		} else {
 			$(this).removeClass("selected");
 			$(this).attr('selected', '0');
-			$(this).contents(":input").each(function() {
-				$(this).attr("checked", false);
+			$(this).contents("div").each(function() {
+				$(this).contents(":input").each(function() {
+					$(this).attr("checked", false);
+				});
 			});
 		}
 		calcCommonPrice();
