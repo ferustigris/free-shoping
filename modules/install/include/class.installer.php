@@ -33,6 +33,26 @@
 		{
 			$this->activity = $activity;
 		}
+		/*! modules list
+		 * \params no
+		 * \return list
+		 */
+		public function modules()
+		{
+			global $db;
+            $list = Array();
+			if(ISSET($db))
+			{
+				if($result = $db->query("SELECT id, s_name FROM ".$db->getPrefix()."modules;"))
+				{
+                    while( $line = mysql_fetch_array( $result ) )
+                    {
+                        $list[] = new ModuleEntry($line[0], $line[1]);
+                    }
+				}
+			}
+			return $list;
+		}
 		/*! add module page
 		 * \params
 		 * - $min_priority - page min
@@ -115,8 +135,7 @@
 					if ( is_file ($directory."/".$file))
 					{
 						if(strpos($file, '.sql') > 0)
-							if(!$this->execSQL($directory."/".$file))
-								return false;
+							$this->execSQL($directory."/".$file);
 					}
 				}
 				closedir ($dir);
@@ -131,6 +150,8 @@
 					while( $line = mysql_fetch_array( $result ) )
 					{
 						$this->module_id = $line[0];
+						$db->query("DELETE FROM ".$db->getPrefix()."module_pages WHERE id_module=".$this->module_id.";");
+						$db->query("DELETE FROM ".$db->getPrefix()."module_actions WHERE id_module=".$this->module_id.";");
 						if(file_exists('modules/'.$module.'/install/install.php'))
 							require('modules/'.$module.'/install/install.php');
 						else
