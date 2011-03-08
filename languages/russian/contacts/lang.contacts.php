@@ -6,4 +6,6 @@
 	$this->data['our address'] = 'Наш адрес';
 	$this->data['our phone'] = 'Наш телефон';
 	$this->data['my icq'] = 'ICQ';
-	?>
+	$this->data['callback'] = 'Обратная связь';
+	$this->data['send'] = 'отправить';
+?>
