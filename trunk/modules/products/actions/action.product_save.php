@@ -2,12 +2,12 @@
 	include_once('modules/products/include/class.product.php');
 	if(($name = $this->forms_post()->get('product_name'))&&
 			($article = $this->forms_post()->get('product_article'))&&
-			($description = $this->forms_post()->get('product_description'))&&
-			($parent = $this->forms_post()->get('product_parent'))&&
-			($category = $this->forms_post()->get('product_category'))&&
-			($product_price = $this->forms_post()->get('product_price') != NULL)
+			($description = $this->forms_post()->get('product_description'))
 			)
 	{
+		$parent = intval($this->forms_post()->get('product_parent'));
+		$category = intval($this->forms_post()->get('product_category'));
+		$product_price = intval($this->forms_post()->get('product_price'));
 		$this->log(LOG_DEBUG, 'saving product...');
 		if($img = $this->forms_files()->get('product_img'))
 		{
