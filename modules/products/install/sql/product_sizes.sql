@@ -4,5 +4,6 @@ CREATE TABLE `DB`.`PREFIXproduct_sizes` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+DEFAULT CHARSET=utf8
 COMMENT = 'sizes of product';
 

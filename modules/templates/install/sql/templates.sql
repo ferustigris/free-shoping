@@ -5,5 +5,6 @@ CREATE TABLE `DB`.`PREFIXtemplates` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+ DEFAULT CHARSET=utf8
 COMMENT = 'templates list';
 

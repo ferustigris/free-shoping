@@ -6,4 +6,4 @@ CREATE TABLE `DB`.`PREFIXmodule_actions` (
   `s_action` text NOT NULL COMMENT 'page name',
   `s_description` text NOT NULL COMMENT 'description',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='list pages, access for it'
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='list pages, access for it'

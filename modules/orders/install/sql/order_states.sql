@@ -5,4 +5,5 @@ CREATE TABLE `DB`.`PREFIXorder_states` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+DEFAULT CHARSET=utf8
 COMMENT = 'states of order';

@@ -6,5 +6,6 @@ CREATE TABLE `DB`.`PREFIXproduct_producers` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+ DEFAULT CHARSET=utf8
 COMMENT = 'product producers';
 

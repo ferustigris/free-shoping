@@ -6,5 +6,6 @@ CREATE TABLE `DB`.`PREFIXproduct_images` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+ DEFAULT CHARSET=utf8
 COMMENT = 'images of products';
 

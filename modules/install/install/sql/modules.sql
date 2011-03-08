@@ -5,5 +5,6 @@ CREATE TABLE `DB`.`PREFIXmodules` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+ DEFAULT CHARSET=utf8
 COMMENT = 'Modules list';
 

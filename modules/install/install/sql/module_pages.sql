@@ -9,5 +9,6 @@ CREATE TABLE `DB`.`PREFIXmodule_pages` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+DEFAULT CHARSET=utf8
 COMMENT = 'list pages, access for it';
 

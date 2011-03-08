@@ -62,7 +62,7 @@ class Size {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}
