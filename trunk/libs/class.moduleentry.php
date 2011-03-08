@@ -74,6 +74,15 @@ class ModuleEntry extends Module {
 	{
 		return $this->cookies;
 	}
+	/*! access to settings
+	 * \params no
+	 * \return no
+	 */
+	public static function &settings()
+	{
+		global $settings;
+		return $settings;
+	}
 	/*! access to sessions
 	 * \params no
 	 * \return no

@@ -87,7 +87,7 @@ class Product {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}
@@ -110,7 +110,7 @@ class Product {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}
@@ -133,7 +133,7 @@ class Product {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}
@@ -160,7 +160,7 @@ class Product {
 				}
 			}
 		}
-		return NULL;
+		return new Category($this->module, -1);
 	}
 	/*! link to categories
 	 * \params no
@@ -221,7 +221,7 @@ class Product {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}
@@ -244,7 +244,7 @@ class Product {
 			{
 				while( $line = mysql_fetch_array($result) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}
@@ -327,12 +327,11 @@ class Product {
 			{
 				while( $line = mysql_fetch_array($result) )
 				{
-					if($m = new Material($this->module, $line[0]))
-						return $m;
+					return new Material($this->module, $line[0]);
 				}
 			}
 		}
-		return NULL;
+		return new Material($this->module, -1);
 	}
 	/*! set producer
 	 * \params
@@ -341,6 +340,7 @@ class Product {
 	 */
 	public function set_producer($producer_id)
 	{
+		$producer_id = intval($producer_id);
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("UPDATE
@@ -369,12 +369,11 @@ class Product {
 			{
 				while( $line = mysql_fetch_array($result) )
 				{
-					if($p = new Producer($this->module, $line[0]))
-						return $p;
+					return new Producer($this->module, $line[0]);
 				}
 			}
 		}
-		return NULL;
+		return new Producer($this->module, -1);
 	}
 	/*! add size
 	 * \params
@@ -383,11 +382,12 @@ class Product {
 	 */
 	public function add_size($size_id)
 	{
+		$size_id = intval($size_id);
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("INSERT INTO
 				".$db->getPrefix()."link_product_size(id_product, id_size)
-				VALUES(".$this->id.", ".(integer)$size_id.");"))
+				VALUES(".$this->id.", ".$size_id.");"))
 			{
 					return true;
 			}
@@ -433,7 +433,7 @@ class Product {
 				return true;
 			}
 		}
-		return $list;
+		return false;
 	}
 	/*! set producer
 	 * \params
@@ -442,6 +442,7 @@ class Product {
 	 */
 	public function set_category($category_id)
 	{
+		$category_id = intval($category_id);
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("UPDATE

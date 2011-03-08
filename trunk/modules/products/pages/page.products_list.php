@@ -3,9 +3,9 @@
 	$id = -1;
 	$category_id = -1;
 	if($this->forms_get()->get('product_id'))
-		$id = $this->forms_get()->get('product_id');
+		$id = intval($this->forms_get()->get('product_id'));
 	if($this->forms_get()->get('category_id'))
-		$category_id = $this->forms_get()->get('category_id');
+		$category_id = intval($this->forms_get()->get('category_id'));
 	if($product = new Product($this, $id))
 	{
 		if($id > -1)
