@@ -1,5 +1,5 @@
 <div class="container_main_page">
-<form method="post" action="index.php?module=contacts&page=view_contatcs&action=edit">
+<form method="post" action="index.php?module=contacts&page=view_contatcs&action=message">
 	<div class="contacts_header">
     {$lang->translate('Contacts')}: 
     </div>
@@ -14,6 +14,13 @@
     </div>
 	<div class="contacts_wrapper2">
     <img height=40 width=40 src="images/default/icq.png" /><span class="bottom_page_item_content">{$lang->translate('my icq')}: <b>{$contacts_icq}</b></span>
+    </div>
+	<div class="contacts_wrapper2">
+    {$lang->translate('callback')}
+    </div>
+    <textarea class="contacts_callback_message" rows="" cols="20"></textarea>
+	<div class="contacts_wrapper2">
+	    <button id="contacts_send_message_button">{$lang->translate('send')}</button>
     </div>
 </form>
 </div>

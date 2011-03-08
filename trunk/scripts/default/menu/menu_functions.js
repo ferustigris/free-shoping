@@ -20,6 +20,7 @@ function loadAjaxPage(page)
 		runTemplateModule();
 		onAuthLoad();
 		//setProductEditor();
+		setContatcsIcons();
 	});
 	return false;
 }
