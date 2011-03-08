@@ -1,11 +1,7 @@
 <?php
 	include_once('modules/products/include/class.product.php');
 	$str = $this->cookies()->get('content');
-	if(!$str)
-	{
-		$str = $this->options()->get($_SERVER['REMOTE_ADDR']);
-		$this->log(LOG_DEBUG, "your basket on server");
-	}
+	$str .= $this->options()->get($_SERVER['REMOTE_ADDR']);
 	//echo $str;
 	$products = Array() ;
 	$total_price = 0;

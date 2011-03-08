@@ -18,8 +18,8 @@ class FormsGet extends SimpleList {
 	public function get($field)
 	{
 		if(ISSET($_GET[$field]))
-			return $_GET[$field];
-		return NULL;	
+			return urlencode($_GET[$field]);
+		return NULL;
 	}
 	/*! set value
 	 * \params
@@ -29,7 +29,7 @@ class FormsGet extends SimpleList {
 	 */
 	public function set($field, $value)
 	{
-		$_GET[$field] = $value;
+		$_GET[$field] = urldecode($value);
 	}
 }
 ?>

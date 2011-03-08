@@ -70,7 +70,7 @@ class ModuleEntry extends Module {
 	 * \params no
 	 * \return no
 	 */
-	public function cookies()
+	public function &cookies()
 	{
 		return $this->cookies;
 	}
@@ -78,7 +78,7 @@ class ModuleEntry extends Module {
 	 * \params no
 	 * \return no
 	 */
-	public function sessions()
+	public function &sessions()
 	{
 		return $this->sessions;
 	}
@@ -86,7 +86,7 @@ class ModuleEntry extends Module {
 	 * \params no
 	 * \return no
 	 */
-	public function options()
+	public function &options()
 	{
 		return $this->options;
 	}
@@ -94,7 +94,7 @@ class ModuleEntry extends Module {
 	 * \params no
 	 * \return no
 	 */
-	public function db()
+	public function &db()
 	{
 		if(ISSET($GLOBALS['db']))
 			return $GLOBALS['db'];
@@ -106,7 +106,7 @@ class ModuleEntry extends Module {
          * - module_name - module name
 	 * \return no
 	 */
-	public function get_module($module_name)
+	public function &get_module($module_name)
 	{
 		global $modules;
         if(ISSET($modules[$module_name]))

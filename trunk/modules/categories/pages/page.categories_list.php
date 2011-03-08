@@ -2,7 +2,7 @@
 	include_once('modules/categories/include/class.category.php');
 	$id = -1;
 	if($this->forms_get()->get('category_id'))
-		$id = $this->forms_get()->get('category_id');
+		$id = intval($this->forms_get()->get('category_id'));
 	if($category = new Category($this, $id))
 	{
 		$this->assign('list', $category->child());
@@ -10,7 +10,7 @@
 
 		$parents = Array() ;
 		$parent = $category->get_parent();
-		while($parent)
+		while($parent->id() > -1)
 		{
 			$parents[] = $parent;
 			$parent = $parent->get_parent();

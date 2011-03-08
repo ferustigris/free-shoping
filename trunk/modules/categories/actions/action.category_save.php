@@ -4,7 +4,7 @@
 	{
 		if(($name = $this->forms_post()->get('category_name'))&&
 			($description = $this->forms_post()->get('product_description'))&&
-			($parent = $this->forms_post()->get('category_parent'))&&
+			($parent = intval($this->forms_post()->get('category_parent')))&&
 			($img = $this->forms_files()->get('category_img'))
 			)
 		{

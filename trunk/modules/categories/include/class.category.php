@@ -13,7 +13,7 @@ class Category {
 	public function __construct(&$parent, $id)
 	{
 		$this->module = $parent;
-		$this->id = $id;
+		$this->id = intval($id);
 	}
 	/*! get child categories
 	 * \params no
@@ -85,7 +85,7 @@ class Category {
 				}
 			}
 		}
-		return NULL;
+		return new Category($this->module, -1);
 	}
 	/*! link
 	 * \params no
@@ -104,7 +104,7 @@ class Category {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}
@@ -165,7 +165,7 @@ class Category {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}
@@ -188,7 +188,7 @@ class Category {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}

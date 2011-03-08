@@ -19,14 +19,17 @@
 			$this->priority = AUTH_NOBODY;//nobody
 			$this->id = -1;//nobody
 			$this->name = $un;
-			$result = $db->query("SELECT id, s_name, i_priority FROM ".$db->getPrefix()."users WHERE s_name = '".$this->name."' and s_passwd = '".$up."';");
+			$result = $db->query("SELECT id, s_name, i_priority, s_passwd FROM ".$db->getPrefix()."users WHERE s_name = '".$this->name."';");
 			if($result)
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					$this->id = $line[0];
-					$this->name = $line[1];
-					$this->priority = $line[2];
+					if($line[3] == $up)
+					{
+						$this->id = $line[0];
+						$this->name = $line[1];
+						$this->priority = $line[2];
+					}
 				}
 			}
 			parent::__construct("user_options", $this->id);

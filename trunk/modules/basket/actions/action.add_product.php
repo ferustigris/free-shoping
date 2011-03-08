@@ -7,7 +7,7 @@
 	if($this->options()->get($_SERVER['REMOTE_ADDR']))
 		$str = $this->options()->get($_SERVER['REMOTE_ADDR']);
 	$valid = true;
-	if($id = $this->forms_post()->get('id_product'))
+	if($id = intval($this->forms_post()->get('id_product')))
 	{
 		if($new_product = new Product($this, $id))
 		{
@@ -17,7 +17,7 @@
 			{
 				if($this->forms_post()->get('item_'.$child->id()))
 				{
-					if($size = $this->forms_post()->get('item_size_'.$child->id()))
+					if($size = intval($this->forms_post()->get('item_size_'.$child->id())))
 					{
 						$str = $str.'id_child='.$child->id().',id_size='.$size.',';
 						$valid = true;

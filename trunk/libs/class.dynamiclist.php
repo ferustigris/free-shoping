@@ -13,12 +13,13 @@ include_once "include/iface.list.php";
 		public function get($field)
 		{
 			global $db;
+			$field = urldecode($field);
 			$result = $db->query("SELECT s_value FROM ".$db->getPrefix().$this->table." WHERE i_link = '".$this->link."' AND s_field = '".$field."';");
 			if($result)
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 			return "";
@@ -27,6 +28,8 @@ include_once "include/iface.list.php";
 		public function set($field, $value)
 		{
 			global $db;
+			$value = urlencode($value);
+			$field = urlencode($field);
 			$result = $db->query("SELECT COUNT(*) FROM ".$db->getPrefix().$this->table." WHERE i_link = ".$this->link." AND s_field='".$field."';");
 			if($result)
 			{
