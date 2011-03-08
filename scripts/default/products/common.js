@@ -1,11 +1,19 @@
 jQuery(function() {
 	setProductIcons();
-	/*if(jQuery('#product_description'))
+	//setProductEditor();
+});
+/*! set cool editor
+ * \params no
+ * \return no
+ */
+function setProductEditor() 
+{
+	if(jQuery('#product_description'))
 		CKEDITOR.replace( 'product_description',
 		{
 			customConfig : 'scripts/ckeditor/config.js'
-		});*/
-});
+		});
+}
 /*! set buttons icons
  * \params no
  * \return no
