@@ -47,6 +47,14 @@ class ModuleEntry extends Module {
 			return NULL;
 		return $this->vars[$var_name];
 	}
+	/*! get id
+	 * \params no
+	 * \return no
+	 */
+	public function id()
+	{
+		return $this->id;
+	}
 	/*! redirect
 	 * \params
 	 * - url - name
