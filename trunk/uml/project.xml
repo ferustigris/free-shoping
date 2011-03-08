@@ -26,7 +26,7 @@
     </TopologyBody>
     <ClassBody name="db">
         <top x="261,1279999999999" y="-505,256" type="9" id="1" name="STATE_1##" short_description=""/>
-        <top x="-89,404" y="-493,769" type="9" id="2" name="sdf#1|2|#4|3|" short_description="edas"/>
+        <top x="-89,404" y="-493,769" type="9" id="2" name="sdf##" short_description=""/>
     </ClassBody>
     <TopologyBody name="товар">
         <top x="-11,74400000000003" y="160,476" type="7" id="1" name="товар" short_description=""/>
@@ -51,7 +51,7 @@
         <top x="-420,178" y="98,99000000000001" type="2" id="12" name="Описание" short_description=""/>
     </TopologyBody>
     <TopologyBody name="Модули">
-        <top x="-355,13" y="-169,25" type="7" id="1" name="NODE_1" short_description=""/>
+        <top x="-327,13" y="-164,25" type="7" id="1" name="NODE_1" short_description=""/>
         <top x="21,38799999999992" y="-279,16" type="2" id="2" name="menu" short_description=""/>
         <edge from="1" type="0" to="2" data=""/>
         <top x="-667,8319999999999" y="-336,36" type="2" id="3" name="categories" short_description=""/>
@@ -76,19 +76,19 @@
         <edge from="1" type="0" to="6" data=""/>
         <top x="-730,3679999999999" y="-170,36" type="2" id="7" name="log" short_description=""/>
         <edge from="1" type="0" to="7" data=""/>
-        <top x="-664,4459999999999" y="-17,49000000000001" type="2" id="8" name="languages" short_description=""/>
+        <top x="-665,4459999999999" y="11,50999999999999" type="2" id="8" name="languages" short_description=""/>
         <edge from="1" type="0" to="8" data=""/>
         <top x="-194,184" y="154,1600000000001" type="2" id="9" name="statistic" short_description=""/>
         <edge from="1" type="0" to="9" data=""/>
         <top x="-510,9780000000001" y="118,99" type="2" id="10" name="basket" short_description=""/>
         <edge from="1" type="0" to="10" data=""/>
-        <top x="37,40999999999997" y="27,75" type="2" id="11" name="contacts(static_pages?)" short_description=""/>
+        <top x="34,40999999999997" y="-18,25" type="2" id="11" name="contacts(static_pages?)" short_description=""/>
         <edge from="1" type="0" to="11" data=""/>
         <top x="66,19399999999996" y="-150,29" type="2" id="17" name="spammer" short_description=""/>
         <edge from="1" type="0" to="17" data=""/>
         <top x="-45,44000000000005" y="123" type="2" id="19" name="renesance" short_description=""/>
         <edge from="1" type="0" to="19" data=""/>
-        <top x="-368,578" y="158,99" type="2" id="20" name="oreders" short_description=""/>
+        <top x="-356,578" y="164,99" type="2" id="20" name="orders" short_description=""/>
         <edge from="1" type="0" to="20" data=""/>
     </TopologyBody>
 </project>

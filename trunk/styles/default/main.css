@@ -12,6 +12,11 @@
 	margin: 0px;
 	min-height: 600px;
 }
+.container_main_page {
+	padding: 0px;
+	margin: 0px;
+	margin-left: 200px; /* Отступ слева */ 
+}
 #main_page { /* главная */ 
 	margin-left: 200px; /* Отступ слева */ 
 	min-height: 20px; 
@@ -106,6 +111,11 @@ select {
 	margin-bottom: 9px;
 	vertical-align: middle;
 	height: 25px;
+}
+textarea {
+	margin: 0px;
+	margin-bottom: 9px;
+	height: 90px;
 }
 .bottom_page_container {
 	width: 900px; /* Общая ширина колонок */ 

@@ -8,6 +8,9 @@
 	height: 19px;
 	color: gray;
 }
+select.form_entry {
+	height: 90px;
+}
 .hidden {
 	display: none;
 }

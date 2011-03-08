@@ -19,6 +19,7 @@ function loadAjaxPage(page)
 		onCategoryStart();
 		runTemplateModule();
 		onAuthLoad();
+		//setProductEditor();
 	});
 	return false;
 }

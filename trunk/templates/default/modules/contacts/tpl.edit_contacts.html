@@ -1,0 +1,35 @@
+<div class="container_main_page">
+<form method="post" action="index.php?module=contacts&page=view_contatcs&action=edit">
+	<button>{$lang->translate('Save')}</button>
+	<div class="contacts_wrapper">
+    {$lang->translate('our email')}:
+    </div>
+	<div class="contacts_header">
+    	<input type="text" name="email" value="{$contacts_email}" />    
+    </div>
+	<div class="contacts_wrapper">
+    {$lang->translate('our address')}:
+    </div>
+	<div class="contacts_header">
+    	<input type="text" name="address" value="{$contacts_address}" />    
+    </div>
+	<div class="contacts_wrapper">
+    {$lang->translate('our phone')}:
+    </div>
+	<div class="contacts_header">
+    	<input type="text" name="phone" value="{$contacts_phone}" />    
+    </div>
+	<div class="contacts_wrapper">
+    {$lang->translate('my name')}:
+    </div>
+	<div class="contacts_header">
+    	<input type="text" name="name" value="{$contacts_name}" />    
+    </div>
+	<div class="contacts_wrapper">
+    {$lang->translate('my icq')}:
+    </div>
+	<div class="contacts_header">
+    	<input type="text" name="icq" value="{$contacts_icq}" />    
+    </div>
+</form>
+</div>
