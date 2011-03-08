@@ -22,7 +22,6 @@ class Menu {//extends Template {
 	public function menus()
 	{
 		$list = Array();// = NULL;
-		$i = 0;
 		$priority = AUTH_NOBODY;
 		if($muser = $this->parent->get_module('auth'))
 		{
@@ -46,7 +45,7 @@ class Menu {//extends Template {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					$list[$i++] = new Menu($this->parent, $line[0]);
+					$list[] = new Menu($this->parent, $line[0]);
 				}
 			}
 		}
