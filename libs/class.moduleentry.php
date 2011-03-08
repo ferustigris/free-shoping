@@ -129,7 +129,7 @@ class ModuleEntry extends Module {
         if(ISSET($modules[$module_name]))
              return $modules[$module_name];
         else
-             return NULL;
+             return $this;
 	}
 	/*! access to data of GET-forms
 	 * \params no

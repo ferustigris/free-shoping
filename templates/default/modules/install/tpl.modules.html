@@ -2,7 +2,7 @@
 	<form method="post" action="index.php?module=install&action=uninstall_module&page=modules">
 	    {foreach from=$install_modules item=mod}
 	    <div>
-	        <input type="checkbox" value="{$mod->id()}" />{$mod->name()}
+	        <input name="{$mod->name()}" type="checkbox" value="{$mod->name()}" />{$mod->name()}
 	    </div>
 	    {/foreach}
 	    <button>{$lang->translate('Uninstall')}</button>
@@ -12,7 +12,7 @@
 	        {$lang->translate('Install module')}
 	    </div>
 	    <div>
-	        <input type="text" value="" />
+	        <input name="module_name" type="text" value="" />
 	    </div>
 	    <button>{$lang->translate('Install')}</button>
     </form>

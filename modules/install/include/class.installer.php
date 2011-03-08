@@ -118,6 +118,26 @@
 			}
 			return false;
 		}
+		/*! uninstall module
+		 * \params
+		 * - module - module name
+		 * \return no
+		 */
+		public function uninstall($module)
+		{
+			global $db;
+			if($result = $db->query("SELECT id FROM ".$db->getPrefix()."modules WHERE s_name='".$module."';"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					$db->query("DELETE FROM ".$db->getPrefix()."modules WHERE id=".$line[0].";");
+					$db->query("DELETE FROM ".$db->getPrefix()."module_pages WHERE id_module=".$line[0].";");
+					$db->query("DELETE FROM ".$db->getPrefix()."module_actions WHERE id_module=".$line[0].";");
+					return true;
+				}
+			}
+			return false;
+		}
 		/*! install unpack module
 		 * \params
 		 * - module - module name
@@ -150,16 +170,15 @@
 					while( $line = mysql_fetch_array( $result ) )
 					{
 						$this->module_id = $line[0];
-						$db->query("DELETE FROM ".$db->getPrefix()."module_pages WHERE id_module=".$this->module_id.";");
-						$db->query("DELETE FROM ".$db->getPrefix()."module_actions WHERE id_module=".$this->module_id.";");
 						if(file_exists('modules/'.$module.'/install/install.php'))
 							require('modules/'.$module.'/install/install.php');
 						else
 							return false;
+						return true;
 					}
 				}
 			}
-			return true;
+			return false;
 		}
 		/*! load body
 		 * \params no
