@@ -9,5 +9,6 @@ CREATE TABLE `DB`.`PREFIXorders` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+DEFAULT CHARSET=utf8
 COMMENT = 'orders';
 

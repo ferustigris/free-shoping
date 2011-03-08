@@ -6,5 +6,6 @@ CREATE TABLE `DB`.`PREFIXtpl_sections` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+DEFAULT CHARSET=utf8
 COMMENT = 'sections';
 

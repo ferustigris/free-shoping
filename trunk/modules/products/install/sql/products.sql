@@ -9,4 +9,4 @@ CREATE TABLE `DB`.`PREFIXproducts` (
   `s_article` text NOT NULL COMMENT 'article of product',
   `s_description` text NOT NULL COMMENT 'description',
   PRIMARY KEY (`id`)
-  ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='products list'
+  ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='products list'

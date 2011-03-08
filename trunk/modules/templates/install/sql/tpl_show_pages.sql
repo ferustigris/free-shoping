@@ -6,5 +6,6 @@ CREATE TABLE `DB`.`PREFIXtpl_show_pages` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+DEFAULT CHARSET=utf8
 COMMENT = 'show pages';
 

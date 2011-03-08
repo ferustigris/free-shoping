@@ -5,5 +5,6 @@ CREATE TABLE `DB`.`PREFIXproduct_materials` (
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM
+ DEFAULT CHARSET=utf8
 COMMENT = 'materials list';
 
