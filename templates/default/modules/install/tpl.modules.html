@@ -1,19 +1,22 @@
-<div>
+<div class="install_main_container">
+    <div class="install_header">
+        {$lang->translate('Installed modules')}
+    </div>
 	<form method="post" action="index.php?module=install&action=uninstall_module&page=modules">
 	    {foreach from=$install_modules item=mod}
-	    <div>
+	    <div class="install_header">
 	        <input name="{$mod->name()}" type="checkbox" value="{$mod->name()}" />{$mod->name()}
 	    </div>
 	    {/foreach}
-	    <button>{$lang->translate('Uninstall')}</button>
+	    <button class="install_header">{$lang->translate('Uninstall')}</button>
     </form>
 	<form method="post" action="index.php?module=install&action=install_module&page=modules">
-	    <div>
+	    <div class="install_header2">
 	        {$lang->translate('Install module')}
 	    </div>
-	    <div>
+	    <div class="install_header">
 	        <input name="module_name" type="text" value="" />
 	    </div>
-	    <button>{$lang->translate('Install')}</button>
+	    <button class="install_header">{$lang->translate('Install')}</button>
     </form>
 </div>
