@@ -14,7 +14,7 @@ class Order {
 	public function __construct(&$parent, $id)
 	{
 		$this->module = $parent;
-		$this->id = $id;
+		$this->id = intval($id);
 	}
 	/*! get child Orders
 	 * \params no
@@ -120,7 +120,7 @@ class Order {
 	 */
 	public function set_state($id_state)
 	{
-		$id_state = (integer)$id_state;
+		$id_state = intval($id_state);
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("UPDATE
@@ -225,6 +225,9 @@ class Order {
 	 */
 	public function add($id_user, $id_product, $id_size)
 	{
+		$id_user = intval($id_user);
+		$id_product = intval($id_product);
+		$id_size = intval($id_size);
 		if($db = $this->module->db())
 		{
 			if($state = new State($this->module, -1))

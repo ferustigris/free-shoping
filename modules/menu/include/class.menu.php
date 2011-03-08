@@ -13,7 +13,7 @@ class Menu {//extends Template {
 	public function __construct(&$parent, $id)
 	{
 		$this->parent = $parent;
-		$this->id = $id;
+		$this->id = intval($id);
 	}
 	/*! get all child menus
 	 * \params no

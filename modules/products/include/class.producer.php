@@ -12,7 +12,7 @@ class Producer {
 	public function __construct(&$parent, $id)
 	{
 		$this->module = $parent;
-		$this->id = $id;
+		$this->id = intval($id);
 	}
 	/*! id
 	 * \params no
@@ -62,7 +62,7 @@ class Producer {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}

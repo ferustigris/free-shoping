@@ -1,6 +1,6 @@
 <?php
 	include_once('modules/products/include/class.product.php');
-	if($id = $this->forms_get()->get('product_id'))
+	if($id = intval($this->forms_get()->get('product_id')))
 		if($product = new Product($this, $id))
 		{
 			$this->assign('product', $product);

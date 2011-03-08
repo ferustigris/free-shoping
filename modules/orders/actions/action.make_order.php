@@ -14,10 +14,11 @@
 	}
 	$i = 0;
 	$products = Array();
-	while($id_product = $this->forms_post()->get('id_product'.$i))
+	while($id_product = intval($this->forms_post()->get('id_product'.$i)))
 	{
-		$id_size = $this->forms_post()->get('id_size'.$i);
-		if(!$id_size)$id_size = -1;
+		$id_size = -1;
+		if($this->forms_post()->get('id_size'.$i))
+			$id_size = intval($this->forms_post()->get('id_size'.$i));
 		$products[] = Array('product' => new Product($this, $id_product), 'size' => new Size($this, $id_size));
 		$i++;
 	}

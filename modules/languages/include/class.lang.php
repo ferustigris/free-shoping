@@ -59,6 +59,7 @@ class Lang extends Language {
 			if($tpl = $modules['templates']->get_var('template'))
 			{
 				$tpl->smarty() ->assign('LANG', $this->data);
+				$tpl->smarty() ->assign('lang', $this);
 			}
 	}
 	/*! translate

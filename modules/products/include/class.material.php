@@ -12,7 +12,7 @@ class Material {
 	public function __construct(&$parent, $id)
 	{
 		$this->module = $parent;
-		$this->id = $id;
+		$this->id = intval($id);
 	}
 	/*! id
 	 * \params no
@@ -62,7 +62,7 @@ class Material {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					return $line[0];
+					return urldecode($line[0]);
 				}
 			}
 		}
@@ -86,7 +86,7 @@ class Material {
 				return new Material($this->module, $id);
 			}
 		}
-		return false;
+		return NULL;
 	}
 	/*! remove materials
 	 * \params no
