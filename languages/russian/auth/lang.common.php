@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	$this->data['Registration'] = 'Регистрация';
 	$this->data['Enter your name'] = 'Логин';
 	$this->data['Enter your full name'] = 'Введите Ваше настоящее имя';

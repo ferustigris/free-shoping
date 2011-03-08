@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	//! save login and password to cookies session
 	$login = $this->forms_post()->get('login');
 	$full_name = $this->forms_post()->get('full_name');

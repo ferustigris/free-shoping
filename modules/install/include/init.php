@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	//include_once 'class.installer.php';
 	$this->log(LOG_ERROR, 'MOVE THIS CODE!');
 	if($module = $this->forms_post()->get('module'))

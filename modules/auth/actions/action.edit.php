@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	$password1 = $this->forms_post()->get('password1');
 	$password2 = $this->forms_post()->get('password2');
 	$phone = $this->forms_post()->get('phone');

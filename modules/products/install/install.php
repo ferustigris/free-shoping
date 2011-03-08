@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	$this->addPage('products_list', 0, 10000, 'products list', 0);
 	$this->addPage('product_edit', 0, 100, 'edit product', 0);
 	$this->addPage('product_page', 0, 10000, 'product name', 0);
@@ -17,4 +18,4 @@
 	$this->addAction('product_edit', 0, 100, 'save created product');
 	$this->addAction('product_buy', 0, 10000, 'buy product');
 	$this->addAction('product_remove', 0, 10000, 'remove product');
-	?>
+?>

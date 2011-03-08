@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once('modules/products/include/class.producer.php');
 	if($producer_id = $this->forms_get()->get('producer_id')
 			)

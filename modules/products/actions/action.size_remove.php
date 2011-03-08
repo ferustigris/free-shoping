@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once('modules/products/include/class.size.php');
 	if($mat_id = $this->forms_get()->get('size_id')
 			)

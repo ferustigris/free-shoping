@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	$this->data['products_root'] = 'Корневой элемент';
 	$this->data['product name'] = 'Товар';
 	$this->data['material name'] = 'Название материала';

@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once('modules/products/include/class.product.php');
 	include_once('modules/orders/include/class.order.php');
 	if(($id_order = intval($this->forms_post()->get('id_order')))&&($id_state = intval($this->forms_post()->get('id_state'))))

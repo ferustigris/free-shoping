@@ -1,5 +1,6 @@
 <?php
-		global $db;//! DB
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
+	global $db;//! DB
 		global $settings;//! settings manager
 		include_once "libs/class.settings.php";
 		include_once "libs/class.database.php";
