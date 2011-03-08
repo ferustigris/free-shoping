@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once 'class.tpl.php';
 	$tpl = $GLOBALS['settings']->get('template');
 	if(!$tpl)$tpl = "default";

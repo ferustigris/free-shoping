@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once('modules/categories/include/class.category.php');
 	include_once('modules/products/include/class.material.php');
 	include_once('modules/products/include/class.producer.php');

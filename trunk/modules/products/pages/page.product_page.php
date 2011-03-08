@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once('modules/products/include/class.product.php');
 	if($id = intval($this->forms_get()->get('product_id')))
 		if($product = new Product($this, $id))

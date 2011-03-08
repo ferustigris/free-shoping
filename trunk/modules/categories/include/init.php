@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	/*include_once 'libs/class.user.php';
 	$login = $this->sessions()->get('login');
 	$password = $this->sessions()->get('password');

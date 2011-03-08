@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	$this->data['buy'] = 'В корзину!';
 	$this->data['Confirm!'] = 'Козина';
 	$this->data['confirm ok'] = 'Купить';//No enought actual products!

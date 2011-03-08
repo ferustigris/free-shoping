@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	global $db;//! DB
 	global $settings;//! settings manager
 	global $modules;//! user modules list

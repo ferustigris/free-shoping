@@ -1,4 +1,6 @@
 <?php
+	global $INDEX;
+	$INDEX = 1;
 	include_once "libs/init.php";
 	include_once "libs/class.settings.php";
 	global $settings;

@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	$this->addPage('enter_form', 10000, 10000, 'Authorisation form', 0);
 	$this->addPage('registration_form', 10000, 10000, 'Registration form', 0);
 	$this->addPage('edit_form', 0, 9999, 'Edit form', 1);

@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	$this->data['title'] = 'Территория свободы';
 	$this->data['Enter your name'] = 'Введите логин';
 	$this->data['Your can not view page'] = 'Вы не имеете права на просмотр';
@@ -13,6 +14,4 @@
 	$this->data['vkontakte'] = 'контакте';
 	$this->data['Write to us'] = 'Пишите нам';
 	$this->data['Call us'] = 'Звоните нам';
-
-
 ?>

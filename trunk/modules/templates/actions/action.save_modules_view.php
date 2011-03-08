@@ -1,5 +1,5 @@
 <?php
-
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	if($tpl = $this->get_var('template'))
 	{
 		if($sections = $tpl->get_avaible_sections())

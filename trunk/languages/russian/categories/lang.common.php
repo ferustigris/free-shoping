@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	$this->data['root category'] = 'Корневой элемент';
 	$this->data['root'] = 'Корень';
 	$this->data['category name'] = 'Название категории';

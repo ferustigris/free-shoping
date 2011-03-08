@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	//include_once("include/iface.log.php");
 	include_once('modules/products/include/class.product.php');
 	//! save login and password to cookies session

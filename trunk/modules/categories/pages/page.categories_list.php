@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once('modules/categories/include/class.category.php');
 	$id = -1;
 	if($this->forms_get()->get('category_id'))

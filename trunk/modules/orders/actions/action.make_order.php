@@ -1,4 +1,5 @@
 <?php
+	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once('modules/products/include/class.product.php');
 	include_once('modules/orders/include/class.order.php');
 	if($mod_auth = $this->get_module('auth'))
