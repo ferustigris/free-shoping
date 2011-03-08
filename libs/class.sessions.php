@@ -27,7 +27,7 @@ class Sessions extends SimpleList {
 	public function get($field)
 	{
 		if(ISSET($_SESSION[$this->prefix.$field]))
-			return $_SESSION[$this->prefix.$field];
+			return urlencode($_SESSION[$this->prefix.$field]);
 		return NULL;
 	}
 	/*! set value
@@ -39,7 +39,7 @@ class Sessions extends SimpleList {
 	public function set($field, $value)
 	{
    		$_SESSION[$this->prefix.$field]=$value;
-		session_register($_SESSION[$this->prefix.$field]);
+		session_register(urldecode($_SESSION[$this->prefix.$field]));
 	}
 }
 ?>

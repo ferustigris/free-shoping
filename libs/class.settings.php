@@ -31,7 +31,7 @@ class Settings extends SimpleList {
 	public function get($field)
 	{
 		if(ISSET($this->data[$field]) )
-			return $this->data[$field]->value();
+			return urlencode($this->data[$field]->value());
 		return NULL;
 	}
 	/*! set value
@@ -42,7 +42,7 @@ class Settings extends SimpleList {
 	 */
 	public function set($field, $value)
 	{
-		$this->data[$field] = new Entry($field, $value);
+		$this->data[$field] = new Entry($field, urldecode($value));
 	}
 	/*! load settings
 	 * \params no

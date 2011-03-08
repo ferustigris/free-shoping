@@ -5,17 +5,17 @@ abstract class Module {
 	 * \params no
 	 * \return no
 	 */
-	abstract public function cookies();
+	abstract public function &cookies();
 	/*! access to sessions
 	 * \params no
 	 * \return no
 	 */
-	abstract public function sessions();
+	abstract public function &sessions();
 	/*! access to db
 	 * \params no
 	 * \return no
 	 */
-	abstract public function db();
+	abstract public function &db();
 	/*! add msg to log
 	 * \params
 	 * - level - log level
@@ -40,13 +40,13 @@ abstract class Module {
 	 * \params no
 	 * \return no
 	 */
-	abstract public function options();
+	abstract public function &options();
 	/*! access to concrete other module
 	 * \params
          * - module_name - module name
 	 * \return no
 	 */
-	abstract public function get_module($module_name);
+	abstract public function &get_module($module_name);
 	/*! access to data of GET-forms
 	 * \params no
 	 * \return no

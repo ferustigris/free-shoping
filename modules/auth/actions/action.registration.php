@@ -21,10 +21,10 @@
 						{
 							$this->sessions()->set('login', $login);
 							$this->sessions()->set('password', $password);
-							if($full_name)$user->set('full_name', $full_name);
-							if($phone)$user->set('phone', $phone);
-							if($mail)$user->set('mail', $mail);
-							if($address)$user->set('address', $address);
+							if($full_name)$user->set('full_name', urldecode($full_name));
+							if($phone)$user->set('phone', urldecode($phone));
+							if($mail)$user->set('mail', urldecode($mail));
+							if($address)$user->set('address', urldecode($address));
 							$this->log(LOG_NOTICE, "User added!");
 							$this->init() ;
 						} else $this->log(LOG_ERROR, "Module auth not found!");
