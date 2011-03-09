@@ -113,13 +113,13 @@ function calcCommonPrice() {
  * \params no
  * \return no
  */
-window.onload = function()
+/*window.onload = function()
 {
 	CKEDITOR.replace( 'product_description',
 			{
 				customConfig : 'scripts/ckeditor/config.js'
 			});
-};
+};*/
 /*! remove size ajax
  * \params
  * - id - id size

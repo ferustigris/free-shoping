@@ -5,6 +5,10 @@
  */
 function loadAjaxPage(page) 
 {
+	$.ajaxSetup({
+		scriptCharset: "utf-8" ,
+		contentType: "application/txt; charset=utf-8"
+		});
 	jQuery('#main_page').empty();
 	jQuery.post(page,{},
 	function(data) 
@@ -31,4 +35,8 @@ jQuery(function() {
 	{
 		loadAjaxPage(url);
 	}
+	$.ajaxSetup({
+		scriptCharset: "utf-8" ,
+		contentType: "application/txt; charset=utf-8"
+		});
 });
