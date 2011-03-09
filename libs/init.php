@@ -74,12 +74,15 @@
 		{
 			if($tpl = $modules['templates']->get_var('template'))
 			{
+				header("Content-type: text/html; charset=utf-8");
 				if(ISSET($_SERVER['HTTP_X_REQUESTED_WITH']))
 					if($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')
 					{
+						//header("Content-Type: application/xml; charset=utf-8");
 						$tpl->ajax();
 						return;
 					}
+				header("Content-type: text/html; charset=utf-8");
 				$tpl->html();
 			}
 		} else echo "not loaded templates module!";

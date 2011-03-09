@@ -1,3 +1,4 @@
+<!DOCTYPE root>
 <root>
 	<errors id="errors">
 {if ISSET($LOG_messages)}
