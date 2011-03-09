@@ -31,5 +31,10 @@
 	<div class="contacts_header">
     	<input type="text" name="icq" value="{$contacts_icq}" />    
     </div>
+    {foreach from=$contacts_messages item=message}
+	<div class="contacts_wrapper contacts_message_box">
+    <b>{$message->user()->name()}: </b>{$message->body()}
+    </div>
+    {/foreach}
 </form>
 </div>
