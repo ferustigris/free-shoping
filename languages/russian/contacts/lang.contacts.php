@@ -8,4 +8,5 @@
 	$this->data['my icq'] = 'ICQ';
 	$this->data['callback'] = 'Обратная связь';
 	$this->data['send'] = 'отправить';
+	$this->data['You must authorized for write us...'] = 'Вы сможете оставить сообщение после того, как представитесь...';
 ?>

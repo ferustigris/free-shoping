@@ -22,7 +22,6 @@ class Category {
 	public function child()
 	{
 		$list = Array();// = NULL;
-		$i = 0;
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("SELECT
@@ -34,7 +33,7 @@ class Category {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					$list[$i++] = new Category($this->module, $line[0]);
+					$list[] = new Category($this->module, $line[0]);
 				}
 			}
 		}
@@ -47,7 +46,6 @@ class Category {
 	public function all()
 	{
 		$list = Array();// = NULL;
-		$i = 0;
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("SELECT
@@ -57,7 +55,7 @@ class Category {
 			{
 				while( $line = mysql_fetch_array( $result ) )
 				{
-					$list[$i++] = new Category($this->module, $line[0]);
+					$list[] = new Category($this->module, $line[0]);
 				}
 			}
 		}

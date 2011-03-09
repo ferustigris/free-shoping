@@ -18,8 +18,6 @@
 				VALUES(".$line[0].",0,'bottom');");
 				$db->query("INSERT INTO ".$db->getPrefix()."tpl_sections(id_tpl, is_main, s_section)
 				VALUES(".$line[0].",0,'top');");
-				$db->query("INSERT INTO ".$db->getPrefix()."tpl_sections(id_tpl, is_main, s_section)
-				VALUES(".$line[0].",0,'header');");
 			}
 		}
 

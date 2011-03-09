@@ -115,7 +115,7 @@
 			//created user not exists
 			if ($db->query("INSERT INTO ".$db->getPrefix()."users(i_priority, s_name, s_passwd) VALUES(".$priority.", '".$login."', '".$password."');"))
 			{
-				return new UserImpl($login, $password);;
+				return new UserImpl($login, $password);
 			}
 			return NULL;
 		}

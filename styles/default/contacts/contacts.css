@@ -19,3 +19,6 @@
 .contacts_callback_message {
 	width: 500px;
 }
+.contacts_message_box {
+	border: 1px gray dotted;
+}

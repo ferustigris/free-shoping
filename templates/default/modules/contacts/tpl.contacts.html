@@ -1,5 +1,5 @@
 <div class="container_main_page">
-<form method="post" action="index.php?module=contacts&page=view_contatcs&action=message">
+<form ENCTYPE="multipart/form-data" method="post" action="index.php?module=contacts&page=view_contatcs&action=message">
 	<div class="contacts_header">
     {$lang->translate('Contacts')}: 
     </div>
@@ -18,9 +18,15 @@
 	<div class="contacts_wrapper2">
     {$lang->translate('callback')}
     </div>
-    <textarea class="contacts_callback_message" rows="" cols="20"></textarea>
+    {if $contacts_authorized}
+    <textarea name="contacts_message" class="contacts_callback_message" rows="" cols="20"></textarea>
 	<div class="contacts_wrapper2">
 	    <button id="contacts_send_message_button">{$lang->translate('send')}</button>
     </div>
+    {else}
+		<div class="contacts_wrapper2">
+	    {$lang->translate('You must authorized for write us...')}
+	    </div>
+    {/if}
 </form>
 </div>
