@@ -9,8 +9,7 @@
 		{
 				if($new_mat = $mat->add($name, $description))
 				{
-					$this->assign('new_material', $new_mat);
-					$this->add_ajax_tpl('material');
+
 				} else {
 					$this->log(LOG_DEBUG, 'Can not add material!');
 				}

@@ -126,16 +126,11 @@ function calcCommonPrice() {
  * \return no
  */
 function onRemoveSizeClick(id) {	
-	jQuery.get("index.php?module=products&action=size_remove&size_id=" + id,{},
+	jQuery.get("index.php?module=products&action=size_remove&page=size_add&size_id=" + id,{},
 		function(data) 
 			{
-				errors = jQuery('#errors', data);
-				jQuery('#top_page').empty() ;
-				jQuery('#top_page').append(errors.html());
-				if(errors.html().indexOf('div') < 0)
-				{
-					jQuery('#size_item_'+id).hide() ;
-				}
+				insertInPage(data);
+				setProductIcons();
 			});
 	return false;
 }
@@ -144,17 +139,13 @@ function onRemoveSizeClick(id) {
  * \return no
  */
 function onAddSizeClick() {	
-		jQuery.post("index.php?module=products&action=size_save",{
+		jQuery.post("index.php?module=products&action=size_save&page=size_add",{
 			size_name: jQuery("#size_name") .attr("value")
 		},
 		function(data) 
 		{
-			alert(data);
-			content = jQuery("#content", data);
-			errors = jQuery("#errors", data);
-			jQuery('#sizes_list').append(content.html());
-			jQuery('#top_page').empty() ;
-			jQuery('#top_page').append(errors.html());
+			insertInPage(data);
+			setProductIcons();
 		});
 	return false;
 }
@@ -164,16 +155,11 @@ function onAddSizeClick() {
  * \return no
  */
 function onRemoveProducerClick(id) {	
-	jQuery.get("index.php?module=products&action=producer_remove&producer_id=" + id,{},
+	jQuery.get("index.php?module=products&page=producer_add&action=producer_remove&producer_id=" + id,{},
 		function(data) 
 			{
-				errors = jQuery('#errors', data);
-				jQuery('#top_page').empty() ;
-				jQuery('#top_page').append(errors.html());
-				if(errors.html().indexOf('div') < 0)
-				{
-					jQuery('#producer_item_'+id).hide() ;
-				}
+				insertInPage(data);
+				setProductIcons();
 			});
 	return false;
 }
@@ -182,17 +168,14 @@ function onRemoveProducerClick(id) {
  * \return no
  */
 function onAddProducerClick() {	
-		jQuery.post("index.php?module=products&action=producer_save",{
+		jQuery.post("index.php?module=products&page=producer_add&action=producer_save",{
 			producer_name: jQuery("#producer_name") .attr("value"),
 			product_description: jQuery("#product_description") .text()
 		},
 		function(data) 
 		{
-			content = jQuery("#content", data);
-			errors = jQuery("#errors", data);
-			jQuery('#producers_list').append(content.html());
-			jQuery('#top_page').empty() ;
-			jQuery('#top_page').append(errors.html());
+			insertInPage(data);
+			setProductIcons();
 		});
 	return false;
 }
@@ -202,16 +185,11 @@ function onAddProducerClick() {
  * \return no
  */
 function onRemoveMaterialClick(id) {	
-	jQuery.get("index.php?module=products&action=material_remove&material_id=" + id,{},
+	jQuery.get("index.php?module=products&page=material_add&action=material_remove&material_id=" + id,{},
 		function(data) 
 			{
-				errors = jQuery('#errors', data);
-				jQuery('#top_page').empty() ;
-				jQuery('#top_page').append(errors.html());
-				if(errors.html().indexOf('div') < 0)
-				{
-					jQuery('#material_item_'+id).hide() ;
-				}
+				insertInPage(data);
+				setProductIcons();
 			});
 	return false;
 }
@@ -220,17 +198,14 @@ function onRemoveMaterialClick(id) {
  * \return no
  */
 function onAddMaterialClick() {	
-		jQuery.post("index.php?module=products&action=material_save",{
+		jQuery.post("index.php?module=products&page=material_add&action=material_save",{
 			material_name: jQuery("#material_name") .attr("value"),
 			product_description: jQuery("#product_description") .text()
 		},
 		function(data) 
 		{
-			content = jQuery("#content", data);
-			errors = jQuery("#errors", data);
-			jQuery('#materials_list').append(content.html());
-			jQuery('#top_page').empty() ;
-			jQuery('#top_page').append(errors.html());
+			insertInPage(data);
+			setProductIcons();
 		});
 	return false;
 }
@@ -281,11 +256,7 @@ function onProductChange(id_product, id_category)
 	},
 	function(data) 
 	{
-		content = jQuery("#content", data);
-		errors = jQuery("#errors", data);
-		jQuery('#main_page').append(content.html());
-		jQuery('#top_page').empty() ;
-		jQuery('#top_page').append(errors.html());
+		insertInPage(data);
 		setBasketIcons() ;
 		selectableChildProduct();
 		setProductIcons();

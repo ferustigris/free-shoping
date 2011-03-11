@@ -52,11 +52,7 @@ function onCategoryChange(id)
 	},
 	function(data) 
 	{
-		content = jQuery("#content", data);
-		errors = jQuery("#errors", data);
-		jQuery('#main_page').append(content.html());
-		jQuery('#top_page').empty() ;
-		jQuery('#top_page').append(errors.html());
+		insertInPage(data);
 		onCategoryStart();
 	});
 	return false;
