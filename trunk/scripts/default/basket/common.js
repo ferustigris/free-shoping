@@ -21,22 +21,20 @@ function onConfirmStart() {
 			jQuery.post("index.php?module=orders&page=my_orders&action=make_order",line,
 				function(data) 
 				{
-					content = jQuery("#content", data);
-					errors = jQuery("#errors", data);
-					jQuery('#top_page').empty();
-					if(!content.html())
+					if(jQuery.cookie('auth_enable') != 'true')
 					{//no autorization!
 						jQuery.cookie('redirect', 'index.php?module=basket&page=confirm');
 						loadAjaxPage('index.php?module=auth&page=registration_form');
+						return false;
 					}
-					jQuery('#top_page').append(errors.html());
-					jQuery('#main_page').html(content.html());
+					insertInPage( data );
 					if(!jQuery.cookie('basket_content'))
 					{
 						if(jQuery('#basket_show'))jQuery('#basket_show').hide();
 						if(jQuery("#basket_container"))jQuery("#basket_container").hide() ;
 					}
 					onConfirmStart() ;
+					jQuery.cookie('redirect', '');
 			});
 			return false;
 		});
@@ -194,11 +192,7 @@ function addProduct(id)
 					line,
 				function(data) 
 				{
-					content = jQuery("#content", data);
-					errors = jQuery("#errors", data);
-					jQuery('#top_page').empty();
-					jQuery('#top_page').append(errors.html());
-					jQuery('#main_page').html(content.html());
+					insertInPage( data );
 					if(!jQuery.cookie('basket_content'))
 					{
 						if(jQuery('#basket_show'))jQuery('#basket_show').hide();
@@ -233,12 +227,7 @@ function onConfirm()
 		},
 		function(data) 
 		{
-			content = jQuery("#content", data);
-			errors = jQuery("#errors", data);
-			jQuery('#top_page').empty() ;
-			jQuery('#top_page').append(errors.html());
-			jQuery('#basket').empty();
-			jQuery('#main_page').html(content.html());
+			insertInPage( data );
 			onConfirmStart() ;
 	});
 	return false;

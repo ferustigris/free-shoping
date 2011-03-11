@@ -13,25 +13,24 @@
 	margin-top: 2px;
 	margin-bottom: 3px;	
 }
-.registration_form_entry {
-	margin: 0px;
-	padding: 0px;
-}
 #registration_header {
 	height: 40px;
 	margin: 0px;
 	padding: 0px;
 }
 .registration_wrapper1, .registration_wrapper2 {
-	height: 20px;
+	height: 40px;
 	margin: 0px;
 	padding: 0px;
+	margin-bottom: 10px;
+}
+.registration_wrapper1 {
+	height:10px;
+	/*padding-top: 20px;*/
 }
 #registration_ok {
 	height: 40px;
 	margin: 0px;
-}
-.registration_wrapper2 {
 	margin-bottom: 10px;
 }
 #registration {

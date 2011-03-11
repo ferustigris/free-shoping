@@ -1,45 +1,45 @@
 <div id="registration_form">
 <form action="index.php?module=auth&action=edit&page=edit_form" method="post">
-	<div class="form_entry">
-    {$LANG['login']}: <b> {$auth_user->name()} </b>
-    </div>
-	<div class="wrapper">
-    {$LANG['your full name']}:
-    </div>
-	<div class="wrapper">
-    <input class="form_entry" type="text" name="full_name" value="{$auth_user->get('full_name')}" />
-    </div>
-	<div class="wrapper">
-    {$LANG['phone']}:
-    </div>
-	<div class="wrapper">
-    <input class="form_entry" type="text" name="phone" value="{$auth_user->get('phone')}" />
-    </div>
-	<div class="wrapper">
-    {$LANG['address']}:
-    </div>
-	<div class="wrapper">
-    <input class="form_entry" type="text" name="address" value="{$auth_user->get('address')}" />
-    </div>
-	<div class="wrapper">
-    {$LANG['mail']}:
-    </div>
-	<div class="wrapper">
-    <input class="form_entry" type="text" name="mail" value="{$auth_user->get('mail')}" />
-    </div>
-	<div class="wrapper">
+	<div class="registration_wrapper2">
     <button id="auth_edit_user_ok" class="save_button" type="submit" name="auth_edit_user_ok" value="{$LANG['Save']}">{$LANG['Save']}</button>    
     </div>
-	<div class="wrapper">
+	<div class="registration_wrapper2">
+    {$LANG['login']}: <b> {$auth_user->name()} </b>
+    </div>
+	<div class="registration_wrapper1">
+    {$LANG['your full name']}:
+    </div>
+	<div class="registration_wrapper2">
+    <input class="form_entry" type="text" name="full_name" value="{$auth_user->get('full_name')}" />
+    </div>
+	<div class="registration_wrapper1">
+    {$LANG['phone']}:
+    </div>
+	<div class="registration_wrapper2">
+    <input class="form_entry" type="text" name="phone" value="{$auth_user->get('phone')}" />
+    </div>
+	<div class="registration_wrapper1">
+    {$LANG['address']}:
+    </div>
+	<div class="registration_wrapper2">
+    <input class="form_entry" type="text" name="address" value="{$auth_user->get('address')}" />
+    </div>
+	<div class="registration_wrapper1">
+    {$LANG['mail']}:
+    </div>
+	<div class="registration_wrapper2">
+    <input class="form_entry" type="text" name="mail" value="{$auth_user->get('mail')}" />
+    </div>
+	<div class="registration_wrapper1">
     {$LANG['Change password']}. {$LANG['new password']}:
     </div>
-	<div class="wrapper">
+	<div class="registration_wrapper2">
     <input class="form_entry" type="password" name="password1" value="" />
     </div>
-	<div class="wrapper">
+	<div class="registration_wrapper1">
     {$LANG['retype password']}:
     </div>
-	<div class="wrapper">
+	<div class="registration_wrapper2">
     <input class="form_entry" type="password" name="password2" value="" />
     </div>
 </form>

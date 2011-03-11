@@ -10,4 +10,5 @@
 	}
 	$this->set_var('user', new UserImpl($login, $password));
 	$this->log(LOG_DEBUG, 'PRIOR='.$this->get_var('user')->priority());
+	$this->cookies()->set('enable', $this->get_var('user')->priority() < AUTH_NOBODY ? 'true' : '');
 ?>
