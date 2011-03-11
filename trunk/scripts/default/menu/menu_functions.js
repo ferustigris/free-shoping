@@ -6,18 +6,13 @@
 function loadAjaxPage(page) 
 {
 	$.ajaxSetup({
-		scriptCharset: "utf-8" ,
-		contentType: "application/txt; charset=utf-8"
+		scriptCharset: "utf-8"
 		});
 	jQuery('#main_page').empty();
 	jQuery.post(page,{},
 	function(data) 
 	{
-		content = jQuery("#content", data);
-		errors = jQuery("#errors", data);
-		jQuery('#main_page').append(content.html());
-		jQuery('#top_page').empty() ;
-		jQuery('#top_page').append(errors.html());
+		insertInPage(data);
 		onConfirmStart();
 		setProductIcons();
 		onCategoryStart();
@@ -36,7 +31,6 @@ jQuery(function() {
 		loadAjaxPage(url);
 	}
 	$.ajaxSetup({
-		scriptCharset: "utf-8" ,
-		contentType: "application/txt; charset=utf-8"
+		scriptCharset: "utf-8"
 		});
 });
