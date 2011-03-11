@@ -7,8 +7,6 @@
 		{
 				if($new_size = $mat->add($name))
 				{
-					$this->assign('new_size', $new_size);
-					$this->add_ajax_tpl('size');
 				} else
 					$this->log(LOG_DEBUG, 'Can not adding size!');
 		}

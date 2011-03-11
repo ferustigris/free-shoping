@@ -125,8 +125,7 @@ function insertInPage( data ) {
 	jQuery('#main_page').empty() ;
 	jQuery(data).each(function() {
 		if(jQuery(this).html() != null)
-		{
-			//alert(jQuery(this).html());				
+		{				
 			if(jQuery(this).attr('id') == 'content')
 				jQuery('#main_page').append(jQuery(this).html());
 			if(jQuery(this).attr('id') == 'errors')

@@ -9,8 +9,6 @@
 		{
 				if($new_prod = $producer->add($name, $description))
 				{
-					$this->assign('new_producer', $new_prod);
-					$this->add_ajax_tpl('producer');
 				} else
 					$this->log(LOG_ERROR, 'Can not create producer!');
 		}
