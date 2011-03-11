@@ -150,3 +150,8 @@ h3 {
 	position: relative;
 	top: -15px; 
 }
+.form_entry {
+	margin: 0px;
+	padding: 0px;
+	width: 500px;
+}

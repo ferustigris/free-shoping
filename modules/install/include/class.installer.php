@@ -208,6 +208,7 @@
 				$cook->set('login', $post->get('login'));
 			if($get->get('page') == 'complite')
 			{
+				/*DROP TABLE `PREFIXcategories`, `PREFIXlink_product_size`, `PREFIXmessages`, `PREFIXmodules`, `PREFIXmodule_actions`, `PREFIXmodule_pages`, `PREFIXmodule_settings`, `PREFIXorders`, `PREFIXorder_states`, `PREFIXproducts`, `PREFIXproduct_images`, `PREFIXproduct_materials`, `PREFIXproduct_producers`, `PREFIXproduct_sizes`, `PREFIXtemplates`, `PREFIXtpl_sections`, `PREFIXtpl_show_pages`, `PREFIXusers`, `PREFIXuser_options`;*/
 				foreach($_POST as $line => $key)
 					if($key == 'module')
 						$this->install($line, '').'<br />';
