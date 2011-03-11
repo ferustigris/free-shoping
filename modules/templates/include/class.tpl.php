@@ -386,8 +386,6 @@ class Tpl {//extends Template {
 	public function remove_page_from_section($id_page)
 	{
 		global $db;
-		echo "DELETE FROM ".$db->getPrefix()."tpl_show_pages
-		WHERE id_page=".((integer)$id_page).";";
 		return $db->query("DELETE FROM ".$db->getPrefix()."tpl_show_pages
 		WHERE id_page=".(integer)$id_page.";");
 	}

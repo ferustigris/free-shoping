@@ -1,5 +1,6 @@
-<!DOCTYPE root>
-<root>
+<!DOCTYPE html>
+<html>
+	<body>
 	<errors id="errors">
 {if ISSET($LOG_messages)}
 	{foreach from=$LOG_messages item=line}
@@ -39,4 +40,5 @@
 			{include file=$module}
 	{/foreach}
 	</content>
-</root>
+	</body>
+</html>

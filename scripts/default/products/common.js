@@ -149,6 +149,7 @@ function onAddSizeClick() {
 		},
 		function(data) 
 		{
+			alert(data);
 			content = jQuery("#content", data);
 			errors = jQuery("#errors", data);
 			jQuery('#sizes_list').append(content.html());

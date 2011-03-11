@@ -35,17 +35,11 @@ function runTemplateModule()
 					//params[$(this).html()] = section;
 				});
 			});
-			//alert(line);
-			//
-			jQuery.post("index.php?module=templates&action=save_modules_view&page=edit_modules_view",
-				line,
+			jQuery.post("index.php?module=templates&action=save_modules_view&page=edit_modules_view", line,
 			function(data) 
 			{
-				content = jQuery("#content", data);
-				errors = jQuery("#errors", data);
-				jQuery('#top_page').empty() ;
-				jQuery('#top_page').append(errors.html());
-				jQuery('#main_page').empty() ;
+				//insertInPage(data);
+				//alert(data);
 				//jQuery('#main_page').append(content.html());
 				//runTemplateModule();
 				window.location = "index.php";

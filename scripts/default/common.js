@@ -115,3 +115,22 @@ function viewLargerImage( $link ) {
 				modal: true
 			});
 }
+/*! image preview function, demonstrating the ui.dialog used as a modal window
+ * \params
+ * - link - link to image
+ * \return no
+ */
+function insertInPage( data ) {
+	jQuery('#top_page').empty() ;
+	jQuery('#main_page').empty() ;
+	jQuery(data).each(function() {
+		if(jQuery(this).html() != null)
+		{
+			//alert(jQuery(this).html());				
+			if(jQuery(this).attr('id') == 'content')
+				jQuery('#main_page').append(jQuery(this).html());
+			if(jQuery(this).attr('id') == 'errors')
+				jQuery('#top_page').append(jQuery(this).html());
+		}
+	});
+}
