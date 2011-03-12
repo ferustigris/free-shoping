@@ -121,15 +121,54 @@ function viewLargerImage( $link ) {
  * \return no
  */
 function insertInPage( data ) {
-	jQuery('#top_page').empty() ;
-	jQuery('#main_page').empty() ;
+	//jQuery('#top_page').empty() ;
+	//jQuery('#main_page').empty().hide() ;
 	jQuery(data).each(function() {
 		if(jQuery(this).html() != null)
 		{				
 			if(jQuery(this).attr('id') == 'content')
-				jQuery('#main_page').append(jQuery(this).html());
+				jQuery('#main_page').html(jQuery(this).html());
 			if(jQuery(this).attr('id') == 'errors')
-				jQuery('#top_page').append(jQuery(this).html());
+				jQuery('#top_page').html(jQuery(this).html());
 		}
 	});
-}
+	//$('#main_page').show( 200);// run the effect
+};
+/*! apply effect
+ * \params
+ * - link - link to image
+ * \return no
+ */
+function hideMainSection() 
+{
+	$('#main_page').hide( 'slow', hideMainSectionCallback );// run the effect
+	//$('#main_page').toggle( 'highlight', {}, 500 );// run the effect
+};
+/*! callback function to bring a hidden box back
+ * \params
+ * - link - link to image
+ * \return no
+ */
+function hideMainSectionCallback() 
+{
+	setTimeout(function() 
+	{
+		$('#main_page').removeAttr( "style" ).hide().fadeIn();
+	}, 1000 );
+};
+/*! callback function to bring a shown box back
+ * \params
+ * - link - link to image
+ * \return no
+ */
+function showMainSectionCallback() 
+{
+	setTimeout(function() 
+	{
+		$('#main_page').removeAttr( "style" ).fadeOut();
+	}, 1000 );
+};
+
+
+
+

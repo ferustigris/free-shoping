@@ -10,12 +10,14 @@
 	min-height: 20px; 
 	padding: 0px;
 	margin: 0px;
+	margin-right: 10px;
 	min-height: 500px;
 }
 .container_main_page {
+	left: 10px;
 	padding: 0px;
 	margin: 0px;
-	margin-left: 200px; /* Отступ слева */ 
+	/*margin-left: 200px; Отступ слева */ 
 }
 #main_page { /* главная */ 
 	margin-left: 200px; /* Отступ слева */ 

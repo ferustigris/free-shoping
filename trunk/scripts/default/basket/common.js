@@ -38,7 +38,7 @@ function onConfirmStart() {
 			});
 			return false;
 		});
-	accordion("basket_confirm_products_list");
+	//accordion("container_main_page");
 	jQuery('.remove_product_from_basket').click(function () {
 		var par = $(this).parent().parent().parent();
 		$(this).parent().parent().detach();
@@ -64,7 +64,7 @@ function onConfirmStart() {
 			total_price += parseInt($(this).attr('price'));
 		});
 		$('#total_price_container').html(total_price);
-		accordion("basket_confirm_products_list");
+		//accordion("container_main_page");
 	});
 };
 /*! Создаем контейнеры корзины
@@ -221,15 +221,7 @@ function setBasketIcons()
  */
 function onConfirm()
 {
-	jQuery.post("index.php?module=basket&page=confirm",{
-		//id_product: id
-		//jQuery("#size_name") .attr("value")
-		},
-		function(data) 
-		{
-			insertInPage( data );
-			onConfirmStart() ;
-	});
+	loadAjaxPage("index.php?module=basket&page=confirm") 
 	return false;
 }
 /*! accordion
