@@ -2,7 +2,7 @@
 	<div class="column">
 	{foreach from=$TPL_modules['left'] item=module}
 		<div class="portlet left_menu_item">
-			<div class="portlet-header">{$LANG[$module]}</div>
+			{*<div class="portlet-header">{$LANG[$module]}</div>*}
 			<div class="portlet-content">{include file=$module}</div>
 		</div>
 		<noscript><br /><br /></noscript>
