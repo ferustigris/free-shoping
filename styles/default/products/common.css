@@ -39,13 +39,14 @@ div.form_entry {
 	float: left;
 	clear: none;
 	padding: 0px;
-	padding-left: 9px;
+	padding-right: 9px;
 	margin: 0px;
 }
 .buttons_container {
 	width: 100%; 
 	height: 50px; 
 	margin: 10px;
+	margin-left: 0px;
 }
 .block_container {
 	background: #efefef;
