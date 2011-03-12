@@ -1,7 +1,8 @@
 <?php
 	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once('modules/products/include/class.product.php');
-	$str = $this->cookies()->get('content');
+	$str = '';
+	$str .= $this->cookies()->get('content');
 	$str .= $this->options()->get($_SERVER['REMOTE_ADDR']);
 	//echo $str;
 	$products = Array() ;
