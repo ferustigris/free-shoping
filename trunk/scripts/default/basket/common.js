@@ -156,13 +156,12 @@ function addProduct(id)
 			}
 		});
 	} else {
-		if(jQuery.cookie('basket_content') == null )
-			jQuery.cookie('basket_content', '');
-		if(!jQuery.cookie('basket_content') )
-			jQuery.cookie('basket_content', '') ;
 		if(isCookies())
 		{
-			jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_product=' + id + ',');
+			if(jQuery.cookie('basket_content'))
+				jQuery.cookie('basket_content', jQuery.cookie('basket_content') + 'id_product=' + id + ',');
+			else
+				jQuery.cookie('basket_content', 'id_product=' + id + ',');
 			jQuery('div.product_childs_products_item').each(function() {
 					if($(this).attr('selected') == '1')
 					{
