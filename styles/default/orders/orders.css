@@ -16,3 +16,8 @@
 .orders_child_product_buttons {
 	margin-top: -10px;
 }
+.confirm_one_product_container {
+	margin: 0px;
+	width: 100%;
+	height: 140px;
+}

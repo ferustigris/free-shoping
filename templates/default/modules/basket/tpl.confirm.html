@@ -1,3 +1,4 @@
+<div class="container_main_page">
 <form action="index.php?module=orders&page=my_orders&action=make_order" method="post">
 	{if count($basket_products)>0}
 	<button id="basket_order_ok" type="submit" name="basket_order_ok" value="{$LANG['confirm ok']}" >{$LANG['confirm ok']}</button>
@@ -8,8 +9,12 @@
 	{assign var=index value=0}
 	{foreach from=$basket_products item=product_entry}
 		<div class="confirm_one_product_container" price="{$product_entry['price']}" id_product="{$product_entry['product']->id()}">
+			<a class="remove_product_from_basket" href="#">{$LANG['remove from basket']}</a>
 			<input type="hidden" name="id_product{$index}" value="{$product_entry['product']->id()}" />
-			<h3 class="header_message"><a class="name_of_product_on_confirm_page" href="#">{$product_entry['product']->product()} ({$product_entry['price']} {$LANG['dollar']})</a></h3>
+			<p class="confirm_header_message">{$product_entry['product']->product()} ({$product_entry['price']} {$LANG['dollar']})</p>
+			<div class="confirm_img">
+		   		<img class="confirm_img" src="{$product_entry['product']->small_img()}" title="{$product_entry['product']->product()}" alt="{$product_entry['product']->product()}" />
+		   	</div>
 			<div class="child_products_list_on_confirm_page">
 					<ul class="confirm_list_child_products">
 					{foreach from=$product_entry['childs'] item=child}
@@ -19,9 +24,9 @@
 						<li class="confirm_list_child_products_item"  id_child="{$child->id()}" id_size="{$product_entry['sizes'][$child->id()]->id()}">{$child->product()} ({$product_entry['sizes'][$child->id()]->size()})</li>
 					{/foreach}
 					</ul>
-				<a class="remove_product_from_basket" href="#" style="float: right; margin-right: -30px; font-size: x-small">{$LANG['remove from basket']}</a>
 			</div>
 		</div>
+		<div class="line"></div>
 		{assign var=index value=$index+1}
 	{/foreach}
 	</div>
@@ -34,3 +39,4 @@
 	</div>
 	{/if}
 </form>
+</div>

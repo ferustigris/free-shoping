@@ -8,18 +8,21 @@ function loadAjaxPage(page)
 	$.ajaxSetup({
 		scriptCharset: "utf-8"
 		});
-	jQuery('#main_page').empty();
+	hideMainSection();
 	jQuery.post(page,{},
 	function(data) 
 	{
-		insertInPage(data);
-		onConfirmStart();
-		setProductIcons();
-		onCategoryStart();
-		runTemplateModule();
-		onAuthLoad();
-		//setProductEditor();
-		setContatcsIcons();
+		setTimeout(function() 
+		{
+			insertInPage(data);
+			onConfirmStart();
+			setProductIcons();
+			onCategoryStart();
+			runTemplateModule();
+			onAuthLoad();
+			//setProductEditor();
+			setContatcsIcons();
+		},	500);
 	});
 	return false;
 }
