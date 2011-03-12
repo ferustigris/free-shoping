@@ -17,14 +17,14 @@
 			</div>
 		</div>
 	</noscript>
-	<nocookies style="display: none;">
+	<div style="display: none;" id="nocookies">
 		<div class="ui-widget">
 			<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
 				<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> 
 				<strong></strong>{$LANG['Cookies not work...']}</p>
 			</div>
 		</div>
-	</nocookies>
+	</div>
 {if ISSET($LOG_messages)}
 {foreach from=$LOG_messages item=line}
 	{if $line->level() == 7}

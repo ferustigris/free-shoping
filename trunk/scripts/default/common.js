@@ -21,7 +21,7 @@
 
 		//$( ".column" ).disableSelection();
 		if(!isCookies())
-			$( "nocookies" ).show();
+			$( "#nocookies" ).show();
 	});
 /*! открывает эдит для ввода
  * \params 
@@ -121,8 +121,6 @@ function viewLargerImage( $link ) {
  * \return no
  */
 function insertInPage( data ) {
-	//jQuery('#top_page').empty() ;
-	//jQuery('#main_page').empty().hide() ;
 	jQuery(data).each(function() {
 		if(jQuery(this).html() != null)
 		{				
@@ -154,21 +152,5 @@ function hideMainSectionCallback()
 	setTimeout(function() 
 	{
 		$('#main_page').removeAttr( "style" ).hide().fadeIn();
-	}, 1000 );
+	}, 400 );
 };
-/*! callback function to bring a shown box back
- * \params
- * - link - link to image
- * \return no
- */
-function showMainSectionCallback() 
-{
-	setTimeout(function() 
-	{
-		$('#main_page').removeAttr( "style" ).fadeOut();
-	}, 1000 );
-};
-
-
-
-

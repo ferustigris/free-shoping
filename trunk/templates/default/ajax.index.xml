@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<body>
-	<errors id="errors">
+	<div id="errors">
 {if ISSET($LOG_messages)}
 	{foreach from=$LOG_messages item=line}
 		{if $line->level() == 7}
@@ -34,11 +34,11 @@
 		{/if}
 	{/foreach}
 {/if}
-	</errors>
-	<content id="content">
+	</div>
+	<div id="content">
 	{foreach from=$TPL_ajax_modules item=module}
 			{include file=$module}
 	{/foreach}
-	</content>
+	</div>
 	</body>
 </html>

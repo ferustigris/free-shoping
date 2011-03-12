@@ -156,6 +156,8 @@ function addProduct(id)
 			}
 		});
 	} else {
+		if(jQuery.cookie('basket_content') == null )
+			jQuery.cookie('basket_content', '');
 		if(!jQuery.cookie('basket_content') )
 			jQuery.cookie('basket_content', '') ;
 		if(isCookies())
