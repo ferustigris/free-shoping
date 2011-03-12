@@ -216,6 +216,24 @@ class Order {
 	{
 		return $this->id;
 	}
+	/*! total price
+	 * \params no
+	 * \return text
+	 */
+	public function price()
+	{
+		$total_price = 0;
+		$prod = $this->product();
+		if(count($prod->child()) == 0)
+			$total_price = $prod->price();
+		foreach($this->child() as $child)
+		{
+			$prod = $child->product();
+			if(count($prod->child()) == 0)
+				$total_price += $prod->price();
+		}
+		return $total_price;
+	}
 	/*! add new category
 	 * \params
 	 * - id_user - user
