@@ -15,13 +15,11 @@
 		</noscript>
 		<h3 class="product_description_container">{$products_product->product()} (<span id="product_price_common">{$products_product->price()}</span> {$LANG['dollar']})</h3>
 		<div class="product_params_container">
-
 			<div class="category_list_item">
 			   	<a href="{$products_product->img()}" class="child_product_list_item_img">
 			   		<img class="category_list_item_img product_main_image" src="{$products_product->small_img()}" title="{$products_product->product()}" alt="{$products_product->product()}" />
 			   	</a>
 			</div>   	   	
-
 			{foreach from=$products_product->child() item=product}
 				<div class="category_list_item child_list_item">
 				   	<a href="{$product->img()}" class="child_product_list_item_img">
@@ -37,7 +35,7 @@
 				<div idchild="{$product->id()}" class="product_childs_products_item" selected="0" price="{$product->price()}">
 					   		<div class="product_params_1">
 						   		<input name="item_{$product->id()}" class="product_childs_products_item_param" type="checkbox" />
-						   		<span class="product_childs_products_item_param">{$product->product()}</span>
+						   		<span class="product_childs_products_item_param">{$product->product()}, <b>{$product->price()}</b> {$LANG['dollar']}</span>
 					   		</div>
 					   		<div class="product_params_2">
 								<select name="item_size_{$product->id()}" class="product_childs_products_item_param">
@@ -45,7 +43,6 @@
 										<option value="{$size->id()}">{$size->size()}</option>
 									{/foreach}
 								</select>
-								{$product->price()} {$LANG['dollar']}
 					   		</div>
 				</div>
 			{/foreach}
