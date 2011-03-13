@@ -2,7 +2,7 @@
 	width: 237px;
 	height: 237px;
 	background: #fafafa;
-	v-align: center;
+	vertical-align: middle;
 	float: left;
 	text-align: center;
 	clear: none;
@@ -21,7 +21,7 @@
 	align: center;
 }
 .category_list_item_img {
-	max-height: 180px;
-	max-width: 180px;
+	max-height: 170px;
+	max-width: 170px;
 	border: none;
 }
