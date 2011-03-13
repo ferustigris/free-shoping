@@ -248,18 +248,6 @@ function onRemoveProduct(ok, no, id, category_id, msg) {
  */
 function onProductChange(id_product, id_category) 
 {
-	jQuery('#main_page').empty();
-	jQuery('#main_page').empty();
-	jQuery.post("index.php?module=products&page=product_page&product_id=" + id_product + "&category_id=" + id_category,{
-		//producer_name: jQuery("#producer_name") .attr("value"),
-		//product_description: jQuery("#product_description") .text()
-	},
-	function(data) 
-	{
-		insertInPage(data);
-		setBasketIcons() ;
-		selectableChildProduct();
-		setProductIcons();
-	});
+	loadAjaxPage("index.php?module=products&page=product_page&product_id=" + id_product + "&category_id=" + id_category);
 	return false;
 }
