@@ -25,3 +25,86 @@
 	max-width: 170px;
 	border: none;
 }
+
+.clear {clear:left;font-size:0px;line-height:0px;}
+#horizontal_menu {
+	z-index: 100000;
+	border:0px red solid;
+	background: white;
+}
+#horizontal_menu ul {
+	font-size: 10px;  	
+}
+#horizontal_menu ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid #9A9A9A;
+	float: left;
+	border-right:0px;
+}
+#horizontal_menu li {
+	float: left;
+	position: relative;
+	border-right:0px solid #9A9A9A;
+}
+#horizontal_menu ul a {
+	display: block;  
+	padding: 4px 10px;
+	text-align:center; 
+	margin: 0px; 
+	margin-top: 1px; 
+	line-height:20px;
+	border: solid  white 2px;
+}
+#horizontal_menu ul a:hover {
+	border: solid  #cecece 2px;
+	background: #fafafa;
+}
+#horizontal_menu li:hover,
+#horizontal_menu li.jshover {
+	background: #f5f5f5;
+}
+
+#horizontal_menu li:hover a,
+#horizontal_menu li.jshover a {
+	border: solid  #dedede 2px;
+	background: #fafafa;
+}
+/* UL UL */
+#horizontal_menu ul ul {
+	border: 0px solid #9A9A9A;
+	float: left; 
+	display: none;
+	position: absolute;
+	padding: 8px 0px;
+	width: 200px;
+}
+#horizontal_menu li li {
+	border-right:0px;
+	width: 200px;
+}
+#horizontal_menu li li a { 
+	text-align:left;
+	line-height:normal;
+}
+#horizontal_menu li:hover ul,
+#horizontal_menu li.jshover ul {
+	display: block;
+}
+/* UL UL UL */
+#horizontal_menu li:hover li ul,
+#horizontal_menu li.jshover li ul {
+	display: none;
+	top: -8px;
+	left: 200px;
+}
+#horizontal_menu li:hover li:hover ul,
+#horizontal_menu li.jshover li.jshover ul {
+	display: block;
+}
+
+/* fix for IE6 */
+* html body #horizontal_menu a.a_2, * html body #horizontal_menu a.a_3 {
+	height:15px;
+}

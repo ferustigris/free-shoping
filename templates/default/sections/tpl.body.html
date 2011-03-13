@@ -1,5 +1,10 @@
 <div>
 	<div id="container">
+{if count($TPL_modules['top'])}
+	{foreach from=$TPL_modules['top'] item=module}
+		{include file=$module}
+	{/foreach}
+{/if}
 		<div id="header_page">
 			{include file='pages/tpl.header.html'}
 		</div>
