@@ -1,14 +1,3 @@
-{if count($TPL_modules['top'])}
-	<div class="column">
-	{foreach from=$TPL_modules['top'] item=module}
-		{*<div class="portlet">
-			<div class="portlet-header">{$module}</div>*}
-{include file=$module}
-			{*<div class="portlet-content">{include file=$module}</div>
-		</div>*}
-	{/foreach}
-	</div>
-{/if}
 	<noscript>
 		<div class="ui-widget">
 			<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
