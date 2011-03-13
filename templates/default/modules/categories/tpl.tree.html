@@ -1,36 +1,23 @@
 	<div id="horizontal_menu">
 		<ul>
-			<li class="li_1"><a href="#null" class="a_1">Javascript</a></li>
-			<li class="li_1"><a href="#null" class="a_1">CSS horizontal_menu</a>
+		{foreach from=$categories_list item=cat}
+			<li class="li_1"><a href="#null" class="a_1">{$cat->title()}</a>
+			{if count($cat->child())>0}
 				<ul>
-					<li><a href="#null" class="a_2">Пример CSS based horizontal_menu</a></li>
-					<li><a href="#null" class="a_2">Другой пример</a></li>
-				</ul>
-			</li>
-			<li class="li_1"><a href="#null" class="a_1">Для вебмастера</a>
-				<ul>
-					<li><a href="#null" class="a_2">Trainer vacancies Sales presentations</a></li>
-					<li><a href="#null" class="a_2">Training material presentations</a></li>
-					<li><a href="#null" class="a_2">Sales support material positive</a>
+			{foreach from=$cat->child() item=ccat}
+					<li><a href="#null" class="a_2">{$ccat->title()}</a>
+					{if count($ccat->child())>0}
 						<ul>
-							<li><a href="#null" class="a_3">Sales presentations</a></li>
-							<li><a href="#null" class="a_3">Client objections and positive responses</a></li>
-							<li><a href="#null" class="a_3">FAQ</a></li>
-							<li><a href="#null" class="a_3">Pricing</a></li>
+						{foreach from=$ccat->child() item=cccat}
+							<li><a href="#null" class="a_3">{$cccat->title()}</a>
+						{/foreach}
 						</ul>
-					</li>		
-					<li><a href="#null" class="a_2">Для дизайнера</a></li>
+					{/if}
+					</li>
+			{/foreach}
 				</ul>
+			{/if}
+			
 			</li>
-			<li class="li_1"><a href="#null" class="a_1">St. Moritz</a></li>
-			<li class="li_1"><a href="#null" class="a_1">References</a>
-				<ul>
-					<li><a href="#null" class="a_2">Russia</a></li>
-					<li><a href="#null" class="a_2">International</a></li>
-				</ul>
-			</li>
-			<li class="li_1"><a href="#null" class="a_1">Training products</a></li>
-	
-		</ul>
-		<div class="clear"></div>
+		{/foreach}
 	</div>

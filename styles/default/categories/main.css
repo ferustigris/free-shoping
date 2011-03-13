@@ -34,8 +34,6 @@
 }
 #horizontal_menu ul {
 	font-size: 10px;  	
-}
-#horizontal_menu ul {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
@@ -54,7 +52,7 @@
 	text-align:center; 
 	margin: 0px; 
 	margin-top: 1px; 
-	line-height:20px;
+	line-height:15px;
 	border: solid  white 2px;
 }
 #horizontal_menu ul a:hover {
@@ -69,6 +67,8 @@
 #horizontal_menu li:hover a,
 #horizontal_menu li.jshover a {
 	border: solid  #dedede 2px;
+	margin-left: 1px; 
+	margin-top: 1px; 
 	background: #fafafa;
 }
 /* UL UL */
@@ -77,7 +77,7 @@
 	float: left; 
 	display: none;
 	position: absolute;
-	padding: 8px 0px;
+	padding: 0px 0px;
 	width: 200px;
 }
 #horizontal_menu li li {
@@ -96,7 +96,7 @@
 #horizontal_menu li:hover li ul,
 #horizontal_menu li.jshover li ul {
 	display: none;
-	top: -8px;
+	top: 0px;
 	left: 200px;
 }
 #horizontal_menu li:hover li:hover ul,
