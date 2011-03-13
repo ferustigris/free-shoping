@@ -24,13 +24,6 @@ function onCategoryStart() {
  */
 function onCategoryChange(id) 
 {
-	jQuery('#main_page').empty() ;
-	jQuery.post("index.php?module=categories&page=categories_list&category_id=" + id,{
-	},
-	function(data) 
-	{
-		insertInPage(data);
-		onCategoryStart();
-	});
+	loadAjaxPage("index.php?module=categories&page=categories_list&category_id=" + id);
 	return false;
 };
