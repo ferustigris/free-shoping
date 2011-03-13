@@ -8,6 +8,7 @@ function loadAjaxPage(page)
 	$.ajaxSetup({
 		scriptCharset: "utf-8"
 		});
+	jQuery.cookie('redirect', page);
 	hideMainSection();
 	jQuery.post(page,{},
 	function(data) 
@@ -20,7 +21,6 @@ function loadAjaxPage(page)
 			onCategoryStart();
 			runTemplateModule();
 			onAuthLoad();
-			//setProductEditor();
 			setContatcsIcons();
 		},	500);
 	});
@@ -31,6 +31,7 @@ jQuery(function() {
 	jQuery.cookie('redirect', '');
 	if(url)
 	{
+		jQuery('#main_page').html('');
 		loadAjaxPage(url);
 	}
 	$.ajaxSetup({
