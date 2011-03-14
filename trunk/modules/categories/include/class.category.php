@@ -1,7 +1,8 @@
 <?php
 include_once "include/iface.module.php";
+include_once "libs/class.dynamiclist.php";
 //! class for Category
-class Category {
+class Category extends DynamicList{
 	private $module;//! parent module
 	private $id;//! template id
 	/*! constructor
@@ -14,6 +15,7 @@ class Category {
 	{
 		$this->module = $parent;
 		$this->id = intval($id);
+		parent::__construct("category_options", $this->id);
 	}
 	/*! get child categories
 	 * \params no
@@ -61,7 +63,7 @@ class Category {
 		}
 		return $list;
 	}
-	/*! get parent
+	/*! get parent category
 	 * \params no
 	 * \return parent
 	 */
@@ -85,29 +87,6 @@ class Category {
 		}
 		return new Category($this->module, -1);
 	}
-	/*! link
-	 * \params no
-	 * \return text
-	 */
-	public function title()
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("SELECT
-				s_category
-				FROM
-				".$db->getPrefix()."categories
-				WHERE
-				id=".$this->id.";"))
-			{
-				while( $line = mysql_fetch_array( $result ) )
-				{
-					return urldecode($line[0]);
-				}
-			}
-		}
-		return NULL;
-	}
 	/*! link to categories
 	 * \params no
 	 * \return url
@@ -127,67 +106,17 @@ class Category {
 	/*! add new category
 	 * \params
 	 * - $parent_id - root
-	 * - $name - category name
-	 * - $description - category description
-	 * - $img_full - full img
-	 * - $img_small - small img
-	 * \return true/false
+	 * \return new category object
 	 */
-	public function add($parent_id, $name, $description, $img_full, $img_small)
+	public function add($parent_id)
 	{
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("INSERT INTO
-				".$db->getPrefix()."categories(id_parent, s_category, s_description, s_full_img, s_small_img)
-				VALUES(".$parent_id.", '".$name."', '".$description."', '".$img_full."', '".$img_small."');"))
+				".$db->getPrefix()."categories(id_parent)
+				VALUES(".$parent_id.");"))
 			{
-				return true;
-			}
-		}
-		return false;
-	}
-	/*! path to full image
-	 * \params no
-	 * \return path
-	 */
-	public function img()
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("SELECT
-				s_full_img
-				FROM
-				".$db->getPrefix()."categories
-				WHERE
-				id=".$this->id.";"))
-			{
-				while( $line = mysql_fetch_array( $result ) )
-				{
-					return urldecode($line[0]);
-				}
-			}
-		}
-		return NULL;
-	}
-	/*! path to small image
-	 * \params no
-	 * \return path
-	 */
-	public function small_img()
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("SELECT
-				s_small_img
-				FROM
-				".$db->getPrefix()."categories
-				WHERE
-				id=".$this->id.";"))
-			{
-				while( $line = mysql_fetch_array( $result ) )
-				{
-					return urldecode($line[0]);
-				}
+				return new Category($this->module, $db->getLastId());
 			}
 		}
 		return NULL;
