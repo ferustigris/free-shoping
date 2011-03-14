@@ -33,7 +33,7 @@
 	background: white;
 }
 #horizontal_menu ul {
-	font-size: 10px;  	
+	font-size: 12px;  	
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
@@ -51,8 +51,9 @@
 	padding: 4px 10px;
 	text-align:center; 
 	margin: 0px; 
+	margin-left: 1px; 
 	margin-top: 1px; 
-	line-height:15px;
+	line-height: 15px;
 	border: solid  white 2px;
 }
 #horizontal_menu ul a:hover {
@@ -67,8 +68,6 @@
 #horizontal_menu li:hover a,
 #horizontal_menu li.jshover a {
 	border: solid  #dedede 2px;
-	margin-left: 1px; 
-	margin-top: 1px; 
 	background: #fafafa;
 }
 /* UL UL */
