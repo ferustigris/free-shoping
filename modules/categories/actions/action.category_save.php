@@ -21,10 +21,15 @@
 					$small_img->move($img_small);
 				} else
 					$img->copy($img_small, 200, 200) ;
-				if($category->add($parent, $name, $description, $img_full, $img_small))
-					$this->log(LOG_DEBUG, 'OK');
-				else
-					$this->log(LOG_DEBUG, 'FAIL');
+				if($ncategory = $category->add($parent))
+				{
+					$ncategory->set('name', urldecode($name));
+					$ncategory->set('description', urldecode($description));
+					$ncategory->set('img_full', urldecode($img_full));
+					$ncategory->set('img_small', urldecode($img_small));
+					$this->log(LOG_DEBUG, 'Category added');
+				} else
+					$this->log(LOG_DEBUG, 'Category not added');
 			}
 			else
 				$this->log(LOG_ERROR, 'file image not loaded!');

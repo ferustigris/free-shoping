@@ -8,7 +8,7 @@
 	    <select size=1 id="category_parent" name="category_parent">
 	    	<option value="-1">{$LANG['root category']}</option>
 	    	{foreach from=$categories_all item=category}
-	    	<option value="{$category->id()}">{$category->title()}</option>
+	    	<option value="{$category->id()}">{$category->get('name')}</option>
 	    	{/foreach}
 	    </select><br />
 	    <input class="form_entry" type="file" id="category_img" name="category_img" /><br />

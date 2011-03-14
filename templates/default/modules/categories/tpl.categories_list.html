@@ -6,7 +6,7 @@
 		</form>
 	{foreach from=$categories_parents_list item=category}
 		<form class="buttons_line" ENCTYPE="multipart/form-data"  action="{$category->link()}" method="POST">
-		    <button onclick="return onCategoryChange({$category->id()});" class="buttons_line back" type="submit" name="ok" value="{$category->title()}">{$category->title()}</button>   
+		    <button onclick="return onCategoryChange({$category->id()});" class="buttons_line back" type="submit" name="ok" value="{$category->get('name')}">{$category->get('name')}</button>   
 		</form>
 	{/foreach}
 	</div>
@@ -15,8 +15,8 @@
 	{foreach from=$categories_list item=category}
 		<div class="category_list_item">
 		   	<a href="{$category->link()}" onclick="return onCategoryChange({$category->id()});">
-		   		<p class="category_list_item_title">{$category->title()}</p>
-		   		<img class="category_list_item_img" src="{$category->small_img()}" title="{$category->title()}" alt="{$category->title()}" />
+		   		<p class="category_list_item_title">{$category->get('name')}</p>
+		   		<img class="category_list_item_img" src="{$category->get('img_small')}" title="{$category->get('name')}" alt="{$category->get('name')}" />
 		   	</a>
 		</div>   	
 	{/foreach}
