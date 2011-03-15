@@ -21,8 +21,9 @@ function onAuthLoad() {
 	            primary: "ui-icon-key"
 	        }
 		}).attr('disabled',true);
-	if(jQuery('#registration_password1'))jQuery('#registration_password1').keyup(checkPassword);
-	if(jQuery('#registration_password2'))jQuery('#registration_password2').keyup(checkPassword);	
+	jQuery(".registration_valid_check").keyup(checkPassword);
+	//if(jQuery('#registration_password1'))jQuery('#registration_password1').keyup(checkPassword);
+	//if(jQuery('#registration_password2'))jQuery('#registration_password2').keyup(checkPassword);	
 }
 function checkPassword() {
 	if(jQuery('#registration_password1').attr('value') != jQuery('#registration_password2').attr('value'))
