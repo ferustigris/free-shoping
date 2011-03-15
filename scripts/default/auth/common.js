@@ -20,71 +20,110 @@ function onAuthLoad() {
 			icons: {
 	            primary: "ui-icon-key"
 	        }
-		}).attr('disabled',true);
+		}).attr('disabled',true).click(function() {
+			jQuery.cookie('redirect', '');
+			return true;
+		});
 	jQuery(".registration_valid_check").keyup(checkPassword);
-	//if(jQuery('#registration_password1'))jQuery('#registration_password1').keyup(checkPassword);
-	//if(jQuery('#registration_password2'))jQuery('#registration_password2').keyup(checkPassword);	
 }
 function checkPassword() {
 	var has_errors = false;
-	if(/^([a-z0-9_\-]+\.)*[a-z0-9_\-]+@([a-z0-9][a-z0-9\-]*[a-z0-9]\.)+[a-z]{2,4}$/.test(jQuery('#registration_mail').attr('value')))
+	if(jQuery('#registration_login'))
 	{
-		setCheck('mail');
-	} else 	{
-		setUncheck('mail');
-		has_errors = true;
-	}
-	if((jQuery('#registration_login').attr('value').length > 0)&&(jQuery('#registration_login').attr('value').length < 20))
+		var str = "" + jQuery('#registration_login').attr('value');
+		if((str.length > 0)&&(str.length < 20))
+		{
+			setCheck('login');
+		} else 	{
+			setUncheck('login');
+			has_errors = true;
+		}
+	};
+	if(jQuery('#registration_mail'))
 	{
-		setCheck('login');
-	} else 	{
-		setUncheck('login');
-		has_errors = true;
-	}
-	if(jQuery('#registration_phone').attr('value').length > 5)
+		if(/^([a-z0-9_\-]+\.)*[a-z0-9_\-]+@([a-z0-9][a-z0-9\-]*[a-z0-9]\.)+[a-z]{2,4}$/.test(jQuery('#registration_mail').attr('value')))
+		{
+			setCheck('mail');
+		} else 	{
+			setUncheck('mail');
+			has_errors = true;
+		}
+	};
+	if(jQuery('#registration_phone'))
 	{
-		setCheck('phone');
-	} else 	{
-		setUnheck('phone');
-		has_errors = true;
-	}
-	if(jQuery('#registration_address').attr('value').length > 5)
+		var str = "" + jQuery('#registration_phone').attr('value');
+			if(str.length > 5)
+			{
+				setCheck('phone');
+			} else 	{
+				setUncheck('phone');
+				has_errors = true;
+			}
+	};
+	if(jQuery('#registration_address'))
 	{
-		setCheck('address');
-	} else 	{
-		setUnheck('address');
-		has_errors = true;
-	}
-	if((jQuery('#registration_password1').attr('value').length > 2)&&(jQuery('#registration_password1').attr('value') == jQuery('#registration_password2').attr('value')))
+		var str = "" + jQuery('#registration_address').attr('value');
+		if(str.length > 5)
+		{
+			setCheck('address');
+		} else 	{
+			setUncheck('address');
+			has_errors = true;
+		}
+	};
+	if((jQuery('#registration_password1'))&&(jQuery('#registration_password2')))
 	{
-		setCheck('password1');
-		setCheck('password2');
-	} else
-	{
-		has_errors = true;
-		setUncheck('password1');
-		setUncheck('password2');
-	}
+		var str1 = "" + jQuery('#registration_password1').attr('value');
+		var str2 = "" + jQuery('#registration_password2').attr('value');
+		if((str1.length >= parseInt(jQuery('#registration_password1').attr('min_len')))&&(str1 == str2))
+		{
+			setCheck('password1');
+			setCheck('password2');
+		} else
+		{
+			has_errors = true;
+			setUncheck('password1');
+			setUncheck('password2');
+		}
+	};
 	if(has_errors)
 	{
-		$('#registration_ok[type="submit"]').attr('disabled',true);
+		if($('#registration_ok[type="submit"]'))
+		{
+			$('#registration_ok[type="submit"]').attr('disabled',true);
+		}
+		if($('#auth_edit_user_ok[type="submit"]'))
+		{
+			$('#auth_edit_user_ok[type="submit"]').attr('disabled',true);
+		}
 	} else {
-		$('#registration_ok[type="submit"]').attr('disabled',false);
-		jQuery('#registration_ok[type="submit"]').click(function() {
-			jQuery.cookie('redirect', '');
-			return true;
-		})
-	}
+		if($('#registration_ok[type="submit"]'))
+		{
+			$('#registration_ok[type="submit"]').attr('disabled',false);
+		}
+		if($('#auth_edit_user_ok[type="submit"]'))
+		{
+			$('#auth_edit_user_ok[type="submit"]').attr('disabled',false);
+		}
+	}//
 }
 function setCheck(name) {
+	if(jQuery('#registration_icon_' + name))
 	jQuery('#registration_icon_' + name).removeClass('ui-icon-alert');
+	if(jQuery('#registration_icon_' + name))
 	jQuery('#registration_icon_' + name).addClass('ui-icon-check');
+	if(jQuery('#registration_wrapper_' + name))
 	jQuery('#registration_wrapper_' + name).removeClass('enter_error');
+	if(jQuery('#registration_' + name))
 	jQuery('#registration_' + name).removeClass('enter_error');
 };
 function setUncheck(name) {
+	if(jQuery('#registration_icon_' + name))
+		jQuery('#registration_icon_' + name).removeClass('ui-icon-check');
+	if(jQuery('#registration_icon_' + name))
 	jQuery('#registration_icon_' + name).addClass('ui-icon-alert');
-	jQuery('#registration_icon_' + name).removeClass('ui-icon-check');
+	if(jQuery('#registration_wrapper_' + name))
 	jQuery('#registration_wrapper_' + name).addClass('enter_error');
+	if(jQuery('#registration_' + name))
 	jQuery('#registration_' + name).addClass('enter_error');
 };

@@ -45,6 +45,7 @@ jQuery(function() {
 	$.ajaxSetup({
 		scriptCharset: "utf-8"
 	});
+	onMenuStart();
 });
 /*! set links
  * \params no
@@ -54,6 +55,7 @@ function onMenuStart() {
 	jQuery("a.ajax_link").each(function () {
 		$(this).click(function() {
 			loadAjaxPage($(this).attr('href'))
+			return false;
 		});
 	});
 };
