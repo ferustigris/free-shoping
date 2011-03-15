@@ -28,6 +28,8 @@ function loadAjaxPage(page, line)
 			selectableChildProduct();
 			setProductIcons();
 			onMenuStart();
+			if(!isCookies())
+				$( "#nocookies" ).show();
 		},	500);
 	});
 	return false;

@@ -26,14 +26,21 @@
 	padding: 0px;
 	margin: 0px;
 } 
+#main_container { /* главная */ 
+	margin-left: 200px; /* Отступ слева */ 
+	min-height: 20px; 
+	min-width: 200px; 
+	padding: 0px;
+	margin: 0px;
+} 
 #bottom_page { /* низ */ 
 	min-height: 90px; 
 	clear: both;
 } 
 #top_page { /* top */ 
-	min-height: 80px;
-	padding: 10px; 
-	padding-bottom: 0px; 
+	padding: 0px;
+	margin: 0px;
+	margin-left: 200px; /* Отступ слева */ 
 }
 #columns_container {
 	margin-top: 9px; 
