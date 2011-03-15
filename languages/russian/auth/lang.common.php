@@ -31,6 +31,8 @@
 
 	$this->data['for registration enter next data'] = 'Введите данные для регистрации:';
 	$this->data['more than 3 symbol'] = 'не менее 3 символов';
+	$this->data['No enought actual parameters!'] = 'Введены не все данные!';
+
 
 
 ?>

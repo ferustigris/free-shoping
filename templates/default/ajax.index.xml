@@ -3,7 +3,7 @@
 	<body>
 	<div id="errors">
 	<div style="display: none; margin: 0px;" id="nocookies">
-			<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
+			<div class="ui-state-error ui-corner-all"> 
 				<p class="message"><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <a style="color: white; border-color: white;" href="http://ru.wikipedia.org/wiki/HTTP_cookie" title="cookies" target="_blank">{$lang->translate('cookies')}</a> {$lang->translate('not work')}... {$lang->translate('recomended turn on')}</p>
 			</div>
 	</div>
@@ -14,15 +14,15 @@
 		{elseif  $line->level() == 6}
 			<div style="color: black;">{$line->message()}</div>
 		{elseif  $line->level() == 5}
-				<div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;"> 
+				<div class="ui-state-highlight ui-corner-all"> 
 					<p  class="message"><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>{$line->message()}</p>
 				</div>
 		{elseif  $line->level() == 3}
-				<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
+				<div class="ui-state-error ui-corner-all"> 
 					<p class="message"><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> {$line->message()}</p>
 				</div>
 		{elseif  $line->level() == 1}
-				<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
+				<div class="ui-state-error ui-corner-all"> 
 					<p class="message"><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> {$line->message()}</p>
 				</div>
 		{/if}
