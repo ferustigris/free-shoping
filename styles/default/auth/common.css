@@ -48,8 +48,8 @@
 .enter_container {
 	text-align: center;
 }
-.enter_error {
-	border: 1px solid #ff8f8f;
+input.enter_error {
+	color: red;
 }
 #logout_button {
 	position: absolute;

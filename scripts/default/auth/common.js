@@ -26,16 +26,65 @@ function onAuthLoad() {
 	//if(jQuery('#registration_password2'))jQuery('#registration_password2').keyup(checkPassword);	
 }
 function checkPassword() {
-	if(jQuery('#registration_password1').attr('value') != jQuery('#registration_password2').attr('value'))
-			//||jQuery('#registration_password1').attr('value').length() < 3)
+	var has_errors = false;
+	if(/^([a-z0-9_\-]+\.)*[a-z0-9_\-]+@([a-z0-9][a-z0-9\-]*[a-z0-9]\.)+[a-z]{2,4}$/.test(jQuery('#registration_mail').attr('value')))
 	{
-		jQuery('#registration_password1').addClass("enter_error");
-		jQuery('#registration_password2').addClass("enter_error");
-		$('#registration_ok[type="submit"]').attr('disabled',true);
+		setCheck('mail');
+	} else 	{
+		setUncheck('mail');
+		has_errors = true;
+	}
+	if((jQuery('#registration_login').attr('value').length > 0)&&(jQuery('#registration_login').attr('value').length < 20))
+	{
+		setCheck('login');
+	} else 	{
+		setUncheck('login');
+		has_errors = true;
+	}
+	if(jQuery('#registration_phone').attr('value').length > 5)
+	{
+		setCheck('phone');
+	} else 	{
+		setUnheck('phone');
+		has_errors = true;
+	}
+	if(jQuery('#registration_address').attr('value').length > 5)
+	{
+		setCheck('address');
+	} else 	{
+		setUnheck('address');
+		has_errors = true;
+	}
+	if((jQuery('#registration_password1').attr('value').length > 2)&&(jQuery('#registration_password1').attr('value') == jQuery('#registration_password2').attr('value')))
+	{
+		setCheck('password1');
+		setCheck('password2');
 	} else
 	{
-		jQuery('#registration_password1').removeClass("enter_error");
-		jQuery('#registration_password2').removeClass("enter_error");
+		has_errors = true;
+		setUncheck('password1');
+		setUncheck('password2');
+	}
+	if(has_errors)
+	{
+		$('#registration_ok[type="submit"]').attr('disabled',true);
+	} else {
 		$('#registration_ok[type="submit"]').attr('disabled',false);
+		jQuery('#registration_ok[type="submit"]').click(function() {
+			jQuery.cookie('redirect', '');
+			return true;
+		})
 	}
 }
+function setCheck(name) {
+	jQuery('#registration_icon_' + name).removeClass('ui-icon-alert');
+	jQuery('#registration_icon_' + name).addClass('ui-icon-check');
+	jQuery('#registration_wrapper_' + name).removeClass('enter_error');
+	jQuery('#registration_' + name).removeClass('enter_error');
+};
+function setUncheck(name) {
+	jQuery('#registration_icon_' + name).addClass('ui-icon-alert');
+	jQuery('#registration_icon_' + name).removeClass('ui-icon-check');
+	jQuery('#registration_wrapper_' + name).addClass('enter_error');
+	jQuery('#registration_' + name).addClass('enter_error');
+};
