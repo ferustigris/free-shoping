@@ -24,6 +24,6 @@ function onCategoryStart() {
  */
 function onCategoryChange(id) 
 {
-	loadAjaxPage("index.php?module=categories&page=categories_list&category_id=" + id);
+	loadAjaxPage("index.php?module=categories&page=categories_list&category_id=" + id, {});
 	return false;
 };

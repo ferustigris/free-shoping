@@ -21,7 +21,7 @@ class Settings extends SimpleList {
 	 */
 	public function __destruct()
 	{
-		$this->save();
+		//$this->save();
 	}
 	/*! get value by filed name
 	 * \params
