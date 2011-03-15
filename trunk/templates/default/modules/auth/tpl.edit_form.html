@@ -12,35 +12,35 @@
 	<div class="registration_wrapper2">
     <input class="form_entry" type="text" name="full_name" value="{$auth_user->get('full_name')}" />
     </div>
-	<div class="registration_wrapper1">
-    {$LANG['phone']}:
+	<div id="registration_wrapper_phone"  class="registration_wrapper1">
+    {$LANG['phone']}:<span id="registration_icon_phone" class="ui-icon ui-icon-check" style="margin-left: 710px; margin-top: 3px;"></span>
     </div>
 	<div class="registration_wrapper2">
-    <input class="form_entry" type="text" name="phone" value="{$auth_user->get('phone')}" />
+    <input id="registration_phone" class="form_entry registration_valid_check" type="text" name="phone" value="{$auth_user->get('phone')}" />
     </div>
-	<div class="registration_wrapper1">
-    {$LANG['address']}:
-    </div>
-	<div class="registration_wrapper2">
-    <input class="form_entry" type="text" name="address" value="{$auth_user->get('address')}" />
-    </div>
-	<div class="registration_wrapper1">
-    {$LANG['mail']}:
+	<div id="registration_wrapper_address" class="registration_wrapper1">
+    {$LANG['address']}:<span id="registration_icon_address" class="ui-icon ui-icon-check" style="margin-left: 710px; margin-top: 3px;"></span>
     </div>
 	<div class="registration_wrapper2">
-    <input class="form_entry" type="text" name="mail" value="{$auth_user->get('mail')}" />
+    <input id="registration_address" class="form_entry registration_valid_check" type="text" name="address" value="{$auth_user->get('address')}" />
     </div>
-	<div class="registration_wrapper1">
-    {$LANG['Change password']}. {$LANG['new password']}:
-    </div>
-	<div class="registration_wrapper2">
-    <input class="form_entry" type="password" name="password1" value="" />
-    </div>
-	<div class="registration_wrapper1">
-    {$LANG['retype password']}:
+	<div id="registration_wrapper_mail" class="registration_wrapper1">
+    {$LANG['mail']}:<span id="registration_icon_mail"  class="ui-icon ui-icon-check" style="margin-left: 710px; margin-top: 3px;"></span>
     </div>
 	<div class="registration_wrapper2">
-    <input class="form_entry" type="password" name="password2" value="" />
+    <input id="registration_mail" class="form_entry registration_valid_check" type="text" name="mail" value="{$auth_user->get('mail')}" />
+    </div>
+	<div id="registration_wrapper_password1" class="registration_wrapper1">
+    {$LANG['Change password']}. {$LANG['new password']}:<span id="registration_icon_password1" class="ui-icon ui-icon-check" style="margin-left: 710px; margin-top: 3px;"></span>
+    </div>
+	<div class="registration_wrapper2">
+    <input min_len="0" id="registration_password1"  class="form_entry registration_valid_check" type="password" name="password1" value="" />
+    </div>
+	<div id="registration_wrapper_password2" class="registration_wrapper1">
+    {$LANG['retype password']}:<span id="registration_icon_password2" class="ui-icon ui-icon-check" style="margin-left: 710px; margin-top: 3px;"></span>
+    </div>
+	<div class="registration_wrapper2">
+    <input id="registration_password2" class="form_entry registration_valid_check" type="password" name="password2" value="" />
     </div>
 </form>
 </div>
