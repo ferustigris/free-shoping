@@ -46,7 +46,10 @@
 	margin-top: 9px; 
 }
 #header_page { /* top */ 
-	min-height: 39px; 
+	min-height: 39px;
+}
+.header-img {
+	margin-top: 20px;
 }
 /* <- главные секции */
 /* для меню-контейнеров -> */
@@ -168,4 +171,7 @@ h3 {
 p.message {
 	 padding: 10px; 
 	 margin: 0px; 
+}
+.single_big_img {
+	padding: 50px;
 }

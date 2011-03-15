@@ -1,6 +1,7 @@
 <div class="container_main_page">
 <h3>{$LANG['edit product']}</h3>
 <form ENCTYPE="multipart/form-data"  action="index.php?module=products&action=product_edit" method="POST">
+	<button id="ok" type="submit" name="ok" value="{$LANG['product save']}" >{$LANG['product save']}</button><br />
     {$LANG['product article']}
     <input class="" type="text" name="product_article" value="{$products_product->article()}" /><br />
     {$LANG['product name']}
@@ -10,7 +11,7 @@
     <input name="product_id" type="hidden" value="{$products_product->id()}" />
     <select size=1 name="product_category">
     	{foreach from=$products_allcats item=cat}
-    		<option value="{$cat->id()}" {if $cat->id() == $products_product->category()->id()}selected{/if}>{$cat->title()}</option>
+    		<option value="{$cat->id()}" {if $cat->id() == $products_product->category()->id()}selected{/if}>{$cat->get('name')}</option>
     	{/foreach}
     </select><br />
     <select size=1 name="product_material">
@@ -35,7 +36,7 @@
     	<input name="size_{$size->id()}" type="checkbox" value="{$size->id()}" >{$size->size()}<br />
     	{/if}
    	{/foreach}
-    <input id="product_price" type="text" size=5 name="product_price" value="{$size->price()}" />{$LANG['dollar']}<br />
+    <input id="product_price" type="text" size=5 name="product_price" value="{$products_product->price()}" />{$LANG['dollar']}<br />
 	<div>
     {$LANG['full image']}:
     </div>
@@ -43,7 +44,6 @@
 	<div>
     {$LANG['small image']}:
     </div>
-    <input class="" type="file" name="product_small_img" /><br />
-    <input id="ok" type="submit" name="ok" value="{$LANG['product save']}" /><br />    
+    <input class="" type="file" name="product_small_img" /><br />    
 </form>
 </div>
