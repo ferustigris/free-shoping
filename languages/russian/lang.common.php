@@ -8,8 +8,9 @@
 	$this->data['Attention!'] = 'Внимание!';
 	$this->data['ok'] = 'Ok';
 	$this->data['cancel'] = 'Отмена';
-	$this->data['JS not work...'] = 'JavaScript не включен. Для комфортной работы рекомендуется включить.';
-	$this->data['Cookies not work...'] = 'Cookies отключены.Рекомендуется включить.';
+	$this->data['JS'] = 'Скрипты';
+	$this->data['not work'] = 'отключены';
+	$this->data['recomended turn on'] = 'Рекомендуем включить.';
 	$this->data['We in'] = 'Мы в';
 	$this->data['vkontakte'] = 'контакте';
 	$this->data['Write to us'] = 'Пишите нам';
