@@ -1,15 +1,15 @@
 	<div id="horizontal_menu">
 		<ul>
 		{foreach from=$categories_list item=cat}
-			<li class="li_1"><a href="#null" class="a_1">{$cat->get('name')}</a>
+			<li class="li_1"><a href="{$cat->link()}" class="ajax_link a_1">{$cat->get('name')}</a>
 			{if count($cat->child())>0}
 				<ul>
 			{foreach from=$cat->child() item=ccat}
-					<li><a href="#null" class="a_2">{$ccat->get('name')}</a>
+					<li><a href="{$ccat->link()}" class="ajax_link a_2">{$ccat->get('name')}</a>
 					{if count($ccat->child())>0}
 						<ul>
 						{foreach from=$ccat->child() item=cccat}
-							<li><a href="#null" class="a_3">{$cccat->get('name')}</a>
+							<li><a href="{$cccat->link()}" class="ajax_link a_3">{$cccat->get('name')}</a>
 						{/foreach}
 						</ul>
 					{/if}

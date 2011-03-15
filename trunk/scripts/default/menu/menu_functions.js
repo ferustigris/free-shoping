@@ -25,6 +25,7 @@ function loadAjaxPage(page)
 			setBasketIcons() ;
 			selectableChildProduct();
 			setProductIcons();
+			onMenuStart();
 		},	500);
 	});
 	return false;
@@ -45,3 +46,14 @@ jQuery(function() {
 		scriptCharset: "utf-8"
 	});
 });
+/*! set links
+ * \params no
+ * \return no
+ */
+function onMenuStart() {
+	jQuery("a.ajax_link").each(function () {
+		$(this).click(function() {
+			loadAjaxPage($(this).attr('href'))
+		});
+	});
+};

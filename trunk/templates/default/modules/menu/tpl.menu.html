@@ -1,6 +1,6 @@
 {foreach from=$menu_menus item=menu_item}
 	<div class="menu_item">
-		<a href="{$menu_item->link()}" onclick="return loadAjaxPage('{$menu_item->link()}');">
+		<a href="{$menu_item->link()}" class="ajax_link">
 		{$menu_item->title()} 
 		</a>
 	</div>
