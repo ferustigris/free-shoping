@@ -140,6 +140,7 @@ function insertInPage( data ) {
 function hideMainSection() 
 {
 	$('#main_page').hide( 'slow', hideMainSectionCallback );// run the effect
+	$('#top_page').hide( 'slow', hideMainSectionCallback );// run the effect
 	//$('#main_page').toggle( 'highlight', {}, 500 );// run the effect
 };
 /*! callback function to bring a hidden box back
@@ -152,5 +153,6 @@ function hideMainSectionCallback()
 	setTimeout(function() 
 	{
 		$('#main_page').removeAttr( "style" ).hide().fadeIn();
+		$('#top_page').removeAttr( "style" ).hide().fadeIn();
 	}, 400 );
 };
