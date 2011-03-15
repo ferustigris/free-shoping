@@ -10,7 +10,7 @@
     <input name="product_parent" type="hidden" value="{$products_parent_product}" />
     <select size=1 name="product_category">
     	{foreach from=$products_allcats item=cat}
-    	<option value="{$cat->id()}">{$cat->title()}</option>
+    	<option value="{$cat->id()}">{$cat->get('name')}</option>
     	{/foreach}
     </select>
     <select size=1 name="product_material">

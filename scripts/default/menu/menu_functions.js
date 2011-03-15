@@ -56,7 +56,7 @@ jQuery(function() {
  * \return no
  */
 function onMenuStart() {
-	jQuery("a.ajax_link").each(function () {
+	jQuery(".ajax_link").each(function () {
 		$(this).click(function() {
 			loadAjaxPage($(this).attr('href'))
 			return false;

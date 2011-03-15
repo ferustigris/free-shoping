@@ -22,6 +22,7 @@
 			{
 				$this->assign('product', $product);
 				$this->add_tpl('edit_product_form');
+				$this->add_ajax_tpl('edit_product_form');
 			}
 	}
 ?>
