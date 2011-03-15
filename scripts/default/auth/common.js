@@ -25,6 +25,17 @@ function onAuthLoad() {
 			return true;
 		});
 	jQuery(".registration_valid_check").keyup(checkPassword);
+	if($('#auth_edit_user_ok[type="submit"]'))
+	{
+		$('#auth_edit_user_ok[type="submit"]').click(function() {
+			var line = {};
+			jQuery('input').each(function(){
+				line[$(this).attr('name')] = $(this).attr('value');
+			});
+			loadAjaxPage("index.php?module=auth&action=edit&page=edit_form", line);
+			return false;
+		});
+	}
 }
 function checkPassword() {
 	var has_errors = false;
