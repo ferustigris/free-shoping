@@ -3,14 +3,16 @@
  *  - page - new page
  * \return no
  */
-function loadAjaxPage(page) 
+function loadAjaxPage(page, line) 
 {
+	line = line || Array();
 	$.ajaxSetup({
 		scriptCharset: "utf-8"
 		});
 	jQuery.cookie('redirect', page);
 	hideMainSection();
-	jQuery.post(page,{},
+	jQuery.post(page,
+			line,
 	function(data) 
 	{
 		setTimeout(function() 
