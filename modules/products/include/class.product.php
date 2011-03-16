@@ -1,11 +1,12 @@
 <?php
 include_once "include/iface.module.php";
 include_once "modules/categories/include/class.category.php";
+include_once "libs/class.dynamiclist.php";
 include_once "class.material.php";
 include_once "class.producer.php";
 include_once "class.size.php";
 //! class for Category
-class Product {
+class Product  extends DynamicList{
 	private $module;//! parent module
 	private $id;//! template id
 	/*! constructor
@@ -18,6 +19,7 @@ class Product {
 	{
 		$this->module = $parent;
 		$this->id = (integer)$id;
+		parent::__construct("product_options", $this->id);
 	}
 	/*! get child categories
 	 * \params no
@@ -70,75 +72,6 @@ class Product {
 		}
 		return $list;
 	}
-	/*! product
-	 * \params no
-	 * \return text
-	 */
-	public function product()
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("SELECT
-				s_product
-				FROM
-				".$db->getPrefix()."products
-				WHERE
-				id=".$this->id.";"))
-			{
-				while( $line = mysql_fetch_array( $result ) )
-				{
-					return urldecode($line[0]);
-				}
-			}
-		}
-		return NULL;
-	}
-	/*! article
-	 * \params no
-	 * \return text
-	 */
-	public function article()
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("SELECT
-				s_article
-				FROM
-				".$db->getPrefix()."products
-				WHERE
-				id=".$this->id.";"))
-			{
-				while( $line = mysql_fetch_array( $result ) )
-				{
-					return urldecode($line[0]);
-				}
-			}
-		}
-		return NULL;
-	}
-	/*! description
-	 * \params no
-	 * \return text
-	 */
-	public function description()
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("SELECT
-				s_description
-				FROM
-				".$db->getPrefix()."products
-				WHERE
-				id=".$this->id.";"))
-			{
-				while( $line = mysql_fetch_array( $result ) )
-				{
-					return urldecode($line[0]);
-				}
-			}
-		}
-		return NULL;
-	}
 	/*! category
 	 * \params no
 	 * \return text
@@ -182,73 +115,22 @@ class Product {
 	 * \params
 	 * - $parent_id - root
 	 * - $category_id - root
-	 * - $name - category name
-	 * - $description - category description
-	 * - $img_full - full img
-	 * - $img_small - small img
 	 * \return true/false
 	 */
-	public function add($category_id, $article, $name, $description, $img_full, $img_small)
+	public function add($category_id)
 	{
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("INSERT INTO
-				".$db->getPrefix()."products(id_product, id_category, s_article, s_product, s_description)
-				VALUES(".$this->id.", ".$category_id.", '".$article."', '".$name."', '".$description."');"))
+				".$db->getPrefix()."products(id_product, id_category)
+				VALUES(".$this->id.", ".$category_id.");"))
 			{
 				$id = mysql_insert_id();
-					$pr = new Product($this->module, $id);
-					$pr->set_images($img_full, $img_small) ;
-					return $pr;
+				$pr = new Product($this->module, $id);
+				return $pr;
 			}
 		}
 		return false;
-	}
-	/*! path to full image
-	 * \params no
-	 * \return path
-	 */
-	public function img()
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("SELECT
-				s_full_img
-				FROM
-				".$db->getPrefix()."product_images
-				WHERE
-				id_product=".$this->id.";"))
-			{
-				while( $line = mysql_fetch_array( $result ) )
-				{
-					return urldecode($line[0]);
-				}
-			}
-		}
-		return NULL;
-	}
-	/*! path to small image
-	 * \params no
-	 * \return path
-	 */
-	public function small_img()
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("SELECT
-				s_small_img
-				FROM
-				".$db->getPrefix()."product_images
-				WHERE
-				id_product=".$this->id.";"))
-			{
-				while( $line = mysql_fetch_array($result) )
-				{
-					return urldecode($line[0]);
-				}
-			}
-		}
-		return NULL;
 	}
 	/*! set material
 	 * \params
@@ -455,83 +337,6 @@ class Product {
 		}
 		return NULL;
 	}
-	/*! set producer
-	 * \params
-	 * - $producer_id - producer id
-	 * \return yes/no
-	 */
-	public function set_description($description)
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("UPDATE
-				".$db->getPrefix()."products
-				SET s_description='".$description."'
-				WHERE id=".$this->id.";"))
-			{
-					return true;
-			}
-		}
-		return NULL;
-	}
-	/*! set product name
-	 * \params
-	 * - $name - product name
-	 * \return yes/no
-	 */
-	public function set_name($name)
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("UPDATE
-				".$db->getPrefix()."products
-				SET s_product='".$name."'
-				WHERE id=".$this->id.";"))
-			{
-					return true;
-			}
-		}
-		return NULL;
-	}
-	/*! set product article
-	 * \params
-	 * - article - product article
-	 * \return yes/no
-	 */
-	public function set_article($article)
-	{
-		if($db = $this->module->db())
-		{
-			if($result = $db->query("UPDATE
-				".$db->getPrefix()."products
-				SET s_article='".$article."'
-				WHERE id=".$this->id.";"))
-			{
-					return true;
-			}
-		}
-		return NULL;
-	}
-	/*! set images
-	 * \params
-	 * - $img_full - full img
-	 * - $img_small - small img
-	 * \return yes/no
-	 */
-	public function set_images($img_full, $img_small)
-	{
-		if($db = $this->module->db())
-		{
-			$db->query("DELETE FROM ".$db->getPrefix()."product_images WHERE id_product=".$this->id.";") ;
-			if($result = $db->query("INSERT INTO
-					".$db->getPrefix()."product_images(id_product, s_full_img, s_small_img)
-					VALUES(".$this->id.", '".$img_full."', '".$img_small."');"))
-			{
-				return true;
-			}
-		}
-		return NULL;
-	}
 	/*! remove product
 	 * \params no
 	 * \return yes/no
@@ -541,7 +346,7 @@ class Product {
 		$this->module->log(LOG_TODO, 'move to trash');
 		if($db = $this->module->db())
 		{
-			$db->query("DELETE FROM ".$db->getPrefix()."product_images WHERE id_product=".$this->id.";") ;
+			$db->query("DELETE FROM ".$db->getPrefix()."product_options WHERE i_link=".$this->id.";") ;
 			$db->query("DELETE FROM ".$db->getPrefix()."products WHERE id=".$this->id.";") ;
 			return true;
 		}

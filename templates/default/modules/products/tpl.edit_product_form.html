@@ -3,11 +3,11 @@
 <form ENCTYPE="multipart/form-data"  action="index.php?module=products&action=product_edit" method="POST">
 	<button id="ok" type="submit" name="ok" value="{$LANG['product save']}" >{$LANG['product save']}</button><br />
     {$LANG['product article']}
-    <input class="" type="text" name="product_article" value="{$products_product->article()}" /><br />
+    <input class="" type="text" name="product_article" value="{$products_product->get('article')}" /><br />
     {$LANG['product name']}
-    <input class="" type="text" name="product_name" value="{$products_product->product()}" /><br />
+    <input class="" type="text" name="product_name" value="{$products_product->get('name')}" /><br />
     {$LANG['product description']}<br />
-    <textarea rows=20 cols=60 class="" name="product_description">{$products_product->description()}</textarea><br />
+    <textarea rows=20 cols=60 class="" name="product_description">{$products_product->get('description')}</textarea><br />
     <input name="product_id" type="hidden" value="{$products_product->id()}" />
     <select size=1 name="product_category">
     	{foreach from=$products_allcats item=cat}

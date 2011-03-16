@@ -6,4 +6,6 @@
 
 	$this->data['Order from'] = 'Заказ от';
 	$this->data['Total price'] = 'на сумму';
+	$this->data['Your are not ordered anythink!'] = 'Вы ничего не заказывали!';
+
 ?>

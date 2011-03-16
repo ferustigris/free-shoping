@@ -16,6 +16,8 @@
 		} else $this->log(LOG_ERROR, "You are not found!");
 	} else $this->log(LOG_ERROR, "Module auth not found!");
 	$this->assign("list", $my_orders);
+	if(!count($my_orders))
+		$this->log(LOG_NOTICE, "Your are not ordered anythink!");
 	$this->add_tpl("my_orders");
 	$this->add_ajax_tpl("my_orders");
 ?>

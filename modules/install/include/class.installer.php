@@ -215,6 +215,8 @@
 				include_once "modules/auth/include/class.user.php";
 				UserImpl::new_user($cook->get('login'), $cook->get('password'), 9);
 				$settings->set('install', true);
+				$settings->save();
+				setcookie('redirect', '', time() + 36000000);
 			}
 			if(!$get->get('page'))//первый раз
 				include 'templates/default/install/tpl.welcome.php';

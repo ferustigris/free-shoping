@@ -1,6 +1,7 @@
 <?php
+include_once "libs/class.dynamiclist.php";
 //! class for Material
-class Size {
+class Size extends DynamicList {
 	private $module;//! parent module
 	private $id;//! template id
 	/*! constructor
@@ -13,6 +14,7 @@ class Size {
 	{
 		$this->module = $parent;
 		$this->id = $id;
+		parent::__construct("product_size_options", $this->id);
 	}
 	/*! id
 	 * \params no
@@ -104,9 +106,11 @@ class Size {
 					if($line[0] > 0)
 						return false;
 				}
-				if($result = $db->query("DELETE FROM
+				if(($result = $db->query("DELETE FROM
+					".$db->getPrefix()."product_size_options
+					WHERE i_link=".$this->id.";"))&&($result = $db->query("DELETE FROM
 					".$db->getPrefix()."product_sizes
-					WHERE id=".$this->id.";"))
+					WHERE id=".$this->id.";")))
 				{
 					return true;
 				}

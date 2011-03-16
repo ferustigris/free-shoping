@@ -30,15 +30,16 @@
 						$img->copy($img_small, 200, 200);
 						$small_img = $product->small_img();
 					}
-					$product->set_images($img_full, $img_small) ;
+					$product->set('img_full', $img_full);
+					$product->set('img_small', $img_small);
 				} else {
 					$this->log(LOG_ERROR, 'file image not loaded!');
 				}
 				//description
-				$product->set_description($description) ;
+				$product->set('description', urldecode($description));
 				//name
-				$product->set_name($name) ;
-				$product->set_article($article) ;
+				$product->set('name', urldecode($name)) ;
+				$product->set('article', urldecode($article) );
 				$product->set_price($product_price) ;
 				//materials
 				if($id_material = $this->forms_post()->get('product_material'))

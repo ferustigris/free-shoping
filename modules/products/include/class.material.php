@@ -1,6 +1,7 @@
 <?php
+include_once "libs/class.dynamiclist.php";
 //! class for Material
-class Material {
+class Material extends DynamicList {
 	private $module;//! parent module
 	private $id;//! template id
 	/*! constructor
@@ -13,6 +14,7 @@ class Material {
 	{
 		$this->module = $parent;
 		$this->id = intval($id);
+		parent::__construct("product_material_options", $this->id);
 	}
 	/*! id
 	 * \params no
@@ -74,13 +76,13 @@ class Material {
 	 * - $description - material description
 	 * \return true/false
 	 */
-	public function add($material, $description)
+	public function add($material)
 	{
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("INSERT INTO
-				".$db->getPrefix()."product_materials(s_material, s_description)
-				VALUES('".$material."', '".$description."');"))
+				".$db->getPrefix()."product_materials(s_material)
+				VALUES('".$material."');"))
 			{
 				$id = mysql_insert_id();
 				return new Material($this->module, $id);
@@ -105,9 +107,11 @@ class Material {
 					if($line[0] > 0)
 						return false;
 				}
-				if($db->query("DELETE FROM
+				if(($db->query("DELETE FROM
+					".$db->getPrefix()."product_material_options
+					WHERE i_link=".$this->id.";"))&&($db->query("DELETE FROM
 					".$db->getPrefix()."product_materials
-					WHERE id=".$this->id.";"))
+					WHERE id=".$this->id.";")))
 				{
 					return true;
 				}

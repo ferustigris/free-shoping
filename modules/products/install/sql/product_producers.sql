@@ -1,8 +1,6 @@
 CREATE TABLE `DB`.`PREFIXproduct_producers` (
   `id` int  NOT NULL AUTO_INCREMENT,
-  `s_producer` text  NOT NULL COMMENT 'company',
-  `s_description` text  NOT NULL COMMENT 'description',
-  `s_url` text  NOT NULL COMMENT 'link to producer',
+  `s_producer` char(60)  NOT NULL COMMENT 'company',
   PRIMARY KEY (`id`)
 )
 ENGINE = MyISAM

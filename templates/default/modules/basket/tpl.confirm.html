@@ -11,9 +11,9 @@
 		<div class="confirm_one_product_container" price="{$product_entry['price']}" id_product="{$product_entry['product']->id()}">
 			<a class="remove_product_from_basket" href="#">{$LANG['remove from basket']}</a>
 			<input type="hidden" name="id_product{$index}" value="{$product_entry['product']->id()}" />
-			<p class="confirm_header_message">{$product_entry['product']->product()} ({$product_entry['price']} {$LANG['dollar']})</p>
+			<p class="confirm_header_message">{$product_entry['product']->get('name')} ({$product_entry['price']} {$LANG['dollar']})</p>
 			<div class="confirm_img">
-		   		<img class="confirm_img" src="{$product_entry['product']->small_img()}" title="{$product_entry['product']->product()}" alt="{$product_entry['product']->product()}" />
+		   		<img class="confirm_img" src="{$product_entry['product']->get('img_small')}" title="{$product_entry['product']->get('name')}" alt="{$product_entry['product']->get('name')}" />
 		   	</div>
 			<div class="child_products_list_on_confirm_page">
 					<ul class="confirm_list_child_products">
@@ -21,7 +21,7 @@
 						{assign var=index value=$index+1}
 						<input type="hidden" name="id_product{$index}" value="{$child->id()}" />
 						<input type="hidden" name="id_size{$index}" value="{$product_entry['sizes'][$child->id()]->id()}" />
-						<li class="confirm_list_child_products_item"  id_child="{$child->id()}" id_size="{$product_entry['sizes'][$child->id()]->id()}">{$child->product()} ({$product_entry['sizes'][$child->id()]->size()})</li>
+						<li class="confirm_list_child_products_item"  id_child="{$child->id()}" id_size="{$product_entry['sizes'][$child->id()]->id()}">{$child->get('name')} ({$product_entry['sizes'][$child->id()]->size()})</li>
 					{/foreach}
 					</ul>
 			</div>
