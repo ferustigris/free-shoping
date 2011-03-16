@@ -40,8 +40,8 @@ function onConfirmStart() {
 		});
 	//accordion("container_main_page");
 	jQuery('.remove_product_from_basket').click(function () {
-		var par = $(this).parent().parent().parent();
-		$(this).parent().parent().detach();
+		var par = $(this).parent().parent();
+		$(this).parent().detach();
 		var new_basket = '';
 		par.contents('.confirm_one_product_container').each(function(){
 			new_basket += 'id_product=' + $(this).attr('id_product') + ',';
