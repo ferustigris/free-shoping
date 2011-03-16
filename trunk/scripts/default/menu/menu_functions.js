@@ -6,6 +6,8 @@
 function loadAjaxPage(page, line) 
 {
 	line = line || Array();
+	if((line.length == 0)&&(jQuery.cookie('redirect') == page))
+		return false;
 	jQuery.cookie('redirect', page);
 	hideMainSection();
 	$.ajaxSetup({
