@@ -19,30 +19,26 @@ function setProductEditor()
  * \return no
  */
 function setProductIcons() {
-	if(jQuery('.edit_button'))
-		jQuery('.edit_button').button({
-			icons: {
-                primary: "ui-icon-wrench"
-            }
-		});
-	if(jQuery('.remove_button'))
-		jQuery('.remove_button').button({
+	jQuery('.edit_button').button({
+		icons: {
+               primary: "ui-icon-wrench"
+		}
+	});
+	jQuery('.remove_button').button({
 			icons: {
 	            primary: "ui-icon-closethick"
 	        }
-		});
-	if(jQuery('.add_button'))
-		jQuery('.add_button').button({
+	});
+	jQuery('.add_button').button({
 			icons: {
 	            primary: "ui-icon-plusthick"
 	        }
-		});
-	if(jQuery('.back'))
-		jQuery('.back').button({
+	});
+	jQuery('.back').button({
 			icons: {
 	            primary: "ui-icon-arrowreturnthick-1-s"
 	        }
-		});
+	});
 };
 /*! select for child products
  * \params no
@@ -63,13 +59,10 @@ function selectableChildProduct()
 		$(this).parent().click();
 	}) ;
 	$("input.product_childs_products_item_param").mouseup(function(event ) {
-		//$(this).parent().click() ;
 		if($(this).attr("checked") == true){
 			$(this).attr("checked", false);
-			//alert(event.result);
 		} else {
 			$(this).attr("checked", true);
-			//alert(event.result);
 		}
 		event.result = false;
 		calcCommonPrice();
@@ -78,17 +71,18 @@ function selectableChildProduct()
 	$(".product_childs_products_item") .click(function( ) {
 		if($(this).attr('selected') == '0')
 		{
-			$(this).addClass("selected");
-			$(this).attr('selected', '1');
-			$(this).contents("div").each(function() {
+			$(this).addClass("selected")
+			.attr('selected', '1')
+			.contents("div")
+			.each(function() {
 				$(this).contents(":input").each(function() {
 					$(this).attr("checked", true);
 				});
 			});
 		} else {
-			$(this).removeClass("selected");
-			$(this).attr('selected', '0');
-			$(this).contents("div").each(function() {
+			$(this).removeClass("selected")
+			.attr('selected', '0')
+			.contents("div").each(function() {
 				$(this).contents(":input").each(function() {
 					$(this).attr("checked", false);
 				});
@@ -109,29 +103,13 @@ function calcCommonPrice() {
 		jQuery("#product_price_common").html(price);
 	});	
 }
-/*! set cool editor
- * \params no
- * \return no
- */
-/*window.onload = function()
-{
-	CKEDITOR.replace( 'product_description',
-			{
-				customConfig : 'scripts/ckeditor/config.js'
-			});
-};*/
 /*! remove size ajax
  * \params
  * - id - id size
  * \return no
  */
-function onRemoveSizeClick(id) {	
-	jQuery.get("index.php?module=products&action=size_remove&page=size_add&size_id=" + id,{},
-		function(data) 
-			{
-				insertInPage(data);
-				setProductIcons();
-			});
+function onRemoveSizeClick(id) {
+	loadAjaxPage("index.php?module=products&action=size_remove&page=size_add&size_id=" + id);
 	return false;
 }
 /*! add size ajax
@@ -139,14 +117,9 @@ function onRemoveSizeClick(id) {
  * \return no
  */
 function onAddSizeClick() {	
-		jQuery.post("index.php?module=products&action=size_save&page=size_add",{
-			size_name: jQuery("#size_name") .attr("value")
-		},
-		function(data) 
-		{
-			insertInPage(data);
-			setProductIcons();
-		});
+	var line = Array();
+	line[size_name] = jQuery("#size_name") .attr("value"); 
+	loadAjaxPage("index.php?module=products&action=size_save&page=size_add", line);
 	return false;
 }
 /*! remove Producer ajax
@@ -155,12 +128,7 @@ function onAddSizeClick() {
  * \return no
  */
 function onRemoveProducerClick(id) {	
-	jQuery.get("index.php?module=products&page=producer_add&action=producer_remove&producer_id=" + id,{},
-		function(data) 
-			{
-				insertInPage(data);
-				setProductIcons();
-			});
+	loadAjaxPage("index.php?module=products&page=producer_add&action=producer_remove&producer_id=" + id);
 	return false;
 }
 /*! add Producer ajax
@@ -168,15 +136,10 @@ function onRemoveProducerClick(id) {
  * \return no
  */
 function onAddProducerClick() {	
-		jQuery.post("index.php?module=products&page=producer_add&action=producer_save",{
-			producer_name: jQuery("#producer_name") .attr("value"),
-			product_description: jQuery("#product_description") .text()
-		},
-		function(data) 
-		{
-			insertInPage(data);
-			setProductIcons();
-		});
+	var line = Array();
+	line[producer_name] = jQuery("#producer_name") .attr("value"); 
+	line[product_description] = jQuery("#product_description") .text(); 
+	loadAjaxPage("index.php?module=products&page=producer_add&action=producer_save", line);
 	return false;
 }
 /*! remove Material ajax
@@ -185,12 +148,7 @@ function onAddProducerClick() {
  * \return no
  */
 function onRemoveMaterialClick(id) {	
-	jQuery.get("index.php?module=products&page=material_add&action=material_remove&material_id=" + id,{},
-		function(data) 
-			{
-				insertInPage(data);
-				setProductIcons();
-			});
+	loadAjaxPage("index.php?module=products&page=material_add&action=material_remove&material_id=" + id);
 	return false;
 }
 /*! add Material ajax
@@ -198,15 +156,16 @@ function onRemoveMaterialClick(id) {
  * \return no
  */
 function onAddMaterialClick() {	
-		jQuery.post("index.php?module=products&page=material_add&action=material_save",{
-			material_name: jQuery("#material_name") .attr("value"),
-			product_description: jQuery("#product_description") .text()
-		},
-		function(data) 
-		{
-			insertInPage(data);
-			setProductIcons();
-		});
+	var line = Array();
+	line[material_name] = jQuery("#material_name") .attr("value"); 
+	line[product_description] = jQuery("#product_description") .text(); 
+	//loadAjaxPage("index.php?module=products&page=material_add&action=material_save", line);
+	jQuery.post("index.php?module=products&page=material_add&action=material_save",
+			line,
+	function(data) 
+	{
+		alert(data);
+	});
 	return false;
 }
 /*! remove product?
@@ -219,8 +178,7 @@ function onAddMaterialClick() {
  * \return no
  */
 function onRemoveProduct(ok, no, id, category_id, msg) {	
-	jQuery('#form_remove_product').html(msg);
-	jQuery('#form_remove_product').dialog({
+	jQuery('#form_remove_product').html(msg).dialog({
 		resizable: false,
 		height:200,
 		modal: true,
@@ -230,11 +188,9 @@ function onRemoveProduct(ok, no, id, category_id, msg) {
 				jQuery.get('index.php?module=products&action=product_remove&product_id=' + id,{},function() {
 					onCategoryChange(category_id);					
 				});
-				//document.getElementById('#form_remove_product').style.visibility = 'hidden';
 			},
 			'Отмена': function() {
 				jQuery( this ).dialog( "close" );
-				//document.getElementById('#form_remove_product').style.visibility = 'hidden';
 			}
 		}
 	});
