@@ -117,8 +117,7 @@ function onRemoveSizeClick(id) {
  * \return no
  */
 function onAddSizeClick() {	
-	var line = Array();
-	line[size_name] = jQuery("#size_name") .attr("value"); 
+	line = {size_name: jQuery("#size_name") .attr("value")}; 
 	loadAjaxPage("index.php?module=products&action=size_save&page=size_add", line);
 	return false;
 }
@@ -136,9 +135,10 @@ function onRemoveProducerClick(id) {
  * \return no
  */
 function onAddProducerClick() {	
-	var line = Array();
-	line[producer_name] = jQuery("#producer_name") .attr("value"); 
-	line[product_description] = jQuery("#product_description") .text(); 
+	line = {
+			producer_name: jQuery("#producer_name") .attr("value"), 
+			product_description: jQuery("#product_description") .text()
+	}
 	loadAjaxPage("index.php?module=products&page=producer_add&action=producer_save", line);
 	return false;
 }
@@ -156,9 +156,10 @@ function onRemoveMaterialClick(id) {
  * \return no
  */
 function onAddMaterialClick() {	
-	var line = Array();
-	line[material_name] = jQuery("#material_name") .attr("value"); 
-	line[product_description] = jQuery("#product_description") .text(); 
+	var line = {
+			material_name: jQuery("#material_name") .attr("value"), 
+			product_description: jQuery("#product_description") .text()
+	}
 	loadAjaxPage("index.php?module=products&page=material_add&action=material_save", line);
 	return false;
 }

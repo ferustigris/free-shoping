@@ -6,11 +6,11 @@
 function loadAjaxPage(page, line) 
 {
 	line = line || Array();
+	jQuery.cookie('redirect', page);
+	hideMainSection();
 	$.ajaxSetup({
 		scriptCharset: "utf-8"
 		});
-	jQuery.cookie('redirect', page);
-	hideMainSection();
 	jQuery.post(page,
 			line,
 	function(data) 
