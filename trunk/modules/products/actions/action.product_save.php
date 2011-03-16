@@ -26,8 +26,13 @@
 						$small_img->move($img_small);
 					} else
 						$img->copy($img_small, 200, 200) ;
-					if($new_product = $product->add($category, $article, $name, $description, $img_full, $img_small))
+					if($new_product = $product->add($category))
 					{
+						$new_product->set('article', urldecode($article));
+						$new_product->set('name', urldecode($name));
+						$new_product->set('description', urldecode($description));
+						$new_product->set('img_full', $img_full);
+						$new_product->set('img_small', $img_small);
 						//materials
 						if($id_material = $this->forms_post()->get('product_material'))
 							$new_product->set_material($id_material) ;

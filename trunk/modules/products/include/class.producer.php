@@ -1,6 +1,7 @@
 <?php
+include_once "libs/class.dynamiclist.php";
 //! class for Producer
-class Producer {
+class Producer extends DynamicList {
 	private $module;//! parent module
 	private $id;//! template id
 	/*! constructor
@@ -13,6 +14,7 @@ class Producer {
 	{
 		$this->module = $parent;
 		$this->id = intval($id);
+		parent::__construct("product_producer_options", $this->id);
 	}
 	/*! id
 	 * \params no
@@ -74,13 +76,13 @@ class Producer {
 	 * - $description - material description
 	 * \return true/false
 	 */
-	public function add($producer, $description)
+	public function add($producer)
 	{
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("INSERT INTO
-				".$db->getPrefix()."product_producers(s_producer, s_description)
-				VALUES('".$producer."', '".$description."');"))
+				".$db->getPrefix()."product_producers(s_producer)
+				VALUES('".$producer."');"))
 			{
 				$id = mysql_insert_id();
 				return new Producer($this->module, $id);
@@ -105,9 +107,11 @@ class Producer {
 					if($line[0] > 0)
 						return false;
 				}
-				if($db->query("DELETE FROM
+				if(($db->query("DELETE FROM
+					".$db->getPrefix()."product_producer_options
+					WHERE i_link=".$this->id.";"))&&($db->query("DELETE FROM
 					".$db->getPrefix()."product_producers
-					WHERE id=".$this->id.";"))
+					WHERE id=".$this->id.";")))
 				{
 					return true;
 				}

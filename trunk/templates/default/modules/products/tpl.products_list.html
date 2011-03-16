@@ -2,8 +2,8 @@
 {foreach from=$products_list item=product}
 	<div class="category_list_item">
 	   	<a href="{$product->link()}" onclick="return onProductChange({$product->id()}, -1);">
-	   		<p class="category_list_item_title">{$product->product()} ({$product->price()} {$LANG['dollar']})</p>
-	   		<img class="category_list_item_img" src="{$product->small_img()}" title="{$product->product()}" />
+	   		<p class="category_list_item_title">{$product->get('name')} ({$product->price()} {$LANG['dollar']})</p>
+	   		<img class="category_list_item_img" src="{$product->get('img_small')}" title="{$product->get('name')}" />
 	   	</a>
 	</div>   	   	
 {/foreach}

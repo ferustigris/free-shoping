@@ -32,7 +32,7 @@
 				foreach($products as $product_line)
 				{
 
-					$this->log(LOG_DEBUG, 'Add order '.$product_line['product']->product());
+					$this->log(LOG_DEBUG, 'Add order '.$product_line['product']->get('name'));
 					$new_order->add($user->id(), $product_line['product']->id(), $product_line['size']->id());
 				}
 			} else $this->log(LOG_ERROR, "Could not create order!");

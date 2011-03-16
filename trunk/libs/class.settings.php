@@ -57,7 +57,7 @@ class Settings extends SimpleList {
 	 * \params no
 	 * \return no
 	 */
-	private function save()
+	public function save()
 	{
 		if($file = fopen($this->filename, "w"))
 		{
