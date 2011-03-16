@@ -159,13 +159,7 @@ function onAddMaterialClick() {
 	var line = Array();
 	line[material_name] = jQuery("#material_name") .attr("value"); 
 	line[product_description] = jQuery("#product_description") .text(); 
-	//loadAjaxPage("index.php?module=products&page=material_add&action=material_save", line);
-	jQuery.post("index.php?module=products&page=material_add&action=material_save",
-			line,
-	function(data) 
-	{
-		alert(data);
-	});
+	loadAjaxPage("index.php?module=products&page=material_add&action=material_save", line);
 	return false;
 }
 /*! remove product?
