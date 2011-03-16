@@ -8,7 +8,7 @@
 		{foreach from=$order_line->child() item=order}
 			<div class="orders_child_product_item">
 			{assign var=product_title value=($order->size()->id()>-1)||(count($order->product()->child())==0)}
-			{if !$product_title}<b><a href="{$order->product()->link()}">{/if}
+			{if !$product_title}<b><a href="{$order->product()->link()}" class="ajax_link">{/if}
 				{$order->product()->product()}{if $product_title} ({$order->size()->size()}) - {$order->product()->price()} {$LANG['dollar']}{/if}
 			{if !$product_title}</a></b>{/if}
 			</div>
