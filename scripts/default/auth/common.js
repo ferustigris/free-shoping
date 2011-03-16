@@ -36,6 +36,7 @@ function onAuthLoad() {
 			return false;
 		});
 	}
+	jQuery("#registration_phone").mask("9-(999)-999-9999",{placeholder:"x"});
 }
 function checkPassword() {
 	var has_errors = false;
