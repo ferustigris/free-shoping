@@ -1,5 +1,5 @@
 <div class="enter_container">
-	<form ENCTYPE="multipart/form-data" action="index.php?module=auth&action=enter" method="post">
+	<form ENCTYPE="multipart/form-data" action="index.php?module=auth&action=enter&page=registration_form" method="post">
 	    <input id="login" onfocus="onFocusHandler('login', '{$LANG['Enter your name']}');" onblur="onBlurHandler('login', '{$LANG['Enter your name']}');" type="text" name="login" value="{$LANG['Enter your name']}" />
 	    <input id="passwd_input" onfocus="onFocusHandler('passwd_input', '*');" type="password" name="password" value="" />
 	    <a id="registration" href="index.php?module=auth&page=registration_form" onclick="return loadAjaxPage('index.php?module=auth&page=registration_form');">{$LANG['Registration']}</a>
