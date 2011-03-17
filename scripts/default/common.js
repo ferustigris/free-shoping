@@ -113,7 +113,10 @@ function insertInPage( data ) {
 				jQuery('#top_page').html(jQuery(this).html());
 		}
 	});
-	//$('#main_page').show( 200);// run the effect
+	/*$('#main_page').show( 200, function() {});
+		if(jQuery('#left_page'))
+			jQuery('#left_page').height(jQuery('#bottom_page').position().top);
+	//});// run the effect*/
 };
 /*! apply effect
  * \params
@@ -136,5 +139,5 @@ function hideMainSectionCallback()
 	{
 		$('#main_page').removeAttr( "style" ).hide().fadeIn();
 		$('#top_page').removeAttr( "style" ).hide().fadeIn();
-	}, 400 );
+	}, 200 );
 };

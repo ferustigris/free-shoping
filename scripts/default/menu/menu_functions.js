@@ -32,7 +32,7 @@ function loadAjaxPage(page, line)
 			onMenuStart();
 			if(!isCookies())
 				$( "#nocookies" ).show();
-		},	500);
+		},	300);
 	});
 	return false;
 }
