@@ -1,50 +1,89 @@
 <div class="container_main_page">
 <h3>{$LANG['edit product']}</h3>
-<form ENCTYPE="multipart/form-data"  action="index.php?module=products&action=product_edit&page=product_page" method="POST">
-	<button id="ok" type="submit" name="ok" value="{$LANG['product save']}" href="index.php?module=products&action=product_edit&page=product_page">{$LANG['product save']}</button><br />
+<form ENCTYPE="multipart/form-data"  action="index.php?module=products&action=product_edit&page=product_page&product_id={$products_product->id()}" method="POST">
+	<button id="product_edit_save" class="save_button" type="submit" name="ok" value="{$LANG['product save']}" href="index.php?module=products&action=product_edit&page=product_page">{$LANG['product save']}</button>
+	<div class="edit_product_wrapper1">
     {$LANG['product article']}
-    <input class="" type="text" name="product_article" value="{$products_product->get('article')}" /><br />
+    </div>
+	<div class="edit_product_wrapper2">
+    	<input class="" type="text" name="product_article" value="{$products_product->get('article')}" /><br />
+    </div>
+	<div class="edit_product_wrapper1">
     {$LANG['product name']}
-    <input class="" type="text" name="product_name" value="{$products_product->get('name')}" /><br />
+    </div>
+	<div class="edit_product_wrapper2">
+	    <input class="" type="text" name="product_name" value="{$products_product->get('name')}" /><br />
+    </div>
+	<div class="edit_product_wrapper1">
     {$LANG['product description']}<br />
+    </div>
     <textarea rows=20 cols=60 class="" name="product_description">{$products_product->get('description')}</textarea><br />
     <input name="product_id" type="hidden" value="{$products_product->id()}" />
-    <select size=1 name="product_category">
-    	{foreach from=$products_allcats item=cat}
-    		<option value="{$cat->id()}" {if $cat->id() == $products_product->category()->id()}selected{/if}>{$cat->get('name')}</option>
-    	{/foreach}
-    </select><br />
-    <select size=1 name="product_material">
-    	{foreach from=$products_materials item=material}
-    	<option value="{$material->id()}"{if $material->id() == $products_product->material()->id()} selected{/if}>{$material->material()}</option>
-    	{/foreach}
-    </select><br />
-    <select size=1 name="product_producer">
-    	{foreach from=$products_producers item=producer}
-    	<option value="{$producer->id()}"{if $producer->id() == $products_product->producer()->id()} selected{/if}>{$producer->producer()}</option>
-    	{/foreach}
-    </select><br />
+	<div class="edit_product_wrapper1">
+    {$lang->translate('category')}:
+    </div>
+	<div class="edit_product_wrapper2">
+	    <select size=1 name="product_category">
+	    	{foreach from=$products_allcats item=cat}
+	    		<option value="{$cat->id()}" {if $cat->id() == $products_product->category()->id()}selected{/if}>{$cat->get('name')}</option>
+	    	{/foreach}
+	    </select>
+	</div>
+	<div class="edit_product_wrapper1">
+    {$lang->translate('material')}:
+    </div>
+	<div class="edit_product_wrapper2">
+	    <select size=1 name="product_material">
+	    	{foreach from=$products_materials item=material}
+	    	<option value="{$material->id()}"{if $material->id() == $products_product->material()->id()} selected{/if}>{$material->material()}</option>
+	    	{/foreach}
+	    </select>
+	</div>
+	<div class="edit_product_wrapper1">
+    {$lang->translate('producer')}:
+    </div>
+	<div class="edit_product_wrapper2">
+	    <select size=1 name="product_producer">
+	    	{foreach from=$products_producers item=producer}
+	    	<option value="{$producer->id()}"{if $producer->id() == $products_product->producer()->id()} selected{/if}>{$producer->producer()}</option>
+	    	{/foreach}
+	    </select>
+	</div>
+	<div class="edit_product_wrapper1">
+    {$lang->translate('sizes')}:
+    </div>
+	<div class="edit_product_wrapper2">
    	{foreach from=$products_sizes item=size}
    		{assign var="check" value="1"}
 	   	{foreach from=$products_product->sizes() item=s}
 	   		{if $s->id() == $size->id()}
-	    		<input name="size_{$size->id()}" type="checkbox" value="{$size->id()}" checked>{$size->size()}<br />
+	    		<input style="margin-left: 10px;" name="size_{$size->id()}" type="checkbox" value="{$size->id()}" checked>{$size->size()}
 	   			{assign var="check" value="0"}
 	    	{/if}	    	
 	   	{/foreach}
 	   	{if $check}    	
-    	<input name="size_{$size->id()}" type="checkbox" value="{$size->id()}" >{$size->size()}<br />
+    	<input style="margin-left: 10px;" name="size_{$size->id()}" type="checkbox" value="{$size->id()}" >{$size->size()}
     	{/if}
    	{/foreach}
-    <input id="product_price" type="text" size=5 name="product_price" value="{$products_product->price()}" />{$LANG['dollar']}<br />
-	<div>
+    </div>
+	<div class="edit_product_wrapper1">
+    {$lang->translate('price')}:
+    </div>
+	<div class="edit_product_wrapper2">
+	    <input id="product_price" type="text" size=5 name="product_price" value="{$products_product->price()}" />{$LANG['dollar']}<br />
+    </div>
+	<div class="edit_product_wrapper1">
     {$LANG['full image']}:
     </div>
-    <input class="" type="file" name="product_img" /><br />
-	<div>
+	<div class="edit_product_wrapper2">
+	    <input class="" type="file" name="product_img" /><br />
+    </div>
+	<div class="edit_product_wrapper1">
     {$LANG['small image']}:
     </div>
-    <input class="" type="file" name="product_small_img" /><br />
+	<div class="edit_product_wrapper2">
+	    <input class="" type="file" name="product_small_img" /><br />
+    </div>
 </form>
 		{if $products_product->parent()->id()>-1}
 	   	<div>

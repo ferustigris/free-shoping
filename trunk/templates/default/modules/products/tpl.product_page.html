@@ -33,16 +33,16 @@
 			{foreach from=$products_product->child() item=product}
 				<div idchild="{$product->id()}" class="product_childs_products_item" selected="0" price="{$product->price()}">
 					   		<div class="product_params_1">
-						   		<input name="item_{$product->id()}" class="product_childs_products_item_param" type="checkbox" />
-						   		<span class="product_childs_products_item_param">{$product->get('name')}, 
+						   		{$product->get('name')} 
 					   		</div>
 					   		<div class="product_params_2">
+						   		<input name="item_{$product->id()}" class="product_childs_products_item_param" type="checkbox" />
 								<select name="item_size_{$product->id()}" class="product_childs_products_item_param">
 									{foreach from=$product->sizes() item=size}
 										<option value="{$size->id()}">{$size->size()}</option>
 									{/foreach}
 								</select>
-								<b>{$product->price()}</b> {$LANG['dollar']}</span>
+								<b class="product_childs_products_item_param">{$product->price()}</b> {$LANG['dollar']}
 					   		</div>
 				</div>
 			{/foreach}
