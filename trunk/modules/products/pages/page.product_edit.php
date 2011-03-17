@@ -21,6 +21,7 @@
 			if($product = new Product($this, $id))
 			{
 				$this->assign('product', $product);
+				$this->assign('childs', $product->child());
 				$this->add_tpl('edit_product_form');
 				$this->add_ajax_tpl('edit_product_form');
 			}

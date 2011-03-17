@@ -1,7 +1,7 @@
 <div class="container_main_page">
 <h3>{$LANG['edit product']}</h3>
-<form ENCTYPE="multipart/form-data"  action="index.php?module=products&action=product_edit" method="POST">
-	<button id="ok" type="submit" name="ok" value="{$LANG['product save']}" >{$LANG['product save']}</button><br />
+<form ENCTYPE="multipart/form-data"  action="index.php?module=products&action=product_edit&page=product_page" method="POST">
+	<button id="ok" type="submit" name="ok" value="{$LANG['product save']}" href="index.php?module=products&action=product_edit&page=product_page">{$LANG['product save']}</button><br />
     {$LANG['product article']}
     <input class="" type="text" name="product_article" value="{$products_product->get('article')}" /><br />
     {$LANG['product name']}
@@ -44,6 +44,20 @@
 	<div>
     {$LANG['small image']}:
     </div>
-    <input class="" type="file" name="product_small_img" /><br />    
+    <input class="" type="file" name="product_small_img" /><br />
 </form>
+		{if $products_product->parent()->id()>-1}
+	   	<div>
+			<form ENCTYPE="multipart/form-data"  action="index.php?module=products&page=product_edit&product_id={$products_product->parent()->id()}" method="POST">
+			    <button class="ajax_link edit_button" type="submit" name="ok" value="{$lang->translate('Parent')}" href="index.php?module=products&page=product_edit&product_id={$products_product->parent()->id()}">{$lang->translate('Parent')}</button>    
+			</form>
+		</div>
+		{/if}
+	   	{foreach from=$products_childs item=product}
+	   	<div>
+			<form ENCTYPE="multipart/form-data"  action="index.php?module=products&page=product_edit&product_id={$product->id()}" method="POST">
+			    <button class="ajax_link edit_button" type="submit" name="ok" value="{$product->get('name')}" href="index.php?module=products&page=product_edit&product_id={$product->id()}">{$product->get('name')}</button>    
+			</form>
+		</div>
+	   	{/foreach}   
 </div>

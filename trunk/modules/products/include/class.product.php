@@ -72,6 +72,29 @@ class Product  extends DynamicList{
 		}
 		return $list;
 	}
+	/*! parent
+	 * \params no
+	 * \return text
+	 */
+	public function parent()
+	{
+		if($db = $this->module->db())
+		{
+			if($result = $db->query("SELECT
+				id_product
+				FROM
+				".$db->getPrefix()."products
+				WHERE
+				id=".$this->id.";"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					return new Product($this->module, $line[0]);
+				}
+			}
+		}
+		return new Product($this->module, -1);
+	}
 	/*! category
 	 * \params no
 	 * \return text
