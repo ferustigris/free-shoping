@@ -37,6 +37,7 @@
 	$this->data['full image'] = 'Огромная картинка';
 	$this->data['small image'] = 'Миниатюра';
 	$this->data['dollar'] = 'руб.';
+	$this->data['Parent'] = 'Родитель';
 	$this->data['product article'] = 'Артикул';
 
 

@@ -2,10 +2,10 @@
 	if(!ISSET($GLOBALS['INDEX'])) { header('Location: /index.php'); die(); }
 	include_once('modules/products/include/class.product.php');
 	if(($name = $this->forms_post()->get('product_name'))&&
-			($article = $this->forms_post()->get('product_article'))&&
-			($description = $this->forms_post()->get('product_description'))
+			($article = $this->forms_post()->get('product_article'))
 		)
 	{
+		$description = $this->forms_post()->get('product_description');
 		$id = intval($this->forms_post()->get('product_id'));
 		$category = intval($this->forms_post()->get('product_category'));
 		$product_price = intval($this->forms_post()->get('product_price'));
