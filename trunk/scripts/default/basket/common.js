@@ -30,8 +30,7 @@ function onConfirmStart() {
 					insertInPage( data );
 					if(!jQuery.cookie('basket_content'))
 					{
-						if(jQuery('#basket_show'))jQuery('#basket_show').hide();
-						if(jQuery("#basket_container"))jQuery("#basket_container").hide() ;
+						if(jQuery('#Корзина_left'))jQuery('#Корзина_left').hide();
 					}
 					onConfirmStart() ;
 					jQuery.cookie('redirect', '');
@@ -59,6 +58,8 @@ function onConfirmStart() {
 		jQuery.cookie('basket_content', new_basket);
 		//alert(jQuery.cookie('basket_content'));
 		if(jQuery("#count_in_basket"))jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
+		if(jQuery.cookie('basket_content').split(';').length < 2)
+			jQuery('#Корзина_left').hide();
 		var total_price = 0;
 		$('.confirm_one_product_container').each(function(){
 			total_price += parseInt($(this).attr('price'));
@@ -78,14 +79,12 @@ function onBasketStart() {
 		{
 				if(jQuery.cookie('basket_content').split(';').length < 2 )
 				{
-					jQuery('#basket_show').hide();
-					jQuery("#basket_container").hide() ;
+					jQuery('#Корзина_left').hide();
 				} else {
 					jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
 				}
 		} else {
-				jQuery('#basket_show').hide();
-				jQuery("#basket_container").hide() ;
+				jQuery('#Корзина_left').hide();
 		};
 		jQuery('#basket_show').button({
 			icons: {
@@ -175,8 +174,7 @@ function addProduct(id)
 			});
 			jQuery.cookie('basket_content', jQuery.cookie('basket_content') + ';');
 			jQuery("#count_in_basket").html(jQuery.cookie('basket_content').split(';').length-1);
-			jQuery('#basket_show').show();
-			jQuery('#basket_container').show();
+			jQuery('#Корзина_left').show();
 		} else {
 			var line = {};
 			jQuery('input:hidden').each(function(){
@@ -196,8 +194,7 @@ function addProduct(id)
 					insertInPage( data );
 					if(!jQuery.cookie('basket_content'))
 					{
-						if(jQuery('#basket_show'))jQuery('#basket_show').hide();
-						if(jQuery("#basket_container"))jQuery("#basket_container").hide() ;
+						if(jQuery('#Корзина_left'))jQuery('#Корзина_left').hide();
 					}
 					onConfirmStart() ;
 			});
