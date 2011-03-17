@@ -21,11 +21,14 @@ function onConfirmStart() {
 			jQuery.post("index.php?module=orders&page=my_orders&action=make_order",line,
 				function(data) 
 				{
-					if(jQuery.cookie('auth_enable') != 'true')
-					{//no autorization!
-						jQuery.cookie('redirect', 'index.php?module=basket&page=confirm');
-						loadAjaxPage('index.php?module=auth&page=registration_form');
-						return false;
+					if(isCookies())
+					{
+						if(jQuery.cookie('auth_enable') != 'true')
+						{//no autorization!
+							jQuery.cookie('redirect', 'index.php?module=basket&page=confirm');
+							loadAjaxPage('index.php?module=auth&page=registration_form');
+							return false;
+						}
 					}
 					insertInPage( data );
 					if(!jQuery.cookie('basket_content'))
