@@ -1,6 +1,7 @@
 jQuery(function() {
 	setProductIcons();
 	//setProductEditor();
+	selectableChildProduct();
 });
 /*! set cool editor
  * \params no
@@ -23,6 +24,14 @@ function setProductIcons() {
 		icons: {
                primary: "ui-icon-wrench"
 		}
+	});
+	jQuery('.save_button').button({
+		icons: {
+               primary: "ui-icon-check"
+		}
+	}).click(function() {
+		jQuery.cookie('redirect','');
+		return true;
 	});
 	jQuery('.remove_button').button({
 			icons: {

@@ -144,8 +144,22 @@ h3.product_description_container {
 }
 .product_childs_products_item_param {
 	padding-left: 15px;
+	margin-left: 10px;
 }
 .product_params_2, .product_params_1 {
 	margin-bottom: 10px;
 	height: 30px;
+}
+.edit_product_wrapper1, .edit_product_wrapper2 {
+	height: 40px;
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 10px;
+}
+.edit_product_wrapper1 {
+	height:10px;
+	/*padding-top: 20px;*/
+}
+#product_edit_save {
+	margin-bottom: 10px;
 }
