@@ -1,4 +1,7 @@
 <div class="container_main_page">
+	{foreach from=$categories_list2 item=c}
+	{$c->get('name')}
+	{/foreach}
 	{if $categories_id>-1}
 	<div class="buttons_container">
 		<form class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list" method="POST">
@@ -12,7 +15,7 @@
 	</div>
 	{/if}
 	<div>
-	{foreach from=$categories_list item=category}
+	{foreach from=$categories_list2 item=category}
 		<div class="category_list_item">
 		   	<a href="{$category->link()}" onclick="return onCategoryChange({$category->id()});">
 		   		<p class="category_list_item_title">{$category->get('name')}</p>

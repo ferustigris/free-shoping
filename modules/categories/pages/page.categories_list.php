@@ -4,11 +4,13 @@
 	$id = -1;
 	if($this->forms_get()->get('category_id'))
 		$id = intval($this->forms_get()->get('category_id'));
+	$this->log(LOG_NOTICE, "SESS=".session_id().", id=".$id);
 	if($category = new Category($this, $id))
 	{
-		$this->assign('list', $category->child());
+		$childs = $category->child();
+		$this->assign('list2', $childs);
 		$this->assign('id', $id);
-
+		//foreach($childs as $c)$this->log(LOG_NOTICE, "SESS=".$c->get('name'));
 		$parents = Array() ;
 		$parent = $category->get_parent();
 		while($parent->id() > -1)

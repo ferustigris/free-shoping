@@ -7,7 +7,7 @@
 #left_page { /* Левая колонка*/ 
 	width: 191px; /* Ширина слоя */ 
 	float: left; /* Состыковка с соседним слоем */ 
-	min-height: 20px; 
+	min-height: 500px; 
 	padding: 0px;
 	margin: 0px;
 	margin-right: 10px;
