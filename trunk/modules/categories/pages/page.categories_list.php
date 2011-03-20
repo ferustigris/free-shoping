@@ -4,7 +4,7 @@
 	$id = -1;
 	if($this->forms_get()->get('category_id'))
 		$id = intval($this->forms_get()->get('category_id'));
-	$this->log(LOG_NOTICE, "SESS=".session_id().", id=".$id);
+	//$this->log(LOG_NOTICE, "SESS=".session_id().", id=".$id);
 	if($category = new Category($this, $id))
 	{
 		$childs = $category->child();
