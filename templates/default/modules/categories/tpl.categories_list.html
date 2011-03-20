@@ -1,7 +1,4 @@
 <div class="container_main_page">
-	{foreach from=$categories_list2 item=c}
-	{$c->get('name')}
-	{/foreach}
 	{if $categories_id>-1}
 	<div class="buttons_container">
 		<form class="buttons_line" ENCTYPE="multipart/form-data"  action="index.php?module=categories&page=categories_list" method="POST">

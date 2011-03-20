@@ -11,8 +11,8 @@
 				$this->redirect('index.php?module=auth&page=registration_form');
 				die();
 			}
-		}
-	}
+		} else $this->log(LOG_ERROR, "no user object");
+	} else $this->log(LOG_ERROR, "no auth module");
 	$i = 0;
 	$products = Array();
 	while($id_product = intval($this->forms_post()->get('id_product'.$i)))
