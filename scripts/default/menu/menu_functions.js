@@ -17,7 +17,7 @@ function loadAjaxPage(page, line)
 			line,
 	function(data) 
 	{
-		setTimeout(function() 
+		//setTimeout(function() 
 		{
 			insertInPage(data);
 			onConfirmStart();
@@ -30,7 +30,7 @@ function loadAjaxPage(page, line)
 			selectableChildProduct();
 			setProductIcons();
 			onMenuStart();
-		},	300);
+		};//,	300);
 	});
 	return false;
 }

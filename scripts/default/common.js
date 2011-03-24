@@ -113,8 +113,17 @@ function insertInPage( data ) {
 				jQuery('#top_page').html(jQuery(this).html());
 		}
 	});
-	$('#main_page').show( 300, function() {});
+	$('#main_page').show( 300, function() {
+		setTimeout(function() 
+		{
+			$('#main_page').show();
+		},	300);		
+	});
 	$('#top_page').show( 300, function() {
+		setTimeout(function() 
+				{
+					$('#main_page').show();
+				},	300);		
 		if(!isCookies())
 			$( "#nocookies" ).show();
 	});
