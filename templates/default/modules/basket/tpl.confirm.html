@@ -11,7 +11,7 @@
 		<div class="confirm_one_product_container" price="{$product_entry['price']}" id_product="{$product_entry['product']->id()}">
 			<a class="remove_product_from_basket" href="#">{$LANG['remove from basket']}</a>
 			<input type="hidden" name="id_product{$index}" value="{$product_entry['product']->id()}" />
-			<p class="confirm_header_message">{$product_entry['product']->get('name')} ({$product_entry['price']} {$LANG['dollar']})</p>
+			<p class="confirm_header_message"><a class="ajax_link" href="{$product_entry['product']->link()}">{$product_entry['product']->get('name')}</a> ({$product_entry['price']} {$LANG['dollar']})</p>
 			<div class="confirm_img">
 		   		<img class="confirm_img" src="{$product_entry['product']->get('img_small')}" title="{$product_entry['product']->get('name')}" alt="{$product_entry['product']->get('name')}" />
 		   	</div>
