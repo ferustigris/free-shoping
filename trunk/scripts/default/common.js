@@ -113,10 +113,11 @@ function insertInPage( data ) {
 				jQuery('#top_page').html(jQuery(this).html());
 		}
 	});
-	/*$('#main_page').show( 200, function() {});
-		if(jQuery('#left_page'))
-			jQuery('#left_page').height(jQuery('#bottom_page').position().top);
-	//});// run the effect*/
+	$('#main_page').show( 300, function() {});
+	$('#top_page').show( 300, function() {
+		if(!isCookies())
+			$( "#nocookies" ).show();
+	});
 };
 /*! apply effect
  * \params
@@ -135,9 +136,6 @@ function hideMainSection()
  */
 function hideMainSectionCallback() 
 {
-	setTimeout(function() 
-	{
-		$('#main_page').removeAttr( "style" ).hide().fadeIn();
-		$('#top_page').removeAttr( "style" ).hide().fadeIn();
-	}, 200 );
+	$('#main_page').hide();
+	$('#top_page').hide();
 };

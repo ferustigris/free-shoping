@@ -35,6 +35,7 @@
 							$new_child = new Product($this, $value_lines[1]);
 							$products_childs[] = $new_child;
 							$product_price += $new_child->price();
+							$products_sizes[$new_child->id()] = new Size($this, -1);
 						} else
 						if(($new_child)&&($value_lines[0] == 'id_size'))
 						{

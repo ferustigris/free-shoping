@@ -30,8 +30,6 @@ function loadAjaxPage(page, line)
 			selectableChildProduct();
 			setProductIcons();
 			onMenuStart();
-			if(!isCookies())
-				$( "#nocookies" ).show();
 		},	300);
 	});
 	return false;
