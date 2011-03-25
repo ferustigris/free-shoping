@@ -94,7 +94,7 @@ class FAQ {
 		if($db = $this->module->db())
 		{
 			if($result = $db->query("INSERT INTO
-				".$db->getPrefix()."faq(id_parent, s_question, s_answer)
+				".$db->getPrefix()."faq(s_question, s_answer)
 				VALUES( '".$question."', '".$answer."');"))
 			{
 				return true;

@@ -17,6 +17,7 @@
 		    <input type="checkbox" name="basket" value="module" checked />basket<br />
 		    <input type="checkbox" name="orders" value="module" checked />orders<br />
 		    <input type="checkbox" name="contacts" value="module" checked />contacts<br />
+		    <input type="checkbox" name="faq" value="module" checked />faq<br />
 
 		    <input id="next6" type="submit" name="next" value="Next" />
 		</form>

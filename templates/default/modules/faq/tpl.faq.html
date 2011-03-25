@@ -1,17 +1,9 @@
 <div class="container_main_page">
-	<div class="contacts_header">
-    <h3>{$lang->translate('Contacts')}</h3> 
+{foreach from=$faq_faq item=faq}
+    <h3>{$faq->question()}</h3> 
+	<div>
+    {$faq->answer()}
     </div>
-	<div class="contacts_wrapper2">
-    <img height=40 width=40 src="images/default/mail.png" /><span class="bottom_page_item_content">{$lang->translate('our email')}: <b>{$contacts_email}</b></span>
-    </div>
-	<div class="contacts_wrapper2">
-    <img height=40 width=40 src="images/default/home.png" /><span class="bottom_page_item_content">{$lang->translate('our address')}: <b>{$contacts_address}</b></span>
-    </div>
-	<div class="contacts_wrapper2">
-    <img height=40 width=40 src="images/default/phone.png" /><span class="bottom_page_item_content">{$lang->translate('our phone')}: <b>{$contacts_phone}</b></span>
-    </div>
-	<div class="contacts_wrapper2">
-    <img height=40 width=40 src="images/default/icq.png" /><span class="bottom_page_item_content">{$lang->translate('my icq')}: <b>{$contacts_icq}</b></span>
-    </div>
+    <br />
+{/foreach}
 </div>
