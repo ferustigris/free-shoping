@@ -11,29 +11,30 @@
 		$product_price = intval($this->forms_post()->get('product_price'));
 		if($product = new Product($this, $id))
 		{
-			$this->log(LOG_DEBUG, 'saving product...');
-			//pictures
-			$img_full = NULL;
-			$small_img = NULL;
-			if($img = $this->forms_files()->get('product_img'))
-			{
-				if(file_exists($img->path()))
+				$this->log(LOG_DEBUG, 'saving product...');
+				//pictures
+				if($img = $this->forms_files()->get('product_img'))
 				{
-					$img_full = 'images/products/'.time() .'_'.basename($img->path()) .'.'.'jpg';
-					$img_small = 'images/products/'.time() .'_'.basename($img->path()) .'_small.'.'jpg';
-					$img->move($img_full) ;
-					$this->log(LOG_TODO, 'image resize');
-					if($small_img = $this->forms_files()->get('product_small_img'))
+					if(file_exists($img->path()))
 					{
-						$small_img->move($img_small);
+						$img_full = 'images/products/'.time() .'_'.basename($img->path()) .'.'.'jpg';
+						$img->move($img_full) ;
+						$this->log(LOG_TODO, 'image resize');
+						$product->set('img_full', $img_full);
 					} else {
-						$img->copy($img_small, 200, 200);
-						$small_img = $product->small_img();
+						$this->log(LOG_ERROR, 'file full image not loaded!');
 					}
-					$product->set('img_full', $img_full);
-					$product->set('img_small', $img_small);
-				} else {
-					$this->log(LOG_ERROR, 'file image not loaded!');
+				}
+				if($img = $this->forms_files()->get('product_small_img'))
+				{
+					if(file_exists($img->path()))
+					{
+						$img_small = 'images/products/'.time() .'_'.basename($img->path()) .'_small.'.'jpg';
+						$img->move($img_small);
+						$product->set('img_small', $img_small);
+					} else {
+						$this->log(LOG_ERROR, 'file small image not loaded!');
+					}
 				}
 				//description
 				$product->set('description', urldecode($description));
@@ -62,8 +63,6 @@
 						}
 					}
 				}
-			} else
-				$this->log(LOG_ERROR, 'file image not loaded!');
 		}
 		else
 			$this->log(LOG_ERROR, 'Can not open fields!');

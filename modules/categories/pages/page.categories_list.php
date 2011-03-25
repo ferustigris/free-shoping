@@ -26,4 +26,24 @@
 			$products->load('products_list');
 		}
 	}
+/*	if($handle = opendir('/home/asd/src/www/cms/images/categories'))
+	while(false !== ($file = readdir($handle))){
+		if($result = $this->db()->query("SELECT
+				COUNT(*)
+				FROM
+				".$this->db()->getPrefix()."category_options
+				WHERE
+				s_value='".urlencode('images/categories/'.$file)."';"))
+			{
+				while( $line = mysql_fetch_array( $result ) )
+				{
+					if($line[0] == 0)
+					{
+						$this->log(LOG_NOTICE, $file);
+						unlink('/home/asd/src/www/cms/images/categories/'.$file);
+					}
+				}
+			}
+	}
+*/
 ?>

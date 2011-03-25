@@ -59,8 +59,7 @@ function selectableChildProduct()
 	if(jQuery('#product_js_to_basket'))
 		jQuery('#product_js_to_basket').removeClass("hidden");
 	$( "a.child_product_list_item_img" ).click(function( event ) {
-		$target = $( event.target );
-		viewLargerImage( $target );
+		viewLargerImage($(this));
 		return false;
 	});
 	$("select.product_childs_products_item_param").change(function( ) {

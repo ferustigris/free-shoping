@@ -88,8 +88,8 @@ function tooltipShow(id, tooltip)
  * \return no
  */
 function viewLargerImage( $link ) {
-	var src = $link.attr( "src" ),
-		title = $link.attr( "alt" );
+	var src = $link.attr( "href" ),
+		title = $link.attr( "title" );
 		var img = $( "<img src='" + src + "' alt='" + title + "' style='display: none; padding: 20px;' />" )
 			.appendTo( "body" ).dialog({
 				title: title,
@@ -117,12 +117,14 @@ function insertInPage( data ) {
 		setTimeout(function() 
 		{
 			$('#main_page').show();
+			//alert($('#container').height());
+			//$('#left_page').height($('#container').height());
 		},	300);		
 	});
 	$('#top_page').show( 300, function() {
 		setTimeout(function() 
 				{
-					$('#main_page').show();
+					$('#top_page').show();
 				},	300);		
 		if(!isCookies())
 			$( "#nocookies" ).show();
