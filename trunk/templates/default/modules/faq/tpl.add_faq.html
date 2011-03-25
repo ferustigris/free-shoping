@@ -1,9 +1,10 @@
 <div class="container_main_page">
-<form ENCTYPE="multipart/form-data" method="post" action="index.php?module=contacts&page=view_contatcs&action=message">
+<form ENCTYPE="multipart/form-data" method="post" action="index.php?module=faq&page=faq&action=add_faq">
 	<div class="contacts_wrapper2">
-    <h3>{$lang->translate('callback')}</h3>
+    <h3>{$lang->translate('add')}</h3>
     </div>
-    <textarea name="contacts_message" class="contacts_callback_message" rows="" cols="20"></textarea>
+    <textarea name="faq_question" class="contacts_callback_message" rows="" cols="20"></textarea>
+    <textarea name="faq_answer" class="contacts_callback_message" rows="" cols="20"></textarea>
 	<div class="contacts_wrapper2">
 	    <button id="contacts_send_message_button">{$lang->translate('send')}</button>
     </div>
