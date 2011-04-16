@@ -1,6 +1,7 @@
 jQuery(function() {
 	onConfirmStart();
 	onBasketStart();
+	setBasketIcons();
 });
 /*! Создаем контейнеры списока заказов
  * \params no

@@ -16,17 +16,6 @@ function onCategoryStart() {
                 primary: "ui-icon-arrowreturnthick-1-s"
             }
 	});
-	$( "#tabs" ).tabs({
-		collapsible: true
-	});
-	$(function() {
-		$( "#seo_accordion" ).accordion({
-			collapsible: true,
-			active: false
-	
-		});
-	});
-
 };
 /*! change category
  * \params

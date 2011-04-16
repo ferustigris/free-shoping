@@ -9,7 +9,7 @@
 					{if count($ccat->child())>0}
 						<ul>
 						{foreach from=$ccat->child() item=cccat}
-							<li><a href="{$cccat->link()}" class="ajax_link a_3">{$cccat->get('name')}</a>
+							<li><a href="{$cccat->link()}" class="a_3">{$cccat->get('name')}</a>
 						{/foreach}
 						</ul>
 					{/if}
