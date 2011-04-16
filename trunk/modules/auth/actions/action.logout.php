@@ -7,4 +7,5 @@
 		$this->sessions()->set('password', NULL);
 		$this->redirect("index.php") ;
 	}
+	$_SESSION['loginza']['is_auth'] = 0;
 ?>

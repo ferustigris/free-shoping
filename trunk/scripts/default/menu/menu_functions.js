@@ -6,7 +6,11 @@
 function loadAjaxPage(page, line) 
 {
 	line = line || Array();
-	if((line.length == 0)&&(jQuery.cookie('redirect') == page))
+	hideMainSection();
+	window.location = linkLocation;
+	//showMainSection();
+	return false;
+/*	if((line.length == 0)&&(jQuery.cookie('redirect') == page))
 		return false;
 	jQuery.cookie('redirect', page);
 	hideMainSection();
@@ -33,6 +37,7 @@ function loadAjaxPage(page, line)
 		};//,	300);
 	});
 	return false;
+	*/
 }
 /*! load remember page
  * \params no

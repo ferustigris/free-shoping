@@ -5,6 +5,11 @@
 $(function() {
 		if(!isCookies())
 			$( "#nocookies" ).show();
+		$( "#seo_accordion" ).accordion({
+				collapsible: true,
+				active: false
+		
+		});
 });
 /*! открывает эдит для ввода
  * \params 
@@ -135,10 +140,33 @@ function insertInPage( data ) {
  * - link - link to image
  * \return no
  */
+function showMainSection() 
+{
+	//$('#main_page').hide( 'slow', hideMainSectionCallback );// run the effect
+	$('html').show( 'slow', showMainSectionCallback );// run the effect
+	//$('#top_page').hide( 'slow', hideMainSectionCallback );// run the effect
+};
+/*! callback function to bring a hidden box back
+ * \params
+ * - link - link to image
+ * \return no
+ */
+function showMainSectionCallback() 
+{
+	//$('#main_page').hide();
+	//$('#top_page').hide();
+	$('html').show();
+};
+/*! apply effect
+ * \params
+ * - link - link to image
+ * \return no
+ */
 function hideMainSection() 
 {
-	$('#main_page').hide( 'slow', hideMainSectionCallback );// run the effect
-	$('#top_page').hide( 'slow', hideMainSectionCallback );// run the effect
+	//$('#main_page').hide( 'slow', hideMainSectionCallback );// run the effect
+	$('html').hide( 'fast', hideMainSectionCallback );// run the effect
+	//$('#top_page').hide( 'slow', hideMainSectionCallback );// run the effect
 };
 /*! callback function to bring a hidden box back
  * \params
@@ -147,6 +175,7 @@ function hideMainSection()
  */
 function hideMainSectionCallback() 
 {
-	$('#main_page').hide();
-	$('#top_page').hide();
+	//$('#main_page').hide();
+	//$('#top_page').hide();
+	$('html').hide();
 };
